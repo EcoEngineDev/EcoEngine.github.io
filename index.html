@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoEngine Racing</title>
+  <link rel="icon" type="image/png" href="media/logo.png"/>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    :root {
+      --color-dark: #0B0C10;
+      --color-darker: #334255;
+      --color-light: #C5C6C7;
+      --color-accent: #66FCF1;
+      --color-secondary: #45A29E;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-darker);
+      color: var(--color-light);
+      overflow-x: hidden;
+    }
+
+    .drop-down {
+      transform: translateY(-100%);
+      animation: dropDown 0.6s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes dropDown {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .fade-delay-1 { animation-delay: 1s; }
+    .fade-delay-2 { animation-delay: 1.4s; }
+    .fade-delay-3 { animation-delay: 1.8s; }
+    .fade-delay-4 { animation-delay: 2.2s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      background-color: var(--color-dark);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+    }
+
+    nav .logo-container {
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+
+    nav .logo-container img {
+      height: 120px;
+      width: 120px;
+      object-fit: contain;
+    }
+
+    nav .nav-links {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    .section {
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--color-darker);
+      color: var(--color-light);
+    }
+
+    .section h1 {
+      flex-basis: 100%;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--color-accent);
+      text-align: left;
+    }
+
+    .viewer-container {
+      width: 50%;
+      height: 400px;
+      flex: 0 0 50%;
+    }
+
+    .paragraph {
+      width: 48%;
+      margin-left: 2%;
+      flex: 0 0 48%;
+    }
+
+    .paragraph p {
+      word-wrap: break-word;
+      line-height: 1.6;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .cta-section {
+      background-color: var(--color-secondary);
+      color: #fff;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-section h2 {
+      color: var(--color-accent);
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .team-headshots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 225px;
+      height: 225px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--color-light);
+    }
+
+    .team-member .name {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .team-member .title {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .mission-section {
+      background-color: var(--color-dark);
+      color: #fff;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .mission-text {
+      flex: 1 1 60%;
+    }
+
+    .mission-text h2 {
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin-bottom: 15px;
+    }
+
+    .mission-text p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      font-weight: 700;
+    }
+
+    .mission-logo {
+      flex: 1 1 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mission-logo img {
+      width: 560px;
+      height: 560px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .sponsor-placeholder {
+      margin-top: 90px;
+      text-align: center;
+    }
+
+    .sponsor-placeholder p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .sponsor-placeholder button {
+      background-color: var(--color-accent);
+      color: var(--color-dark);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .sponsor-placeholder button:hover {
+      background-color: var(--color-light);
+    }
+
+    footer {
+      background-color: var(--color-dark);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .viewer-container, .paragraph, .mission-text, .mission-logo {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .mission-logo img {
+        margin-top: 20px;
+        width: 350px;
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="drop-down">
+    <div class="logo-container">
+      <img src="media/logo.png" alt="Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Team</a>
+      <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <div class="section fade-in fade-delay-1">
+    <h1>EcoEngine Racing</h1>
+    <div class="viewer-container">
+      <model-viewer
+        id="carViewer"
+        src="media/webcar.gltf"
+        alt="A 3D car model"
+        camera-controls
+        camera-orbit="270deg 75deg 5.5m"
+        min-camera-orbit="270deg 45deg 3.5m"
+        max-camera-orbit="450deg 80deg 14m"
+        style="width: 100%; height: 100%;"
+        shadow-intensity="1"
+        environment-image="neutral"
+        exposure="0.8"
+        ar-status="not-presenting"
+        preload
+      ></model-viewer>
+    </div>
+    <div class="paragraph">
+      <p>
+        EcoEngine Racing is a team of high school students dedicated to designing and building cutting-edge solar-powered vehicles. This year, we are engineering a road-legal cruiser capable of seating four passengers – an ambitious step toward sustainable, practical transportation.
+      </p>
+    </div>
+  </div>
+
+  <div class="mission-section fade-in fade-delay-2">
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p>
+        We aim to educate the community on sustainable engineering through hands-on innovation. Our team brings together high school students from across South Florida, including Cypress Bay, American Heritage, and FAU High School.
+      </p>
+      <div class="sponsor-placeholder">
+        <p>[We Would Put Our Sponsors Here, but we Just Started This Project. Click the Button Below]</p>
+        <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Mission</button>
+      </div>
+    </div>
+    <div class="mission-logo">
+      <img src="media/logo.png" alt="Logo Image" />
+    </div>
+  </div>
+
+  <div class="cta-section fade-in fade-delay-3">
+    <h2>The Team</h2>
+    <div class="team-headshots">
+      <div class="team-member">
+        <img src="media/headshot1.png" alt="Headshot 1" />
+        <div class="name">Charles Russo</div>
+        <div class="title">Team Lead</div>
+      </div>
+      <div class="team-member">
+        <img src="media/headshot2.png" alt="Headshot 2" />
+        <div class="name">Daniel Cai</div>
+        <div class="title">Safety Manager</div>
+      </div>
+      <div class="team-member">
+        <img src="media/headshot3.png" alt="Headshot 3" />
+        <div class="name">Ziyue Xu</div>
+        <div class="title">Software Systems Lead</div>
+      </div>
+      <div class="team-member">
+        <img src="media/headshot4.png" alt="Headshot 4" />
+        <div class="name">Yeechang Liu</div>
+        <div class="title">Head of Marketing</div>
+      </div>
+          <div class="team-member">
+      <img src="media/headshot5.png" alt="Headshot 5" />
+      <div class="name">Emma Rubio</div>
+      <div class="title">Hardware Design</div>
+    </div>
+  </div>
+  <br />
+  <div class="team-headshots">
+    <div class="team-member">
+      <img src="media/headshot6.png" alt="Headshot 6" />
+      <div class="name">Hamza the dum dum</div>
+      <div class="title">dum dum</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot7.png" alt="Headshot 7" />
+      <div class="name">James</div>
+      <div class="title">Professional 12 year old</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot8.png" alt="Headshot 8" />
+      <div class="name">Alma i hope she shows up</div>
+      <div class="title">idk ngl</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot9.png" alt="Headshot 9" />
+      <div class="name">Annie Li</div>
+      <div class="title">Mentor</div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <footer class="fade-in fade-delay-4">
+    info | email | social media | etc
+  </footer>
+</body>
+</html>
