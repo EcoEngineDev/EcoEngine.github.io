@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EcoEngine Racing</title>
-  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="icon" type="image/png" href="media/logo.png"/>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     :root {
@@ -275,7 +275,7 @@
 <body>
   <nav class="drop-down">
     <div class="logo-container">
-      <img  src="logo.png" />
+      <img src="media/logo.png" alt="Logo" />
     </div>
     <div class="nav-links">
       <a href="#">Home</a>
@@ -290,7 +290,7 @@
     <div class="viewer-container">
       <model-viewer
         id="carViewer"
-        src="webcar.gltf"
+        src="media/webcar.gltf"
         alt="A 3D car model"
         camera-controls
         camera-orbit="270deg 75deg 5.5m"
@@ -323,65 +323,57 @@
       </div>
     </div>
     <div class="mission-logo">
-      <img src="logo.png" alt="Logo Image" /> 
+      <img src="media/logo.png" alt="Logo Image" />
     </div>
   </div>
 
-  <div class="cta-section fade-in fade-delay-3">
-    <h2>The Team</h2>
-    <div class="team-headshots">
-      <div class="team-member">
-        <img src="headshot1.png" alt="Headshot 1" />
-        <div class="name">Charles Russo</div>
-        <div class="title">Team Lead</div>
-      </div>
-      <div class="team-member">
-        <img src="headshot2.png" alt="Headshot 2" />
-        <div class="name">Daniel Cai</div>
-        <div class="title">Safety Manager</div>
-      </div>
-      <div class="team-member">
-        <img src="headshot3.png" alt="Headshot 3" />
-        <div class="name">Ziyue Xu</div>
-        <div class="title">Software Systems Lead</div>
-      </div>
-      <div class="team-member">
-        <img src="headshot4.png" alt="Headshot 4" />
-        <div class="name">Yeechang Liu</div>
-        <div class="title">Head of Marketing</div>
-      </div>
-          <div class="team-member">
-      <img src="headshot5.png" alt="Headshot 5" />
+ <div class="cta-section fade-in fade-delay-3">
+  <h2>The Team</h2>
+  
+  <!-- Top Row: 5 Members -->
+  <div class="team-headshots top-row">
+    <div class="team-member">
+      <img src="media/headshot1.png" alt="Headshot 1" />
+      <div class="name">Charles Russo</div>
+      <div class="title">Team Lead</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot2.png" alt="Headshot 2" />
+      <div class="name">Daniel Cai</div>
+      <div class="title">Safety Manager</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot3.png" alt="Headshot 3" />
+      <div class="name">Ziyue Xu</div>
+      <div class="title">Software Systems Lead</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot4.png" alt="Headshot 4" />
+      <div class="name">Yeechang Liu</div>
+      <div class="title">Head of Marketing</div>
+    </div>
+    <div class="team-member">
+      <img src="media/headshot5.png" alt="Headshot 5" />
       <div class="name">Emma Rubio</div>
       <div class="title">Hardware Design</div>
     </div>
   </div>
-  <br />
-  <div class="team-headshots">
+
+  <!-- Bottom Row: 2 Members -->
+  <div class="team-headshots bottom-row">
     <div class="team-member">
-      <img src="headshot6.png" alt="Headshot 6" />
-      <div class="name">Hamza the dum dum</div>
-      <div class="title">dum dum</div>
-    </div>
-    <div class="team-member">
-      <img src="headshot7.png" alt="Headshot 7" />
+      <img src="media/headshot7.png" alt="Headshot 7" />
       <div class="name">James</div>
       <div class="title">Professional 12 year old</div>
     </div>
     <div class="team-member">
-      <img src="headshot8.png" alt="Headshot 8" />
-      <div class="name">Alma i hope she shows up</div>
-      <div class="title">idk ngl</div>
-    </div>
-    <div class="team-member">
-      <img src="headshot9.png" alt="Headshot 9" />
+      <img src="media/headshot9.png" alt="Headshot 9" />
       <div class="name">Annie Li</div>
       <div class="title">Mentor</div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
+
 
   <footer class="fade-in fade-delay-4">
     info | email | social media | etc
