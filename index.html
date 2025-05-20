@@ -262,6 +262,7 @@
         justify-content: space-between;
         padding: 5px 10px;
         height: 40px;
+        align-items: center;
       }
 
       nav .logo-container {
@@ -274,28 +275,24 @@
         height: 100%;
         width: 100%;
       }
-
-      nav .nav-links {
-        flex-direction: column;
+      
+      nav .mobile-only {
+        display: inline-flex;
         align-items: center;
-        width: 100%;
-        background-color: var(--color-dark);
-        position: absolute;
-        top: 40px;
-        left: 0;
+      }
+      
+      nav .mobile-only a {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 0.9rem;
+      }
+      
+      nav .nav-links {
         display: none;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
       }
-
-      nav .nav-links.show {
-        display: flex;
-      }
-
-      nav a {
-        margin: 10px 0;
-        padding: 5px 0;
-        width: 100%;
-        text-align: center;
+      
+      .mobile-hide {
+        display: none !important;
       }
 
       .viewer-container, .paragraph, .mission-text, .mission-logo {
@@ -311,18 +308,30 @@
         height: 350px;
       }
     }
+    
+    @media (min-width: 769px) {
+      nav .mobile-only {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 <!-- Modified index.html navigation for mobile dropdown -->
 <nav class="drop-down">
-  <div class="logo-container mobile-toggle" onclick="toggleMobileMenu()">
+  <div class="logo-container">
     <img src="media/logo.png" alt="Logo" />
   </div>
   <div class="nav-links" id="mobileNav">
-    <a href="#">Home</a>
-    <a href="#">Team</a>
+    <a href="#" class="mobile-hide">Home</a>
+    <a href="#" class="mobile-hide">Team</a>
     <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
+    <a href="mailto:info@ecoengine.net">Contact</a>
+  </div>
+  <!-- Mobile-only navigation links -->
+  <div class="mobile-only">
+    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
+    <span style="color: white; margin: 0 5px;">|</span>
     <a href="mailto:info@ecoengine.net">Contact</a>
   </div>
 </nav>
@@ -333,87 +342,79 @@
   }
 </style>
 
+<div class="section fade-in fade-delay-1">
+  <h1>EcoEngine Racing</h1>
+  <div class="viewer-container">
+    <model-viewer
+      id="carViewer"
+      src="media/webcar.gltf"
+      alt="A 3D car model"
+      camera-controls
+      camera-orbit="270deg 75deg 5.5m"
+      min-camera-orbit="270deg 45deg 3.5m"
+      max-camera-orbit="450deg 80deg 14m"
+      style="width: 100%; height: 100%;"
+      shadow-intensity="1"
+      environment-image="neutral"
+      exposure="0.8"
+      ar-status="not-presenting"
+      preload
+    ></model-viewer>
+  </div>
+  <div class="paragraph">
+    <p>
+      EcoEngine Racing is a team of high school students dedicated to designing and building cutting-edge solar-powered vehicles. This year, we are engineering a road-legal cruiser capable of seating four passengers – an ambitious step toward sustainable, practical transportation.
+    </p>
+  </div>
+</div>
+
+<div class="mission-section fade-in fade-delay-2">
+  <div class="mission-text">
+    <h2>Our Mission</h2>
+    <p>
+      We aim to educate the community on sustainable engineering through hands-on innovation. Our team brings together high school students from across South Florida, including Cypress Bay, American Heritage, and FAU High School.
+    </p>
+    <div class="sponsor-placeholder">
+      <p>[We Would Put Our Sponsors Here, but We Just Started This Project. Click the Button Below]</p>
+      <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Mission</button>
+    </div>
+  </div>
+  <div class="mission-logo">
+    <img src="media/logo.png" alt="Logo Image" />
+  </div>
+</div>
+
+<div class="cta-section fade-in fade-delay-3">
+  <h2>The Team</h2>
+  <div class="team-headshots top-row">
+    <div class="team-member"><img src="media/headshot1.png" alt="Headshot 1" /><div class="name">Charles Russo</div><div class="title">Team Lead</div></div>
+    <div class="team-member"><img src="media/headshot2.png" alt="Headshot 2" /><div class="name">Daniel Cai</div><div class="title">Head of Electrical Systems</div></div>
+    <div class="team-member"><img src="media/headshot3.png" alt="Headshot 3" /><div class="name">Ziyue Xu</div><div class="title">Software Systems Lead</div></div>
+    <div class="team-member"><img src="media/headshot4.png" alt="Headshot 4" /><div class="name">Yechang Liu</div><div class="title">Head of Marketing</div></div>
+    <div class="team-member"><img src="media/headshot5.png" alt="Headshot 5" /><div class="name">Emma Rubio</div><div class="title">Hardware Design</div></div>
+  </div>
+  <div class="team-headshots bottom-row">
+    <div class="team-member"><img src="media/headshot7.png" alt="Headshot 7" /><div class="name">James</div><div class="title">Secretary</div></div>
+    <div class="team-member"><img src="media/headshot9.png" alt="Headshot 9" /><div class="name">Annie Li</div><div class="title">Mentor</div></div>
+  </div>
+</div>
+
+<footer class="fade-in fade-delay-4">
+  <a href="mailto:info@ecoengine.net" style="color: var(--color-accent); text-decoration: none;">email</a> |
+  <a href="https://www.instagram.com/mallard.motorsports/" target="_blank" style="color: var(--color-accent); text-decoration: none;">social media</a>
+</footer>
+
 <script>
-  function toggleMobileMenu() {
-    const menu = document.getElementById('mobileNav');
-    menu.classList.toggle('show');
-  }
-</script>
-
-
-  <div class="section fade-in fade-delay-1">
-    <h1>EcoEngine Racing</h1>
-    <div class="viewer-container">
-      <model-viewer
-        id="carViewer"
-        src="media/webcar.gltf"
-        alt="A 3D car model"
-        camera-controls
-        camera-orbit="270deg 75deg 5.5m"
-        min-camera-orbit="270deg 45deg 3.5m"
-        max-camera-orbit="450deg 80deg 14m"
-        style="width: 100%; height: 100%;"
-        shadow-intensity="1"
-        environment-image="neutral"
-        exposure="0.8"
-        ar-status="not-presenting"
-        preload
-      ></model-viewer>
-    </div>
-    <div class="paragraph">
-      <p>
-        EcoEngine Racing is a team of high school students dedicated to designing and building cutting-edge solar-powered vehicles. This year, we are engineering a road-legal cruiser capable of seating four passengers – an ambitious step toward sustainable, practical transportation.
-      </p>
-    </div>
-  </div>
-
-  <div class="mission-section fade-in fade-delay-2">
-    <div class="mission-text">
-      <h2>Our Mission</h2>
-      <p>
-        We aim to educate the community on sustainable engineering through hands-on innovation. Our team brings together high school students from across South Florida, including Cypress Bay, American Heritage, and FAU High School.
-      </p>
-      <div class="sponsor-placeholder">
-        <p>[We Would Put Our Sponsors Here, but We Just Started This Project. Click the Button Below]</p>
-        <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Mission</button>
-      </div>
-    </div>
-    <div class="mission-logo">
-      <img src="media/logo.png" alt="Logo Image" />
-    </div>
-  </div>
-
-  <div class="cta-section fade-in fade-delay-3">
-    <h2>The Team</h2>
-    <div class="team-headshots top-row">
-      <div class="team-member"><img src="media/headshot1.png" alt="Headshot 1" /><div class="name">Charles Russo</div><div class="title">Team Lead</div></div>
-      <div class="team-member"><img src="media/headshot2.png" alt="Headshot 2" /><div class="name">Daniel Cai</div><div class="title">Head of Electrical Systems</div></div>
-      <div class="team-member"><img src="media/headshot3.png" alt="Headshot 3" /><div class="name">Ziyue Xu</div><div class="title">Software Systems Lead</div></div>
-      <div class="team-member"><img src="media/headshot4.png" alt="Headshot 4" /><div class="name">Yechang Liu</div><div class="title">Head of Marketing</div></div>
-      <div class="team-member"><img src="media/headshot5.png" alt="Headshot 5" /><div class="name">Emma Rubio</div><div class="title">Hardware Design</div></div>
-    </div>
-    <div class="team-headshots bottom-row">
-      <div class="team-member"><img src="media/headshot7.png" alt="Headshot 7" /><div class="name">James</div><div class="title">Secretary</div></div>
-      <div class="team-member"><img src="media/headshot9.png" alt="Headshot 9" /><div class="name">Annie Li</div><div class="title">Mentor</div></div>
-    </div>
-  </div>
-
-  <footer class="fade-in fade-delay-4">
-    <a href="mailto:info@ecoengine.net" style="color: var(--color-accent); text-decoration: none;">email</a> |
-    <a href="https://www.instagram.com/mallard.motorsports/" target="_blank" style="color: var(--color-accent); text-decoration: none;">social media</a>
-  </footer>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const isMobile = window.innerWidth <= 768;
-      if (isMobile) {
-        const viewer = document.getElementById('carViewer');
-        if (viewer) {
-          viewer.setAttribute('camera-orbit', '270deg 75deg 11m');
-          viewer.setAttribute('min-camera-orbit', '270deg 45deg 7m');
-        }
+  window.addEventListener('DOMContentLoaded', () => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      const viewer = document.getElementById('carViewer');
+      if (viewer) {
+        viewer.setAttribute('camera-orbit', '270deg 75deg 11m');
+        viewer.setAttribute('min-camera-orbit', '270deg 45deg 7m');
       }
-    });
-  </script>
+    }
+  });
+</script>
 </body>
 </html>
