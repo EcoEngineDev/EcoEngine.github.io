@@ -257,6 +257,24 @@
     }
 
     @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav .logo-container {
+        margin: 0 0 10px 0;
+      }
+
+      nav .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 5px 0;
+      }
+
       .viewer-container, .paragraph, .mission-text, .mission-logo {
         flex: 1 1 100%;
         max-width: 100%;
@@ -327,56 +345,37 @@
     </div>
   </div>
 
- <div class="cta-section fade-in fade-delay-3">
-  <h2>The Team</h2>
-  
-  <!-- Top Row: 5 Members -->
-  <div class="team-headshots top-row">
-    <div class="team-member">
-      <img src="media/headshot1.png" alt="Headshot 1" />
-      <div class="name">Charles Russo</div>
-      <div class="title">Team Lead</div>
+  <div class="cta-section fade-in fade-delay-3">
+    <h2>The Team</h2>
+    <div class="team-headshots top-row">
+      <div class="team-member"><img src="media/headshot1.png" alt="Headshot 1" /><div class="name">Charles Russo</div><div class="title">Team Lead</div></div>
+      <div class="team-member"><img src="media/headshot2.png" alt="Headshot 2" /><div class="name">Daniel Cai</div><div class="title">Safety Manager</div></div>
+      <div class="team-member"><img src="media/headshot3.png" alt="Headshot 3" /><div class="name">Ziyue Xu</div><div class="title">Software Systems Lead</div></div>
+      <div class="team-member"><img src="media/headshot4.png" alt="Headshot 4" /><div class="name">Yechang Liu</div><div class="title">Head of Marketing</div></div>
+      <div class="team-member"><img src="media/headshot5.png" alt="Headshot 5" /><div class="name">Emma Rubio</div><div class="title">Hardware Design</div></div>
     </div>
-    <div class="team-member">
-      <img src="media/headshot2.png" alt="Headshot 2" />
-      <div class="name">Daniel Cai</div>
-      <div class="title">Safety Manager</div>
-    </div>
-    <div class="team-member">
-      <img src="media/headshot3.png" alt="Headshot 3" />
-      <div class="name">Ziyue Xu</div>
-      <div class="title">Software Systems Lead</div>
-    </div>
-    <div class="team-member">
-      <img src="media/headshot4.png" alt="Headshot 4" />
-      <div class="name">Yechang Liu</div>
-      <div class="title">Head of Marketing</div>
-    </div>
-    <div class="team-member">
-      <img src="media/headshot5.png" alt="Headshot 5" />
-      <div class="name">Emma Rubio</div>
-      <div class="title">Hardware Design</div>
+    <div class="team-headshots bottom-row">
+      <div class="team-member"><img src="media/headshot7.png" alt="Headshot 7" /><div class="name">James</div><div class="title">Secretary</div></div>
+      <div class="team-member"><img src="media/headshot9.png" alt="Headshot 9" /><div class="name">Annie Li</div><div class="title">Mentor</div></div>
     </div>
   </div>
-
-  <!-- Bottom Row: 2 Members -->
-  <div class="team-headshots bottom-row">
-    <div class="team-member">
-      <img src="media/headshot7.png" alt="Headshot 7" />
-      <div class="name">James</div>
-      <div class="title">Secretary</div>
-    </div>
-    <div class="team-member">
-      <img src="media/headshot9.png" alt="Headshot 9" />
-      <div class="name">Annie Li</div>
-      <div class="title">Mentor</div>
-    </div>
-  </div>
-</div>
-
 
   <footer class="fade-in fade-delay-4">
-<a href="mailto:info@ecoengine.net" style="color: var(--color-accent); text-decoration: none;">email</a> | <a href="https://www.instagram.com/mallard.motorsports/" target="_blank" style="color: var(--color-accent); text-decoration: none;">social media</a>
-</footer>
+    <a href="mailto:info@ecoengine.net" style="color: var(--color-accent); text-decoration: none;">email</a> |
+    <a href="https://www.instagram.com/mallard.motorsports/" target="_blank" style="color: var(--color-accent); text-decoration: none;">social media</a>
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        const viewer = document.getElementById('carViewer');
+        if (viewer) {
+          viewer.setAttribute('camera-orbit', '270deg 75deg 11m');
+          viewer.setAttribute('min-camera-orbit', '270deg 45deg 7m');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
