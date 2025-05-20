@@ -313,6 +313,10 @@
       nav .mobile-only {
         display: none;
       }
+      
+      .desktop-only {
+        display: inline-flex;
+      }
     }
   </style>
 </head>
@@ -325,8 +329,8 @@
   <div class="nav-links" id="mobileNav">
     <a href="#" class="mobile-hide">Home</a>
     <a href="#" class="mobile-hide">Team</a>
-    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
-    <a href="mailto:info@ecoengine.net">Contact</a>
+    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank" class="desktop-only">Sponsor Us</a>
+    <a href="mailto:info@ecoengine.net" class="desktop-only">Contact</a>
   </div>
   <!-- Mobile-only navigation links -->
   <div class="mobile-only">
@@ -340,6 +344,8 @@
   #mobileNav {
     display: flex;
   }
+  
+  /* No need for additional desktop-only class definition here since it's already in the media query */
 </style>
 
 <div class="section fade-in fade-delay-1">
