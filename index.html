@@ -291,17 +291,69 @@
   </style>
 </head>
 <body>
-  <nav class="drop-down">
-    <div class="logo-container">
-      <img src="media/logo.png" alt="Logo" />
-    </div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Team</a>
-      <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
-      <a href="mailto:info@ecoengine.net">Contact</a>
-    </div>
-  </nav>
+<!-- Modified index.html navigation for mobile dropdown -->
+<nav class="drop-down">
+  <div class="logo-container mobile-toggle" onclick="toggleMobileMenu()">
+    <img src="media/logo.png" alt="Logo" />
+  </div>
+  <div class="nav-links" id="mobileNav">
+    <a href="#">Home</a>
+    <a href="#">Team</a>
+    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
+    <a href="mailto:info@ecoengine.net">Contact</a>
+  </div>
+</nav>
+
+<style>
+  #mobileNav {
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 15px;
+    }
+
+    .logo-container {
+      width: 60px;
+      height: 60px;
+    }
+
+    .logo-container img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      background-color: var(--color-dark);
+      position: absolute;
+      top: 70px;
+      left: 0;
+      display: none;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .nav-links a {
+      margin: 10px 0;
+    }
+  }
+</style>
+
+<script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileNav');
+    menu.classList.toggle('show');
+  }
+</script>
+
 
   <div class="section fade-in fade-delay-1">
     <h1>EcoEngine Racing</h1>
