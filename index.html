@@ -276,23 +276,21 @@
         width: 100%;
       }
       
-      nav .mobile-only {
-        display: inline-flex;
-        align-items: center;
-      }
-      
-      nav .mobile-only a {
-        margin: 0;
-        padding: 0 5px;
-        font-size: 0.9rem;
+      .mobile-hide {
+        display: none !important;
       }
       
       nav .nav-links {
-        display: none;
+        font-size: 0.9rem;
       }
       
-      .mobile-hide {
-        display: none !important;
+      nav .nav-links a {
+        margin: 0 5px;
+      }
+      
+      nav .nav-links a:first-of-type::after {
+        content: " | ";
+        color: white;
       }
 
       .viewer-container, .paragraph, .mission-text, .mission-logo {
@@ -310,13 +308,7 @@
     }
     
     @media (min-width: 769px) {
-      nav .mobile-only {
-        display: none;
-      }
-      
-      .desktop-only {
-        display: inline-flex;
-      }
+      /* No mobile-specific styles needed for desktop */
     }
   </style>
 </head>
@@ -329,13 +321,7 @@
   <div class="nav-links" id="mobileNav">
     <a href="#" class="mobile-hide">Home</a>
     <a href="#" class="mobile-hide">Team</a>
-    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank" class="desktop-only">Sponsor Us</a>
-    <a href="mailto:info@ecoengine.net" class="desktop-only">Contact</a>
-  </div>
-  <!-- Mobile-only navigation links -->
-  <div class="mobile-only">
     <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
-    <span style="color: white; margin: 0 5px;">|</span>
     <a href="mailto:info@ecoengine.net">Contact</a>
   </div>
 </nav>
@@ -344,8 +330,6 @@
   #mobileNav {
     display: flex;
   }
-  
-  /* No need for additional desktop-only class definition here since it's already in the media query */
 </style>
 
 <div class="section fade-in fade-delay-1">
