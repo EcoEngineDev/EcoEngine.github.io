@@ -472,17 +472,35 @@
 </div>
 
 <div class="cta-section fade-in fade-delay-3" id="team">
-  <h2>The Team</h2>
-  <div class="team-headshots top-row">
-    <div class="team-member"><img src="media/headshot1.png" alt="Headshot 1" /><div class="name">Charles Russo</div><div class="title">Team Lead</div></div>
-    <div class="team-member"><img src="media/headshot21.png" alt="Headshot 2" /><div class="name">Daniel Cai</div><div class="title">Embedded Systems Lead</div></div>
-    <div class="team-member"><img src="media/headshot31a.png" alt="Headshot 3" /><div class="name">Ziyue Xu</div><div class="title">Software Systems Lead</div></div>
-    <div class="team-member"><img src="media/headshot4.png" alt="Headshot 4" /><div class="name">Yechang Liu</div><div class="title">Head of Marketing</div></div>
-    <div class="team-member"><img src="media/headshot5.png" alt="Headshot 5" /><div class="name">Emma Rubio</div><div class="title">Hardware Design</div></div>
-  </div>
-  <div class="team-headshots bottom-row">
-    <div class="team-member"><img src="media/headshot71.png" alt="Headshot 7" /><div class="name">James Lerch</div><div class="title">Secretary</div></div>
-    <div class="team-member"><img src="media/headshot9.png" alt="Headshot 9" /><div class="name">Annie Li</div><div class="title">Mentor</div></div>
+  <h2 style="text-align: left; padding-left: 40px;">Our Latest Design</h2>
+  <div style="display: flex; align-items: start; justify-content: space-between; gap: 40px;">
+    <div style="flex: 1;">
+      <div style="font-size: 1.6rem; line-height: 1.6; margin-bottom: 30px;">
+        <p>
+          Currently, we are working on designing our own racing chair molds. We estimate that we will be able to create sturdy chairs out of carbon fiber weighing only <strong style="color: var(--color-accent);">8 pounds</strong> each! We are doing this by 3D-printing custom molds — here is an image of a part we 3D-printed with Polylite ABS.
+        </p>
+      </div>
+      <div style="height: 300px; margin-bottom: 20px;">
+        <img src="media/mold1.png" alt="Chair Mold" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>
+    </div>
+    <div class="viewer-container" style="flex: 1.2; height: 650px; margin-top: -40px;">
+      <model-viewer
+        id="chairViewer"
+        src="media/chair.glb"
+        alt="A 3D chair model"
+        camera-controls
+        camera-orbit="40deg 60deg 2.2m"
+        min-camera-orbit="-Infinity 0deg 1.2m"
+        max-camera-orbit="Infinity 180deg 10m"
+        style="width: 100%; height: 100%; --model-color: rgb(45, 45, 45);"
+        shadow-intensity="1"
+        environment-image="neutral"
+        exposure="0.7"
+        ar-status="not-presenting"
+        preload
+      ></model-viewer>
+    </div>
   </div>
 </div>
 
