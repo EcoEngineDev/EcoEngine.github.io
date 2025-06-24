@@ -18,6 +18,10 @@
       --color-light: #C5C6C7;
       --color-accent: #66FCF1;
       --color-secondary: #45A29E;
+      
+      /* Navigation variables */
+      --nav-mobile-side-margin: 20px;  /* Space from edges of screen */
+      --nav-mobile-link-gap: 30px;     /* Space between nav links */
     }
 
     body {
@@ -112,14 +116,16 @@
     nav .nav-links {
       display: flex;
       justify-content: center;
+      gap: var(--nav-mobile-link-gap);
       flex: 1;
+      padding: 0 var(--nav-mobile-side-margin);
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 20px;
       font-size: 1.1rem;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -291,13 +297,16 @@
     @media (max-width: 768px) {
       nav {
         flex-direction: row;
-        justify-content: space-between;
-        padding: 2px 8px;
+        padding: 2px 2px;  /* Minimal nav padding */
         height: 30px;
         align-items: center;
+        display: flex;
+        justify-content: center;
       }
 
       nav .logo-container {
+        position: absolute;
+        left: 8px;
         width: 30px;
         height: 30px;
         margin: 0;
@@ -311,18 +320,19 @@
       .mobile-hide {
         display: none !important;
       }
-      
+
       nav .nav-links {
-        font-size: 0.9rem;
+        width: auto;
+        max-width: 180px;  /* Further reduced max-width */
+        margin: 0 auto;
+        gap: 4px;  /* Minimal gap */
+        padding: 0;
+        justify-content: center;
       }
-      
+
       nav .nav-links a {
-        margin: 0 5px;
-      }
-      
-      nav .nav-links a:first-of-type::after {
-        content: " | ";
-        color: white;
+        font-size: 0.9rem;
+        padding: 0;  /* Removed padding on links */
       }
 
       .viewer-container, .paragraph, .mission-text, .mission-logo {
@@ -332,9 +342,171 @@
         text-align: center;
       }
 
+      .mission-logo {
+        min-height: 280px;  /* Reduced from 560px */
+      }
+
       .mission-logo .logo-stack {
-        width: 350px;
-        height: 350px;
+        width: 280px;  /* Reduced from 560px */
+        height: 280px;  /* Reduced from 560px */
+      }
+
+      /* Adjust spacing around sponsor section to compensate */
+      .sponsor-placeholder {
+        margin-top: 30px;  /* Reduced from 90px */
+      }
+
+      /* New mobile optimizations */
+      .section h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+
+      .paragraph p {
+        font-size: 1.2rem;
+        line-height: 1.4;
+      }
+
+      .mission-text h2 {
+        font-size: 1.6rem;
+      }
+
+      .mission-text p {
+        font-size: 1.1rem;
+        line-height: 1.4;
+      }
+
+      .cta-section h2 {
+        font-size: 1.8rem;
+        padding-left: 20px;
+      }
+
+      #chair69 p {
+        font-size: 1.2rem;
+        line-height: 1.4;
+      }
+
+      .viewer-container {
+        height: 300px;
+      }
+
+      .mentoring-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .mentoring-section p {
+        font-size: 1.1rem;
+      }
+
+      .mentoring-section a {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      .sponsor-placeholder p {
+        font-size: 0.9rem;
+      }
+
+      .sponsor-placeholder div {
+        font-size: 0.9rem;
+      }
+
+      .sponsor-placeholder button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+
+      .sponsor-placeholder img {
+        max-width: 180px;
+      }
+
+      .instagram-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .sponsor-logo {
+        max-width: 150px !important;
+      }
+      
+      /* Special size for Delsan logo since it's wider */
+      img[alt="Delsan Logo"].sponsor-logo {
+        max-width: 200px !important;
+      }
+
+      .sponsor-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sponsor-placeholder > div:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .sponsor-logo {
+        max-width: 120px !important;
+      }
+      
+      /* Special size for Delsan logo since it's wider */
+      img[alt="Delsan Logo"].sponsor-logo {
+        max-width: 160px !important;
+      }
+
+      /* Make Polymaker logo appear below and centered */
+      a[href="https://polymaker.com/"] {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      a[href="https://polymaker.com/"] img {
+        max-width: 140px !important;
+      }
+
+      .donor-text {
+        margin-top: 20px !important;
+        font-size: 0.8rem !important;
+      }
+
+      /* Adjust header spacing */
+      nav .nav-links {
+        width: 10%;
+        margin: 0 auto;
+        justify-content: space-between;
+      }
+
+      /* Adjust car viewer zoom */
+      #carViewer {
+        height: 200px !important;
+        --camera-orbit: "270deg 75deg 3.5m" !important;
+        --min-camera-orbit: "270deg 45deg 2.2m" !important;
+        --max-camera-orbit: "450deg 80deg 10m" !important;
+      }
+
+      .viewer-container:first-of-type {
+        height: 200px !important;
+        margin-bottom: 10px;
+      }
+
+      /* Adjust main content spacing */
+      .section {
+        padding: 20px;
+      }
+
+      .section h1 {
+        margin-bottom: 15px;
+      }
+
+      .paragraph {
+        margin-top: 0;
+      }
+
+      /* Ensure proper spacing between elements */
+      .viewer-container + .paragraph {
+        margin-top: 10px;
       }
     }
     
@@ -383,6 +555,61 @@
         max-width: 180px;
         width: 180px;
         height: 345px;
+      }
+    }
+
+    .sponsor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: center;
+      justify-items: center;
+      margin-bottom: 18px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    .sponsor-item {
+      width: 100%;
+      max-width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sponsor-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Special handling for Delsan logo since it's wider */
+    .sponsor-item:nth-child(2) {
+      max-width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      .sponsor-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+      }
+
+      .sponsor-item {
+        max-width: 140px;
+      }
+
+      /* Make Delsan logo slightly wider on mobile */
+      .sponsor-item:nth-child(2) {
+        max-width: 180px;
+      }
+
+      /* Make Polymaker appear on its own row and centered */
+      .sponsor-item.polymaker {
+        grid-column: 1 / -1;
+        max-width: 140px;
+        justify-self: center;
       }
     }
   </style>
@@ -444,20 +671,20 @@
       We aim to educate the community on sustainable engineering through hands-on innovation. Our team brings together high school students from across South Florida, including Cypress Bay, American Heritage, and FAU High School.
     </p>
     <div class="sponsor-placeholder">
-      <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 18px;">
-        <a href="https://www.carepredict.com/" target="_blank" rel="noopener">
-          <img src="media/CarePredict.svg" alt="CarePredict Logo" style="max-width:250px; width:100%; height:auto; display:block; border-radius:8px; background:transparent;" />
+      <div class="sponsor-grid">
+        <a href="https://www.carepredict.com/" target="_blank" rel="noopener" class="sponsor-item">
+          <img src="media/CarePredict.svg" alt="CarePredict Logo" style="width:100%; height:auto; display:block; border-radius:8px; background:transparent;" class="sponsor-logo" />
         </a>
-        <a href="https://www.delsanonline.com/" target="_blank" rel="noopener">
-          <img src="media/delsan.png" alt="Delsan Logo" style="max-width:400px; width:100%; height:auto; display:block; border-radius:8px; background:transparent; filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 4px #000);" />
+        <a href="https://www.delsanonline.com/" target="_blank" rel="noopener" class="sponsor-item">
+          <img src="media/delsan.png" alt="Delsan Logo" style="width:100%; height:auto; display:block; border-radius:8px; background:transparent; filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 4px #000);" class="sponsor-logo" />
         </a>
-        <a href="https://polymaker.com/" target="_blank" rel="noopener">
-          <img src="media/Polymaker.avif" alt="Polymaker Logo" style="max-width:250px; width:100%; height:auto; display:block; border-radius:8px; background:transparent;" />
+        <a href="https://polymaker.com/" target="_blank" rel="noopener" class="sponsor-item polymaker">
+          <img src="media/Polymaker.avif" alt="Polymaker Logo" style="width:100%; height:auto; display:block; border-radius:8px; background:transparent;" class="sponsor-logo" />
         </a>
       </div>
       <div style="font-size:1.1rem; color:#fff; margin-bottom:10px;">We are still looking for corporate sponsors! Click the button below!</div>
       <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Mission</button>
-      <p style="margin-top: 100px; font-size: 0.9rem; color: #fff; font-weight: 400;">
+      <p style="margin-top: 40px; font-size: 0.9rem; color: #fff; font-weight: 400;" class="donor-text">
         We would also like to thank our non-corporate donors: The Wenbo Family, Mei Dong, and Min Luo.
       </p>
     </div>
@@ -693,8 +920,9 @@
     if (isMobile) {
       const viewer = document.getElementById('carViewer');
       if (viewer) {
-        viewer.setAttribute('camera-orbit', '270deg 75deg 11m');
-        viewer.setAttribute('min-camera-orbit', '270deg 45deg 7m');
+        viewer.setAttribute('camera-orbit', '270deg 75deg 3.5m');
+        viewer.setAttribute('min-camera-orbit', '270deg 45deg 6.5m');
+        viewer.setAttribute('max-camera-orbit', '450deg 80deg 10m');
       }
     }
     
