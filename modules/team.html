@@ -4,7 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Team | Mallard Motorsport Racing</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-ExtraLight.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Thin.ttf') format('truetype');
+      font-weight: 100;
+      font-style: normal;
+    }
+    body, html, input, button, textarea {
+      font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
 </head>
 <body>
   <nav class="drop-down">
@@ -28,11 +63,12 @@
       <div class="section" style="flex-direction:column;align-items:center;">
         <h1 style="color:var(--color-accent);margin-bottom:32px;">UNDER CONSTRUCTION</h1>
         <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
-          <img src="media/team1.png" alt="Charlie" style="width:220px;height:220px;object-fit:cover;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);"/>
+          <img src="/media/team1.png" alt="Charlie" style="width:220px;height:220px;object-fit:cover;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);"/>
           <div style="font-size:1.3rem;font-weight:700;color:var(--color-accent);margin-top:8px;">Team Lead</div>
         </div>
       </div>
     </div>
   </div>
+  <script src="/scripts.js"></script>
 </body>
 </html> 
