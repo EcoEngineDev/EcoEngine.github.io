@@ -1,0 +1,703 @@
+:root {
+  --color-dark: #0B0C10;
+  --color-darker: #334255;
+  --color-light: #C5C6C7;
+  --color-accent: #66FCF1;
+  --color-secondary: #45A29E;
+  
+  /* Navigation variables */
+  --nav-mobile-side-margin: 20px;  /* Space from edges of screen */
+  --nav-mobile-link-gap: 30px;     /* Space between nav links */
+}
+
+body {
+  margin: 0;
+  font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-darker);
+  color: var(--color-light);
+  overflow-x: hidden;
+}
+
+.drop-down {
+  transform: translateY(-100%);
+  animation: dropDown 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes dropDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.fade-delay-1 { animation-delay: 1s; }
+.fade-delay-2 { animation-delay: 1.4s; }
+.fade-delay-3 { animation-delay: 1.8s; }
+.fade-delay-4 { animation-delay: 2.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav {
+  background-color: var(--color-dark);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 22px;
+}
+
+nav .logo-container {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 11px;
+  position: relative;
+}
+
+.logo-stack {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.logo-stack img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
+.logo-stack .spinning {
+  animation: spin 36s linear infinite;
+  transform-origin: center;
+}
+
+.logo-stack .static {
+  z-index: 2;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+nav .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--nav-mobile-link-gap);
+  flex: 1;
+  padding: 0 var(--nav-mobile-side-margin);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  transition: all 0.18s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+nav a:hover {
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  font-weight: bold;
+  transform: scale(1.18);
+  text-shadow: 0 2px 8px rgba(102,252,241,0.18);
+}
+
+.section {
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-darker);
+  color: var(--color-light);
+}
+
+.section h1 {
+  flex-basis: 100%;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--color-accent);
+  text-align: left;
+}
+
+.viewer-container {
+  width: 50%;
+  height: 400px;
+  flex: 0 0 50%;
+}
+
+.paragraph {
+  width: 48%;
+  margin-left: 2%;
+  flex: 0 0 48%;
+}
+
+.paragraph p {
+  word-wrap: break-word;
+  line-height: 1.6;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.cta-section {
+  background-color: var(--color-secondary);
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-section h2 {
+  color: var(--color-accent);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.team-headshots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-member img {
+  width: 225px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-light);
+}
+
+.team-member .name {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.team-member .title {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.mission-section {
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.mission-text {
+  flex: 1 1 60%;
+}
+
+.mission-text h2 {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+
+.mission-text p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.mission-logo {
+  flex: 1 1 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 560px;
+}
+
+.mission-logo .logo-stack {
+  width: 560px;
+  height: 560px;
+}
+
+.sponsor-placeholder {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.sponsor-placeholder p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sponsor-placeholder button {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.sponsor-placeholder button:hover {
+  background-color: var(--color-light);
+}
+
+footer {
+  background-color: var(--color-dark);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 0;
+  position: relative;
+  border-top: 1px solid var(--color-darker);
+}
+
+#mobileNav {
+  display: flex;
+}
+
+.instagram-section {
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 40px 40px 0 40px;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+
+.instagram-section h2 {
+  color: var(--color-accent);
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.instagram-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+  height: 500px;
+}
+
+.instagram-carousel {
+  display: flex;
+  gap: 20px;
+  animation: scrollLeft 120s linear infinite;
+  padding: 10px 0 0 0;
+  margin-bottom: 0;
+  width: fit-content;
+  height: 100%;
+  align-items: flex-start;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-210px * 20 - 20px * 20));
+  }
+}
+
+.instagram-carousel:hover {
+  animation-play-state: paused;
+}
+
+.embed-wrapper {
+  flex: 0 0 auto;
+  max-width: 210px;
+  width: 210px;
+  height: 405px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.instagram-media {
+  margin: 0 auto !important;
+  background-color: transparent !important;
+  color: var(--color-light) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#team {
+  scroll-margin-top: 130px;
+}
+
+.mentoring-section {
+  background-color: var(--color-dark);
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+}
+
+.mentoring-section h2 {
+  color: var(--color-accent);
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+
+.mentoring-section p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mentoring-section a {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 18px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.sponsor-item {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsor-item img {
+  width: 100%;
+  height: auto;
+}
+
+.sponsor-item:nth-child(2) {
+  max-width: 400px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    padding: 2px 2px;
+    height: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav .logo-container {
+    position: absolute;
+    left: 8px;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+  }
+
+  nav .logo-stack {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .mobile-hide {
+    display: none !important;
+  }
+
+  nav .nav-links {
+    width: auto;
+    max-width: 180px;
+    margin: 0 auto;
+    gap: 4px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  nav .nav-links a {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+
+  .viewer-container, .paragraph, .mission-text, .mission-logo {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .mission-logo {
+    min-height: 280px;
+  }
+
+  .mission-logo .logo-stack {
+    width: 280px;
+    height: 280px;
+  }
+
+  .sponsor-placeholder {
+    margin-top: 30px;
+  }
+
+  .section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .paragraph p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .mission-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .mission-text p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+    padding-left: 20px;
+  }
+
+  #chair69 p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .viewer-container {
+    height: 300px;
+  }
+
+  .mentoring-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .mentoring-section p {
+    font-size: 1.1rem;
+  }
+
+  .mentoring-section a {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .sponsor-placeholder p {
+    font-size: 0.9rem;
+  }
+
+  .sponsor-placeholder div {
+    font-size: 0.9rem;
+  }
+
+  .sponsor-placeholder button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .sponsor-placeholder img {
+    max-width: 180px;
+  }
+
+  .instagram-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .sponsor-logo {
+    max-width: 150px !important;
+  }
+  
+  img[alt="Delsan Logo"].sponsor-logo {
+    max-width: 200px !important;
+  }
+
+  .sponsor-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sponsor-placeholder > div:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .sponsor-logo {
+    max-width: 120px !important;
+  }
+  
+  img[alt="Delsan Logo"].sponsor-logo {
+    max-width: 160px !important;
+  }
+
+  a[href="https://polymaker.com/"] {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  a[href="https://polymaker.com/"] img {
+    max-width: 140px !important;
+  }
+
+  .donor-text {
+    margin-top: 20px !important;
+    font-size: 0.8rem !important;
+  }
+
+  nav .nav-links {
+    width: 10%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  #carViewer {
+    height: 200px !important;
+    --camera-orbit: "270deg 75deg 3.5m" !important;
+    --min-camera-orbit: "270deg 45deg 2.2m" !important;
+    --max-camera-orbit: "450deg 80deg 10m" !important;
+  }
+
+  .viewer-container:first-of-type {
+    height: 200px !important;
+    margin-bottom: 10px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .section h1 {
+    margin-bottom: 15px;
+  }
+
+  .paragraph {
+    margin-top: 0;
+  }
+
+  .viewer-container + .paragraph {
+    margin-top: 10px;
+  }
+
+  #chair69 {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  #chair69 .viewer-container {
+    display: none;
+  }
+
+  #chair69 > div:first-child {
+    flex: 1;
+    width: 100%;
+  }
+
+  .cta-section {
+    padding-bottom: 20px;
+  }
+
+  #team {
+    scroll-margin-top: 50px;
+  }
+
+  .embed-wrapper {
+    max-width: 180px;
+    width: 180px;
+    height: 345px;
+  }
+
+  .instagram-carousel {
+    animation: scrollLeft 80s linear infinite;
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-180px * 20 - 20px * 20));
+    }
+  }
+
+  .sponsor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .sponsor-item {
+    max-width: 140px;
+  }
+
+  .sponsor-item:nth-child(2) {
+    max-width: 180px;
+  }
+
+  .sponsor-item.polymaker {
+    grid-column: 1 / -1;
+    max-width: 140px;
+    justify-self: center;
+  }
+} 

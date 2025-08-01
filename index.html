@@ -11,632 +11,46 @@
   <link rel="preload" as="image" href="media/animlogo3.png?v=2">
   <link rel="preload" as="image" href="media/animlogo4.png?v=2">
   
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
   <style>
-    :root {
-      --color-dark: #0B0C10;
-      --color-darker: #334255;
-      --color-light: #C5C6C7;
-      --color-accent: #66FCF1;
-      --color-secondary: #45A29E;
-      
-      /* Navigation variables */
-      --nav-mobile-side-margin: 20px;  /* Space from edges of screen */
-      --nav-mobile-link-gap: 30px;     /* Space between nav links */
+    @font-face {
+      font-family: 'Lexend';
+      src: url('fonts/Lexend-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
     }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--color-darker);
-      color: var(--color-light);
-      overflow-x: hidden;
-    }
-
-    .drop-down {
-      transform: translateY(-100%);
-      animation: dropDown 0.6s ease-out forwards;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes dropDown {
-      to {
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s forwards;
-    }
-
-    .fade-delay-1 { animation-delay: 1s; }
-    .fade-delay-2 { animation-delay: 1.4s; }
-    .fade-delay-3 { animation-delay: 1.8s; }
-    .fade-delay-4 { animation-delay: 2.2s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    nav {
-      background-color: var(--color-dark);
-      color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2px 22px;
-    }
-
-    nav .logo-container {
-      width: 120px;
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 11px;
-      position: relative;
-    }
-
-    .logo-stack {
-      position: relative;
-      width: 90px;
-      height: 90px;
-    }
-
-    .logo-stack img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      object-fit: contain;
-    }
-
-    .logo-stack .spinning {
-      animation: spin 36s linear infinite;
-      transform-origin: center;
-    }
-
-    .logo-stack .static {
-      z-index: 2;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    nav .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: var(--nav-mobile-link-gap);
-      flex: 1;
-      padding: 0 var(--nav-mobile-side-margin);
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      white-space: nowrap;
-    }
-
-    nav a:hover {
-      color: var(--color-accent);
-    }
-
-    .section {
-      padding: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      background-color: var(--color-darker);
-      color: var(--color-light);
-    }
-
-    .section h1 {
-      flex-basis: 100%;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: var(--color-accent);
-      text-align: left;
-    }
-
-    .viewer-container {
-      width: 50%;
-      height: 400px;
-      flex: 0 0 50%;
-    }
-
-    .paragraph {
-      width: 48%;
-      margin-left: 2%;
-      flex: 0 0 48%;
-    }
-
-    .paragraph p {
-      word-wrap: break-word;
-      line-height: 1.6;
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-
-    .cta-section {
-      background-color: var(--color-secondary);
-      color: #fff;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .cta-section h2 {
-      color: var(--color-accent);
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .team-headshots {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-    }
-
-    .team-member {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .team-member img {
-      width: 225px;
-      height: 225px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--color-light);
-    }
-
-    .team-member .name {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .team-member .title {
-      font-size: 1rem;
-      color: #ddd;
-    }
-
-    .mission-section {
-      background-color: var(--color-dark);
-      color: #fff;
-      padding: 40px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .mission-text {
-      flex: 1 1 60%;
-    }
-
-    .mission-text h2 {
-      font-size: 2rem;
-      color: var(--color-accent);
-      margin-bottom: 15px;
-    }
-
-    .mission-text p {
-      font-size: 1.3rem;
-      line-height: 1.6;
+    @font-face {
+      font-family: 'Lexend';
+      src: url('fonts/Lexend-Bold.ttf') format('truetype');
       font-weight: 700;
+      font-style: normal;
     }
-
-    .mission-logo {
-      flex: 1 1 30%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      min-height: 560px;
+    @font-face {
+      font-family: 'Lexend';
+      src: url('fonts/Lexend-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
     }
-
-    .mission-logo .logo-stack {
-      width: 560px;
-      height: 560px;
+    @font-face {
+      font-family: 'Lexend';
+      src: url('fonts/Lexend-ExtraLight.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
     }
-
-    .sponsor-placeholder {
-      margin-top: 90px;
-      text-align: center;
+    @font-face {
+      font-family: 'Lexend';
+      src: url('fonts/Lexend-Thin.ttf') format('truetype');
+      font-weight: 100;
+      font-style: normal;
     }
-
-    .sponsor-placeholder p {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .sponsor-placeholder button {
-      background-color: var(--color-accent);
-      color: var(--color-dark);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .sponsor-placeholder button:hover {
-      background-color: var(--color-light);
-    }
-
-    footer {
-      background-color: var(--color-dark);
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      margin-top: 0;
-      position: relative;
-      border-top: 1px solid var(--color-darker);
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: row;
-        padding: 2px 2px;  /* Minimal nav padding */
-        height: 30px;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
-
-      nav .logo-container {
-        position: absolute;
-        left: 8px;
-        width: 30px;
-        height: 30px;
-        margin: 0;
-      }
-
-      nav .logo-stack {
-        width: 30px;
-        height: 30px;
-      }
-      
-      .mobile-hide {
-        display: none !important;
-      }
-
-      nav .nav-links {
-        width: auto;
-        max-width: 180px;  /* Further reduced max-width */
-        margin: 0 auto;
-        gap: 4px;  /* Minimal gap */
-        padding: 0;
-        justify-content: center;
-      }
-
-      nav .nav-links a {
-        font-size: 0.9rem;
-        padding: 0;  /* Removed padding on links */
-      }
-
-      .viewer-container, .paragraph, .mission-text, .mission-logo {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin-left: 0;
-        text-align: center;
-      }
-
-      .mission-logo {
-        min-height: 280px;  /* Reduced from 560px */
-      }
-
-      .mission-logo .logo-stack {
-        width: 280px;  /* Reduced from 560px */
-        height: 280px;  /* Reduced from 560px */
-      }
-
-      /* Adjust spacing around sponsor section to compensate */
-      .sponsor-placeholder {
-        margin-top: 30px;  /* Reduced from 90px */
-      }
-
-      /* New mobile optimizations */
-      .section h1 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-      }
-
-      .paragraph p {
-        font-size: 1.2rem;
-        line-height: 1.4;
-      }
-
-      .mission-text h2 {
-        font-size: 1.6rem;
-      }
-
-      .mission-text p {
-        font-size: 1.1rem;
-        line-height: 1.4;
-      }
-
-      .cta-section h2 {
-        font-size: 1.8rem;
-        padding-left: 20px;
-      }
-
-      #chair69 p {
-        font-size: 1.2rem;
-        line-height: 1.4;
-      }
-
-      .viewer-container {
-        height: 300px;
-      }
-
-      .mentoring-section h2 {
-        font-size: 1.6rem;
-      }
-
-      .mentoring-section p {
-        font-size: 1.1rem;
-      }
-
-      .mentoring-section a {
-        font-size: 1rem;
-        padding: 12px 24px;
-      }
-
-      .sponsor-placeholder p {
-        font-size: 0.9rem;
-      }
-
-      .sponsor-placeholder div {
-        font-size: 0.9rem;
-      }
-
-      .sponsor-placeholder button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-      }
-
-      .sponsor-placeholder img {
-        max-width: 180px;
-      }
-
-      .instagram-section h2 {
-        font-size: 1.6rem;
-      }
-
-      .sponsor-logo {
-        max-width: 150px !important;
-      }
-      
-      /* Special size for Delsan logo since it's wider */
-      img[alt="Delsan Logo"].sponsor-logo {
-        max-width: 200px !important;
-      }
-
-      .sponsor-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .sponsor-placeholder > div:first-of-type {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-      }
-
-      .sponsor-logo {
-        max-width: 120px !important;
-      }
-      
-      /* Special size for Delsan logo since it's wider */
-      img[alt="Delsan Logo"].sponsor-logo {
-        max-width: 160px !important;
-      }
-
-      /* Make Polymaker logo appear below and centered */
-      a[href="https://polymaker.com/"] {
-        flex-basis: 100%;
-        display: flex;
-        justify-content: center;
-      }
-
-      a[href="https://polymaker.com/"] img {
-        max-width: 140px !important;
-      }
-
-      .donor-text {
-        margin-top: 20px !important;
-        font-size: 0.8rem !important;
-      }
-
-      /* Adjust header spacing */
-      nav .nav-links {
-        width: 10%;
-        margin: 0 auto;
-        justify-content: space-between;
-      }
-
-      /* Adjust car viewer zoom */
-      #carViewer {
-        height: 200px !important;
-        --camera-orbit: "270deg 75deg 3.5m" !important;
-        --min-camera-orbit: "270deg 45deg 2.2m" !important;
-        --max-camera-orbit: "450deg 80deg 10m" !important;
-      }
-
-      .viewer-container:first-of-type {
-        height: 200px !important;
-        margin-bottom: 10px;
-      }
-
-      /* Adjust main content spacing */
-      .section {
-        padding: 20px;
-      }
-
-      .section h1 {
-        margin-bottom: 15px;
-      }
-
-      .paragraph {
-        margin-top: 0;
-      }
-
-      /* Ensure proper spacing between elements */
-      .viewer-container + .paragraph {
-        margin-top: 10px;
-      }
-
-      #chair69 {
-        flex-direction: column;
-        height: fit-content;
-      }
-
-      /* Hide the chair viewer on mobile */
-      #chair69 .viewer-container {
-        display: none;
-      }
-
-      /* Make the text section take full width since viewer is hidden */
-      #chair69 > div:first-child {
-        flex: 1;
-        width: 100%;
-      }
-
-      /* Remove margin/padding that was meant for the viewer */
-      .cta-section {
-        padding-bottom: 20px;
-      }
-    }
-    
-    @media (min-width: 769px) {
-      /* No mobile-specific styles needed for desktop */
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    #team {
-      scroll-margin-top: 130px;
-    }
-    @media (max-width: 768px) {
-      #team {
-        scroll-margin-top: 50px;
-      }
-    }
-
-    .embed-wrapper {
-      flex: 0 0 auto;
-      max-width: 210px;
-      width: 210px;
-      height: 405px;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: transparent;
-      border-radius: 0;
-      box-shadow: none;
-      overflow: hidden;
-    }
-    .instagram-media {
-      margin: 0 auto !important;
-      background-color: transparent !important;
-      color: var(--color-light) !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      height: 100% !important;
-      border: none !important;
-      border-radius: 0 !important;
-    }
-    @media (max-width: 768px) {
-      .embed-wrapper {
-        max-width: 180px;
-        width: 180px;
-        height: 345px;
-      }
-    }
-
-    .sponsor-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      align-items: center;
-      justify-items: center;
-      margin-bottom: 18px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
-    }
-
-    .sponsor-item {
-      width: 100%;
-      max-width: 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .sponsor-item img {
-      width: 100%;
-      height: auto;
-    }
-
-    /* Special handling for Delsan logo since it's wider */
-    .sponsor-item:nth-child(2) {
-      max-width: 400px;
-    }
-
-    @media (max-width: 768px) {
-      .sponsor-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 0 10px;
-      }
-
-      .sponsor-item {
-        max-width: 140px;
-      }
-
-      /* Make Delsan logo slightly wider on mobile */
-      .sponsor-item:nth-child(2) {
-        max-width: 180px;
-      }
-
-      /* Make Polymaker appear on its own row and centered */
-      .sponsor-item.polymaker {
-        grid-column: 1 / -1;
-        max-width: 140px;
-        justify-self: center;
-      }
+    body, html, input, button, textarea {
+      font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
   </style>
 </head>
 <body>
-<!-- Modified index.html navigation for mobile dropdown -->
+<!-- Move nav bar to nav.html and load it dynamically in all pages -->
 <nav class="drop-down">
   <div class="logo-container">
     <div class="logo-stack">
@@ -646,350 +60,192 @@
     </div>
   </div>
   <div class="nav-links" id="mobileNav">
-    <a href="#" class="mobile-hide">Home</a>
-    <a href="#team" class="mobile-hide">Team</a>
+    <a href="index.html" data-spa>Home</a>
+    <a href="team.html" data-spa>Team</a>
+    <a href="projects.html" data-spa>Projects</a>
+    <a href="resources.html" data-spa>Resources</a>
     <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
     <a href="mailto:info@ecoengine.net">Contact</a>
   </div>
 </nav>
-
-<style>
-  #mobileNav {
-    display: flex;
-  }
-</style>
-
-<div class="section fade-in fade-delay-1">
-  <h1>Mallard Motorsports - Powered by EcoEngine</h1>
-  <div class="viewer-container">
-    <model-viewer
-      id="carViewer"
-      src="media/webcar.gltf"
-      alt="A 3D car model"
-      camera-controls
-      camera-orbit="270deg 75deg 5.5m"
-      min-camera-orbit="270deg 45deg 3.5m"
-      max-camera-orbit="450deg 80deg 14m"
-      style="width: 100%; height: 100%;"
-      shadow-intensity="1"
-      environment-image="neutral"
-      exposure="0.8"
-      ar-status="not-presenting"
-      preload
-    ></model-viewer>
-  </div>
-  <div class="paragraph">
-    <p>
-      Mallard Motorsports is a team of high school students dedicated to designing and building cutting-edge solar-powered vehicles. This year, we are engineering a road-legal cruiser capable of seating four passengers – an ambitious step toward sustainable, practical transportation.
-    </p>
-  </div>
-</div>
-
-<div class="mission-section fade-in fade-delay-2">
-  <div class="mission-text">
-    <h2>Our Mission</h2>
-    <p>
-      We aim to educate the community on sustainable engineering through hands-on innovation. Our team brings together high school students from across South Florida, including Cypress Bay, American Heritage, and FAU High School.
-    </p>
-    <div class="sponsor-placeholder">
-      <div class="sponsor-grid">
-        <a href="https://www.carepredict.com/" target="_blank" rel="noopener" class="sponsor-item">
-          <img src="media/CarePredict.svg" alt="CarePredict Logo" style="width:100%; height:auto; display:block; border-radius:8px; background:transparent;" class="sponsor-logo" />
-        </a>
-        <a href="https://www.delsanonline.com/" target="_blank" rel="noopener" class="sponsor-item">
-          <img src="media/delsan.png" alt="Delsan Logo" style="width:100%; height:auto; display:block; border-radius:8px; background:transparent; filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 4px #000);" class="sponsor-logo" />
-        </a>
-        <a href="https://polymaker.com/" target="_blank" rel="noopener" class="sponsor-item polymaker">
-          <img src="media/Polymaker.avif" alt="Polymaker Logo" style="width:100%; height:auto; display:block; border-radius:8px; background:transparent;" class="sponsor-logo" />
-        </a>
+<div id="spa-root">
+  <div class="spa-content">
+    <div class="section fade-in fade-delay-1">
+      <h1>Mallard Motorsports - Powered by EcoEngine</h1>
+      <div class="viewer-container">
+        <model-viewer
+          id="carViewer"
+          src="media/simplecar2.glb"
+          alt="A 3D car model"
+          camera-controls
+          camera-orbit="270deg 75deg 5.5m"
+          min-camera-orbit="270deg 45deg 3.5m"
+          max-camera-orbit="450deg 80deg 14m"
+          style="width: 100%; height: 100%;"
+          shadow-intensity="1"
+          environment-image="neutral"
+          exposure="0.8"
+          ar-status="not-presenting"
+          preload
+        ></model-viewer>
       </div>
-      <div style="font-size:1.1rem; color:#fff; margin-bottom:10px;">We are still looking for corporate sponsors! Click the button below!</div>
-      <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Mission</button>
-      <p style="margin-top: 40px; font-size: 0.9rem; color: #fff; font-weight: 400;" class="donor-text">
-        We would also like to thank our non-corporate donors: The Wenbo Family, Mei Dong, and Min Luo.
-      </p>
-    </div>
-  </div>
-  <div class="mission-logo">
-    <div class="logo-stack">
-      <img src="media/animlogo3.png" class="spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
-      <img src="media/animlogo4.png" class="static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
-      <div id="logo-fallback2" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
-    </div>
-  </div>
-</div>
-
-<div class="cta-section fade-in fade-delay-3" id="team">
-  <h2 style="text-align: left; padding-left: 40px;">Our Latest Design</h2>
-  <div style="display: flex; align-items: start; justify-content: space-between; gap: 40px;" id="chair69">
-    <div style="flex: 1;">
-      <div style="font-size: 1.6rem; line-height: 1.6; margin-bottom: 30px;">
+      <div class="paragraph">
         <p>
-          Currently, we are working on designing our own racing chair molds. We estimate that we will be able to create sturdy chairs out of carbon fiber weighing only <strong style="color: var(--color-accent);">8 pounds</strong> each! We are doing this by 3D-printing custom molds — here is an image of a part we 3D-printed with Polylite ABS.
+          Mallard Motorsports is a team of high school students dedicated to designing and building cutting-edge solar-powered vehicles. This year, we are engineering a road-legal cruiser capable of seating four passengers – an ambitious step toward sustainable, practical transportation.
         </p>
       </div>
-      <div style="height: 300px; margin-bottom: 20px;">
-        <img src="media/mold1.png" alt="Chair Mold" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+    </div>
+
+    <div class="mission-section fade-in fade-delay-2">
+      <div class="mission-text">
+        <h2>Our Mission</h2>
+        <p>
+          We aim to educate the community on sustainable engineering through hands-on innovation. Our team brings together high school students from across South Florida, including Cypress Bay, American Heritage, and FAU High School.
+        </p>
+        <div class="sponsor-placeholder">
+          <div class="sponsor-grid">
+            <a href="https://www.carepredict.com/" target="_blank" rel="noopener" class="sponsor-item">
+              <img src="media/CarePredict.svg" alt="CarePredict Logo" class="sponsor-logo" />
+            </a>
+            <a href="https://www.delsanonline.com/" target="_blank" rel="noopener" class="sponsor-item">
+              <div style="position:relative;display:inline-block;">
+                <img src="media/delsan.png" alt="Delsan Logo" class="sponsor-logo" style="position:relative;z-index:2;" />
+                <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 60%,rgba(255,255,255,0) 100%);"></div>
+              </div>
+            </a>
+            <a href="https://polymaker.com/" target="_blank" rel="noopener" class="sponsor-item polymaker">
+              <img src="media/Polymaker.avif" alt="Polymaker Logo" class="sponsor-logo" />
+            </a>
+          </div>
+          <div>We are still looking for corporate sponsors! Click the button below!</div>
+          <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Mission</button>
+          <p class="donor-text">
+            We would also like to thank our non-corporate donors: The Wenbo Family, Mei Dong, and Min Luo.
+          </p>
+        </div>
+      </div>
+      <div class="mission-logo">
+        <div class="logo-stack">
+          <img src="media/animlogo3.png" class="spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
+          <img src="media/animlogo4.png" class="static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
+          <div id="logo-fallback2" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
+        </div>
       </div>
     </div>
-    <div class="viewer-container" style="flex: 1.2; height: 650px; margin-top: -40px;">
-      <model-viewer
-        id="chairViewer"
-        src="media/chair.glb"
-        alt="A 3D chair model"
-        camera-controls
-        camera-orbit="40deg 60deg 2.2m"
-        min-camera-orbit="-Infinity 0deg 1.2m"
-        max-camera-orbit="Infinity 180deg 10m"
-        style="width: 100%; height: 100%; --model-color: rgb(45, 45, 45);"
-        shadow-intensity="1"
-        environment-image="neutral"
-        exposure="0.7"
-        ar-status="not-presenting"
-        preload
-      ></model-viewer>
+
+    <div class="cta-section fade-in fade-delay-3" id="team">
+      <h2 style="text-align: left; padding-left: 40px;">Our Latest Design</h2>
+      <div style="display: flex; align-items: start; justify-content: space-between; gap: 40px; flex-direction: row;">
+        <div style="flex: 1;">
+          <div style="font-size: 1.6rem; line-height: 1.6; margin-bottom: 30px;">
+            <p>
+              Currently, we are working on designing our own racing chair molds. We estimate that we will be able to create sturdy chairs out of carbon fiber weighing only <strong style="color: var(--color-accent);">8 pounds</strong> each! We are doing this by 3D-printing custom molds — here is an image of a part we 3D-printed with Polylite ABS.
+            </p>
+          </div>
+          <div style="height: 300px; margin-bottom: 20px;">
+            <img src="media/mold1.png" alt="Chair Mold" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+          </div>
+        </div>
+        <div class="viewer-container" style="flex: 1.2; height: 650px; margin-top: -40px;">
+          <model-viewer
+            id="chairViewer"
+            src="media/chair.glb"
+            alt="A 3D chair model"
+            camera-controls
+            camera-orbit="40deg 60deg 2.2m"
+            min-camera-orbit="-Infinity 0deg 1.2m"
+            max-camera-orbit="Infinity 180deg 10m"
+            style="width: 100%; height: 100%; --model-color: rgb(45, 45, 45);"
+            shadow-intensity="1"
+            environment-image="neutral"
+            exposure="0.7"
+            ar-status="not-presenting"
+            preload
+          ></model-viewer>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects/Resources SPA-like fade transition -->
+    <!-- Remove SPA loader script for Projects/Resources -->
+    <!-- Wrap all main page content in a #main-content div for SPA transitions -->
+    <div class="instagram-section fade-in fade-delay-4">
+      <h2>Follow Our Journey on Instagram</h2>
+      <div class="instagram-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <div class="embed-wrapper">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKFqLn_Jv0c/"></blockquote>
+        </div>
+        <div class="embed-wrapper">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DKLpggDNa8b/"></blockquote>
+        </div>
+        <div class="embed-wrapper">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKOFDU2o2-E/"></blockquote>
+        </div>
+        <div class="embed-wrapper">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKpfRANpZ54/"></blockquote>
+        </div>
+        <div class="embed-wrapper">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DK6DZ5nt6VG/"></blockquote>
+        </div>
+        <div class="embed-wrapper">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DLRFiBfo56k/"></blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="section mentoring-section fade-in fade-delay-4">
+      <div style="width:100%;text-align:center;">
+        <h2 style="color:var(--color-accent);font-size:2.2rem;margin-bottom:18px;text-align:center;">Does Your Robotics Team Need Mentoring?</h2>
+        <p style="font-size:1.3rem;font-weight:600;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;">
+          We are currently helping other engineering and robotics teams develop their skills in various ways, such as CAD!
+        </p>
+        <a href="https://discord.gg/QeNfh6RmCv" target="_blank" style="display:inline-block;background-color:var(--color-accent);color:var(--color-dark);padding:14px 32px;border-radius:8px;font-size:1.2rem;font-weight:700;text-decoration:none;transition:background 0.2s;">Reach Out to us Here</a>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="instagram-section fade-in fade-delay-4">
-  <h2>Follow Our Journey on Instagram</h2>
-  <div class="instagram-carousel-container">
-    <div class="instagram-carousel">
-      <!-- Duplicate Instagram embeds for the carousel -->
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ3AhEkNGeO/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ5TqhLJhkW/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ5eFy0IFCI/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ7cye3p5xv/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ78_MbpoJo/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKA8xFhprRH/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKA_HUMJTKI/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKFqLn_Jv0c/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DKLpggDNa8b/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKOFDU2o2-E/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ3AhEkNGeO/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ5TqhLJhkW/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ5eFy0IFCI/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ7cye3p5xv/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DJ78_MbpoJo/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKA8xFhprRH/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKA_HUMJTKI/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKFqLn_Jv0c/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DKLpggDNa8b/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="embed-wrapper">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKOFDU2o2-E/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section mentoring-section fade-in fade-delay-4">
-  <div style="width:100%;text-align:center;">
-    <h2 style="color:var(--color-accent);font-size:2.2rem;margin-bottom:18px;">Does Your Robotics Team Need Mentoring?</h2>
-    <p style="font-size:1.3rem;font-weight:600;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;">
-      We are currently helping other engineering and robotics teams develop their skills in various ways, such as CAD!
-    </p>
-    <a href="https://discord.gg/QeNfh6RmCv" target="_blank" style="display:inline-block;background-color:var(--color-accent);color:var(--color-dark);padding:14px 32px;border-radius:8px;font-size:1.2rem;font-weight:700;text-decoration:none;transition:background 0.2s;">Reach Out to us Here</a>
-  </div>
-</div>
-
-<style>
-  #mobileNav {
-    display: flex;
-  }
-  
-  .instagram-section {
-    background-color: var(--color-dark);
-    color: #fff;
-    padding: 40px 40px 0 40px;
-    text-align: center;
-    margin-bottom: 0;
-    padding-bottom: 30px; /* Add space at the bottom */
-  }
-  
-  .instagram-section h2 {
-    color: var(--color-accent);
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .instagram-carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 0;
-    height: 500px; /* Increased height to show full posts */
-  }
-  
-  .instagram-carousel {
-    display: flex;
-    gap: 20px;
-    animation: scrollLeft 120s linear infinite;
-    padding: 10px 0 0 0;
-    margin-bottom: 0;
-    width: fit-content;
-    height: 100%;
-    align-items: flex-start; /* Align items to the top */
-  }
-  
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-210px * 20 - 20px * 20)); /* Width of all posts + gaps */
-    }
-  }
-  
-  .instagram-carousel:hover {
-    animation-play-state: paused;
-  }
-  
-  .embed-wrapper {
-    flex: 0 0 auto;
-    max-width: 210px;
-    width: 210px;
-    height: 405px;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    overflow: hidden;
-  }
-  
-  .instagram-media {
-    margin: 0 auto !important;
-    background-color: transparent !important;
-    color: var(--color-light) !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: 100% !important;
-    border: none !important;
-    border-radius: 0 !important;
-  }
-  
-  @media (max-width: 768px) {
-    .instagram-carousel {
-      animation: scrollLeft 80s linear infinite;
-    }
-    
-    .embed-wrapper {
-      max-width: 180px;
-      width: 180px;
-      height: 345px;
-    }
-
-    #chair69 {
-      flex-direction: column;
-      height: fit-content;
-    }
-    
-    @keyframes scrollLeft {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-180px * 20 - 20px * 20)); /* Width of all posts + gaps for mobile */
-      }
-    }
-  }
-</style>
-
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      const viewer = document.getElementById('carViewer');
-      if (viewer) {
-        viewer.setAttribute('camera-orbit', '270deg 75deg 3.5m');
-        viewer.setAttribute('min-camera-orbit', '270deg 45deg 6.5m');
-        viewer.setAttribute('max-camera-orbit', '450deg 80deg 10m');
-      }
-    }
-    
-    // Clone Instagram posts for seamless looping
-    const carousel = document.querySelector('.instagram-carousel');
-    if (carousel) {
-      // Clone all posts and append them to the end for seamless looping
-      const posts = document.querySelectorAll('.embed-wrapper');
-      const totalPosts = posts.length;
-      
-      // Clone the entire set of posts
-      for (let i = 0; i < totalPosts; i++) {
-        const clone = posts[i].cloneNode(true);
-        carousel.appendChild(clone);
-      }
-    }
-    
-    // Force Instagram embed to reinitialize
+(function() {
+  const spaRoot = document.getElementById('spa-root');
+  function loadSpaContent(url, push=true) {
+    const oldContent = spaRoot.querySelector('.spa-content');
+    if (oldContent) oldContent.classList.add('fade-out');
     setTimeout(() => {
-      if (window.instgrm) {
-        window.instgrm.Embeds.process();
-      }
-    }, 1000);
-    
-    // Reinitialize Instagram embeds periodically to ensure they load correctly
-    setInterval(() => {
-      if (window.instgrm) {
-        window.instgrm.Embeds.process();
-      }
-    }, 5000);
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const newContent = temp.querySelector('.spa-content');
+          if (newContent) {
+            if (oldContent) spaRoot.removeChild(oldContent);
+            newContent.classList.add('fade-in');
+            spaRoot.appendChild(newContent);
+            setTimeout(() => newContent.classList.remove('fade-in'), 500);
+            if (push) history.pushState({spa: true, url}, '', url);
+            // Re-initialize Instagram embeds if present
+            if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
+          }
+        });
+    }, 350);
+  }
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a[data-spa]');
+    if (a && a.href && !a.target) {
+      e.preventDefault();
+      const url = a.getAttribute('href');
+      loadSpaContent(url);
+    }
   });
-
-  // Add this script to ensure images are loaded
-  window.addEventListener('load', function() {
-    const preloadImages = [
-      'media/animlogo3.png?v=2',
-      'media/animlogo4.png?v=2'
-    ];
-    
-    preloadImages.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
+  window.addEventListener('popstate', function(e) {
+    if (e.state && e.state.spa && e.state.url) {
+      loadSpaContent(e.state.url, false);
+    }
   });
+})();
 </script>
-
+<!-- External JavaScript -->
+<script src="scripts.js"></script>
 <!-- Instagram Embed Script -->
 <script async src="https://www.instagram.com/embed.js"></script>
 </body>
