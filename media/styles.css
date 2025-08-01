@@ -273,6 +273,8 @@ nav a:hover {
 
 .sponsor-placeholder button:hover {
   background-color: var(--color-light);
+  transition: all 0.2s ease-in-out;
+  transform: scale(2.05);
 }
 
 footer {
