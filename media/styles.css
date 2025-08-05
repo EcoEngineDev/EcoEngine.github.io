@@ -444,6 +444,8 @@ html {
   border-radius: 5px;
   font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   border: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 #navbar-dropdown:focus {
