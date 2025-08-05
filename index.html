@@ -59,14 +59,15 @@
       <div id="logo-fallback" class="logo" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
     </div>
   </div>
-  <select id="navbar-dropdown" autocomplete="off">
-    <option value="/index.html" selected>Home</option>
-    <option value="/modules/team.html">Team</option>
-    <option value="/modules/projects.html">Projects</option>
-    <option value="/modules/resources.html">Resources</option>
-    <option value="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</option>
-    <option value="mailto:info@ecoengine.net">Contact</option>
-  </select>
+  <img src="media/menu.svg" id="navbar-dropdown"></img>
+  <div id="dropdown-bits">
+      <div class="dropdown-item"><a class="mobile-nav-text" href="/index.html" data-spa>Home</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/team.html" data-spa>Team</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/projects.html" data-spa>Projects</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/resources.html" data-spa>Resources</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="mailto:info@ecoengine.net">Contact</a></div>
+    </div>
   <div class="nav-links" id="mobileNav">
     <a href="/index.html" data-spa>Home</a>
     <a href="/modules/team.html" data-spa>Team</a>

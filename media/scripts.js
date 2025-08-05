@@ -10,6 +10,12 @@ if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) { // we on mobil
     document.getElementById("navbar-dropdown").style.display = "block";
 }
 
-document.getElementById("navbar-dropdown").addEventListener("change", function () {
-    window.location.href = this.value;
+document.getElementById("navbar-dropdown").addEventListener("click", function () {
+    //if (document.getElementById("dropdown-bits").style.display === "block") {
+    //    document.getElementById("dropdown-bits").style.display = "none";
+    //} else {
+    //    document.getElementById("dropdown-bits").style.display = "block";
+    //}
+    //console.log("e");
+    document.getElementById("dropdown-bits").classList.toggle("show");
 });

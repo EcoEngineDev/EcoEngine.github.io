@@ -439,18 +439,41 @@ html {
   display: none;
   position: absolute;
   right: 20px;
-  background-color: var(--color-darker);
   color: var(--color-accent);
-  border-radius: 5px;
-  font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  border: none;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
-#navbar-dropdown:focus {
-  outline: none;
-  border: none;
+#dropdown-bits {
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  background-color: var(--color-dark);
+  border-radius: 5px;
+  padding: 8px;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0px;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  pointer-events: none;
+}
+
+#dropdown-bits.show {
+  opacity: 1;
+  max-height: 170px;
+  pointer-events: auto;
+  padding: 8px;
+}
+
+.dropdown-item {
+  padding: 3px;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-darker);
+  border-radius: 10px;
+}
+
+.mobile-nav-text {
+  color: var(--color-accent);
 }
 
 /* Mobile Styles */
