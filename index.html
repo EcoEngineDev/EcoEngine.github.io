@@ -52,13 +52,21 @@
 <body>
 <!-- Move nav bar to nav.html and load it dynamically in all pages -->
 <nav class="drop-down">
-  <div class="logo-container">
-    <div class="logo-stack">
-      <img src="/media/animlogo3.png" class="spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
-      <img src="/media/animlogo4.png" class="static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
-      <div id="logo-fallback" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
+  <div class="logo logo-container">
+    <div class="logo logo-stack">
+      <img src="/media/animlogo3.png" class="logo spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
+      <img src="/media/animlogo4.png" class="logo static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
+      <div id="logo-fallback" class="logo" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
     </div>
   </div>
+  <select id="navbar-dropdown" autocomplete="off">
+    <option value="/index.html" selected>Home</option>
+    <option value="/modules/team.html">Team</option>
+    <option value="/modules/projects.html">Projects</option>
+    <option value="/modules/resources.html">Resources</option>
+    <option value="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</option>
+    <option value="mailto:info@ecoengine.net">Contact</option>
+  </select>
   <div class="nav-links" id="mobileNav">
     <a href="/index.html" data-spa>Home</a>
     <a href="/modules/team.html" data-spa>Team</a>
@@ -245,7 +253,7 @@
 })();
 </script>
 <!-- External JavaScript -->
-<script src="/scripts.js"></script>
+<script src="media/scripts.js"></script>
 <!-- Instagram Embed Script -->
 <script async src="https://www.instagram.com/embed.js"></script>
 </body>
