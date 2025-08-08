@@ -4,6 +4,7 @@
   --color-light: #C5C6C7;
   --color-accent: #66FCF1;
   --color-secondary: #45A29E;
+  --color-white: #FFFFFF;
   
   /* Navigation variables */
   --nav-mobile-side-margin: 20px;  /* Space from edges of screen */
@@ -50,7 +51,7 @@ body {
 
 nav {
   background-color: var(--color-dark);
-  color: #fff;
+  color: var(--color-white);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -108,7 +109,7 @@ nav .nav-links {
 }
 
 nav a {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 1.1rem;
   white-space: nowrap;
@@ -137,7 +138,7 @@ nav a:hover {
   flex-basis: 100%;
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: var(--color-accent);
+  color: var(--color-white);
   text-align: left;
 }
 
@@ -162,7 +163,7 @@ nav a:hover {
 
 .cta-section {
   background-color: var(--color-secondary);
-  color: #fff;
+  color: var(--color-white);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -170,7 +171,7 @@ nav a:hover {
 }
 
 .cta-section h2 {
-  color: var(--color-accent);
+  color: var(--color-white);
   font-size: 2.5rem;
   margin-bottom: 20px;
   text-align: center;
@@ -202,7 +203,7 @@ nav a:hover {
   margin-top: 10px;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .team-member .title {
@@ -212,7 +213,7 @@ nav a:hover {
 
 .mission-section {
   background-color: var(--color-dark);
-  color: #fff;
+  color: var(--color-white);
   padding: 40px;
   display: flex;
   justify-content: space-between;
@@ -225,7 +226,7 @@ nav a:hover {
 
 .mission-text h2 {
   font-size: 2rem;
-  color: var(--color-accent);
+  color: var(--color-white);
   margin-bottom: 15px;
 }
 
@@ -258,7 +259,7 @@ nav a:hover {
   font-size: 1.1rem;
   margin-bottom: 15px;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .sponsor-placeholder button {
@@ -279,7 +280,7 @@ nav a:hover {
 
 footer {
   background-color: var(--color-dark);
-  color: #fff;
+  color: var(--color-white);
   text-align: center;
   padding: 10px;
   margin-top: 0;
@@ -293,7 +294,7 @@ footer {
 
 .instagram-section {
   background-color: var(--color-dark);
-  color: #fff;
+  color: var(--color-white);
   padding: 40px 40px 0 40px;
   text-align: center;
   margin-bottom: 0;
@@ -301,7 +302,7 @@ footer {
 }
 
 .instagram-section h2 {
-  color: var(--color-accent);
+  color: var(--color-light);
   font-size: 2rem;
   margin-bottom: 30px;
 }
@@ -373,7 +374,7 @@ html {
 
 .mentoring-section {
   background-color: var(--color-dark);
-  color: #fff;
+  color: var(--color-white);
   padding: 40px;
   text-align: center;
 }
@@ -440,12 +441,13 @@ html {
   position: absolute;
   right: 20px;
   color: var(--color-accent);
+  transform: scale(2);
 }
 
 #dropdown-bits {
   position: absolute;
   right: 0px;
-  top: 30px;
+  top: 38px;
   background-color: var(--color-dark);
   border-radius: 5px;
   padding: 8px;
@@ -458,7 +460,7 @@ html {
 
 #dropdown-bits.show {
   opacity: 1;
-  max-height: 170px;
+  max-height: 300px;
   pointer-events: auto;
   padding: 8px;
 }
@@ -473,7 +475,8 @@ html {
 }
 
 .mobile-nav-text {
-  color: var(--color-accent);
+  color: var(--color-light);
+  font-size: 30px;
 }
 
 /* Mobile Styles */
@@ -504,25 +507,24 @@ html {
     display: none !important;
   }
 
-  /*nav .nav-links {
-    width: auto;
-    max-width: 180px;
-    margin: 0 auto;
-    gap: 4px;
-    padding: 0;
-    justify-content: center;
+  .drop-down {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
-
-  nav .nav-links a {
-    font-size: 0.9rem;
-    padding: 0;
-  }*/
 
   .viewer-container, .paragraph, .mission-text, .mission-logo {
     flex: 1 1 100%;
     max-width: 100%;
     margin-left: 0;
     text-align: center;
+  }
+
+  .viewer-container {
+    display: none;
+  }
+
+  .logo {
+    transform: scale(1.1);
   }
 
   .mission-logo {
