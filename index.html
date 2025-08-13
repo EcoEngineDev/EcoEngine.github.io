@@ -58,6 +58,29 @@
       <img src="/media/animlogo4.png" class="logo static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
       <div id="logo-fallback" class="logo" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
     </div>
+    <div class="logo-text">
+      <div id="mallard-text">MALLARD</div>
+      <div id="motorsports-text">MOTORSPORTS</div>
+    </div>
+  </div>
+  <div class="nav-links" id="mobileNav">
+    <a href="/index.html" data-spa>Home</a>
+    <a href="/modules/team.html" data-spa>Team</a>
+    <a href="/modules/projects.html" data-spa>Projects</a>
+    <a href="/modules/resources.html" data-spa>Resources</a>
+    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
+    <a href="mailto:info@ecoengine.net">Contact</a>
+  </div>
+  <div class="social-media-buttons">
+    <a href="https://discord.gg/QeNfh6RmCv" class="social-btn" title="Discord" target="_blank">
+      <img src="media/discord-logo.png" alt="Discord" />
+    </a>
+    <a href="https://github.com/EcoEngineDev" class="social-btn" title="GitHub" target="_blank">
+      <img src="media/github-logo.png" alt="GitHub" />
+    </a>
+    <a href="https://www.instagram.com/mallard.motorsports/" class="social-btn" title="Instagram" target="_blank">
+      <img src="media/instagram-new--v2.png" alt="Instagram" />
+    </a>
   </div>
   <img src="media/menu.svg" id="navbar-dropdown"></img>
   <div id="dropdown-bits">
@@ -68,14 +91,6 @@
       <div class="dropdown-item"><a class="mobile-nav-text" href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="mailto:info@ecoengine.net">Contact</a></div>
     </div>
-  <div class="nav-links" id="mobileNav">
-    <a href="/index.html" data-spa>Home</a>
-    <a href="/modules/team.html" data-spa>Team</a>
-    <a href="/modules/projects.html" data-spa>Projects</a>
-    <a href="/modules/resources.html" data-spa>Resources</a>
-    <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
-    <a href="mailto:info@ecoengine.net">Contact</a>
-  </div>
 </nav>
 <div id="spa-root">
   <div class="spa-content">
@@ -256,6 +271,13 @@
 })();
 </script>
 <!-- External JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script>
+// Logo text animation - disabled for now
+// function initLogoAnimation() {
+//   // Animation code removed
+// }
+</script>
 <script src="media/scripts.js"></script>
 <!-- Instagram Embed Script -->
 <script async src="https://www.instagram.com/embed.js"></script>
