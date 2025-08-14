@@ -560,8 +560,8 @@ html {
   font-size: 30px;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
+/* Mobile Styles - covers all mobile devices and developer mode */
+@media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
   nav {
     flex-direction: row;
     padding: 2px 2px;
@@ -569,7 +569,7 @@ html {
     align-items: center;
     display: flex;
     justify-content: center;
-    background: var(--color-dark); /* Remove gradient, use solid color */
+    background: var(--color-dark) !important; /* Remove gradient, use solid color */
   }
 
   nav .logo-container {
@@ -832,13 +832,46 @@ html {
     justify-self: center;
   }
   
-  /* Mobile adjustments for hero title animation - make it half the size */
+  /* Mobile adjustments for hero title animation - make it much smaller */
   .hero-title {
-    font-size: 2.5rem; /* Reduced from 3rem to 2.5rem (half of desktop 5rem) */
+    font-size: 1.5rem; /* Much smaller for better mobile experience */
   }
   
   .hero-title .char {
     margin: 0 1px;
+  }
+  
+  /* Ensure dropdown is visible on mobile */
+  #navbar-dropdown {
+    display: block !important;
+  }
+  
+  /* Ensure dropdown items are properly styled on mobile */
+  #dropdown-bits {
+    max-height: 400px; /* Increase max height to accommodate more items */
+  }
+  
+  .mobile-nav-text {
+    font-size: 24px; /* Slightly smaller for mobile */
+  }
+}
+
+/* Additional mobile breakpoints for different screen sizes */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.2rem; /* Even smaller for very small screens */
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 1rem; /* Smallest for iPhone SE and similar */
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 0.9rem; /* Extremely small for very narrow screens */
   }
 }
 
@@ -948,4 +981,42 @@ body, html {
 /* Prevent any automatic scrolling behavior */
 * {
   scroll-behavior: auto !important;
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  @media (max-width: 768px) {
+    nav {
+      background: var(--color-dark) !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+    }
+    
+    .hero-title {
+      font-size: 1.5rem !important; /* Much smaller for mobile */
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 1.2rem !important;
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .hero-title {
+      font-size: 1rem !important;
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .hero-title {
+      font-size: 0.9rem !important;
+      -webkit-text-size-adjust: 100%;
+    }
+  }
 }
