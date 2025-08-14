@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mallard Motorsport Racing</title>
+  <title>Mallard Motorsports</title>
   <link rel="icon" type="image/png" href="media/animlogo4.png"/>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   
@@ -46,6 +46,35 @@
     }
     body, html, input, button, textarea {
       font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    /* Easily changeable section backgrounds */
+    :root {
+      --section-bg: #334255;          /* Main section background */
+      --mission-bg: #0B0C10;          /* Mission section background */
+      --cta-bg: #45A29E;              /* CTA section background */
+      --instagram-bg: #0B0C10;        /* Instagram section background */
+      --mentoring-bg: #0B0C10;        /* Mentoring section background */
+    }
+    
+    .section {
+      background-color: var(--section-bg) !important;
+    }
+    
+    .mission-section {
+      background-color: var(--mission-bg) !important;
+    }
+    
+    .cta-section {
+      background-color: var(--cta-bg) !important;
+    }
+    
+    .instagram-section {
+      background-color: var(--instagram-bg) !important;
+    }
+    
+    .mentoring-section {
+      background-color: var(--mentoring-bg) !important;
     }
   </style>
 </head>
@@ -92,36 +121,38 @@
       <div class="dropdown-item"><a class="mobile-nav-text" href="mailto:info@ecoengine.net">Contact</a></div>
     </div>
 </nav>
+<!-- Full-screen backdrop image -->
+<img src="media/backdrop.jpg" alt="Backdrop" class="backdrop-image" />
 <div id="spa-root">
   <div class="spa-content">
-    <div class="section fade-in fade-delay-1">
-      <h1>Mallard Motorsports - Powered by EcoEngine</h1>
-      <div class="viewer-container">
-        <model-viewer
-          class="model-viewer"
-          id="carViewer"
-          src="media/simplecar6.glb"
-          alt="A 3D car model"
-          camera-controls
-          camera-orbit="270deg 75deg 5.5m"
-          min-camera-orbit="270deg 45deg 3.5m"
-          max-camera-orbit="450deg 80deg 14m"
-          style="width: 100%; height: 100%;"
-          shadow-intensity="1"
-          environment-image="neutral"
-          exposure="0.8"
-          ar-status="not-presenting"
-          preload
-        ></model-viewer>
-      </div>
-      <div class="paragraph">
-        <p>
-          Mallard Motorsports is a team of high school students dedicated to designing and building cutting-edge solar-powered vehicles. This year, we are engineering a road-legal cruiser capable of seating four passengers – an ambitious step toward sustainable, practical transportation.
-        </p>
+    <div class="section">
+      <div class="layered-images">
+        <div class="hero-title">
+          <span class="char">M</span>
+          <span class="char">A</span>
+          <span class="char">L</span>
+          <span class="char">L</span>
+          <span class="char">A</span>
+          <span class="char">R</span>
+          <span class="char">D</span>
+          <span class="char">&nbsp;</span>
+          <span class="char">M</span>
+          <span class="char">O</span>
+          <span class="char">T</span>
+          <span class="char">O</span>
+          <span class="char">R</span>
+          <span class="char">S</span>
+          <span class="char">P</span>
+          <span class="char">O</span>
+          <span class="char">R</span>
+          <span class="char">T</span>
+          <span class="char">S</span>
+        </div>
+        <img src="media/front.png" alt="Front" class="front-image" />
       </div>
     </div>
 
-    <div class="mission-section fade-in fade-delay-2">
+    <div class="mission-section">
       <div class="mission-text">
         <h2>Our Mission</h2>
         <p>
@@ -133,13 +164,16 @@
               <img src="media/CarePredict.svg" alt="CarePredict Logo" class="sponsor-logo" />
             </a>
             <a href="https://www.delsanonline.com/" target="_blank" rel="noopener" class="sponsor-item">
-              <div style="position:relative;display:inline-block;">
-                <img src="media/delsan.png" alt="Delsan Logo" class="sponsor-logo" style="position:relative;z-index:2;" />
-                <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 60%,rgba(255,255,255,0) 100%);"></div>
-              </div>
+              <img src="media/delsan.png" alt="Delsan Logo" class="sponsor-logo delsan-logo" />
             </a>
             <a href="https://polymaker.com/" target="_blank" rel="noopener" class="sponsor-item polymaker">
               <img src="media/Polymaker.avif" alt="Polymaker Logo" class="sponsor-logo" />
+            </a>
+            <a href="https://www.usahomesgroup.com/home" target="_blank" rel="noopener" class="sponsor-item">
+              <img src="media/usahg-logo2.png" alt="USA Homes Group Logo" class="sponsor-logo" />
+            </a>
+            <a href="https://frc-tees.com/" target="_blank" rel="noopener" class="sponsor-item">
+              <img src="media/frctees.png" alt="FRCtees Logo" class="sponsor-logo frctees-logo" />
             </a>
           </div>
           
@@ -158,7 +192,7 @@
       </div>
     </div>
 
-    <div class="cta-section fade-in fade-delay-3" id="team">
+    <div class="cta-section" id="team">
       <h2 style="text-align: left; padding-left: 40px;">Our Latest Design</h2>
       <div style="display: flex; align-items: start; justify-content: space-between; gap: 40px; flex-direction: row;">
         <div style="flex: 1;">
@@ -178,11 +212,12 @@
             src="media/chair.glb"
             alt="A 3D chair model"
             camera-controls
+            disable-zoom
             camera-orbit="40deg 60deg 2.2m"
             min-camera-orbit="-Infinity 0deg 1.2m"
             max-camera-orbit="Infinity 180deg 10m"
             style="width: 100%; height: 100%; --model-color: rgb(45, 45, 45);"
-            shadow-intensity="1"
+            shadow-intensity="0"
             environment-image="neutral"
             exposure="0.7"
             ar-status="not-presenting"
@@ -195,7 +230,7 @@
     <!-- Projects/Resources SPA-like fade transition -->
     <!-- Remove SPA loader script for Projects/Resources -->
     <!-- Wrap all main page content in a #main-content div for SPA transitions -->
-    <div class="instagram-section fade-in fade-delay-4">
+    <div class="instagram-section">
       <h2>Follow Our Journey on Instagram</h2>
       <div class="instagram-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
         <div class="embed-wrapper">
@@ -219,7 +254,7 @@
       </div>
     </div>
 
-    <div class="section mentoring-section fade-in fade-delay-4">
+    <div class="section mentoring-section">
       <div style="width:100%;text-align:center;">
         <h2 style="color:var(--color-white);font-size:2.2rem;margin-bottom:18px;text-align:center;">Does Your Robotics Team Need Mentoring?</h2>
         <p style="font-size:1.3rem;font-weight:600;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;">
@@ -245,9 +280,7 @@
           const newContent = temp.querySelector('.spa-content');
           if (newContent) {
             if (oldContent) spaRoot.removeChild(oldContent);
-            newContent.classList.add('fade-in');
             spaRoot.appendChild(newContent);
-            setTimeout(() => newContent.classList.remove('fade-in'), 500);
             if (push) history.pushState({spa: true, url}, '', url);
             // Re-initialize Instagram embeds if present
             if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
@@ -273,10 +306,75 @@
 <!-- External JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script>
-// Logo text animation - disabled for now
-// function initLogoAnimation() {
-//   // Animation code removed
-// }
+// Ensure page loads at the top - enhanced version
+window.addEventListener('load', function() {
+  // Force scroll to top immediately
+  window.scrollTo(0, 0);
+  
+  // Also try after a short delay to ensure it works
+  setTimeout(function() {
+    window.scrollTo(0, 0);
+  }, 100);
+  
+  // And after all resources are loaded
+  setTimeout(function() {
+    window.scrollTo(0, 0);
+  }, 500);
+});
+
+// Also ensure scroll position is reset on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  window.scrollTo(0, 0);
+});
+
+// Prevent any automatic scrolling
+window.addEventListener('beforeunload', function() {
+  window.scrollTo(0, 0);
+});
+</script>
+<script>
+// Hero title animation using anime.js with stagger grid
+let animationInitialized = false;
+
+function initHeroAnimation() {
+  // Prevent multiple initializations
+  if (animationInitialized) {
+    return;
+  }
+  
+  const chars = document.querySelectorAll('.hero-title .char');
+  
+  if (chars.length > 0) {
+    animationInitialized = true;
+    
+    // Create a grid layout for the text
+    const grid = [19, 1]; // 19 characters total, 1 row
+    
+    anime({
+      targets: '.hero-title .char',
+      opacity: [0, 1],
+      translateY: [50, 0],
+      duration: 800,
+      easing: 'easeOutCubic',
+      delay: anime.stagger(100, {
+        grid: grid,
+        from: 'center' // Start from center and spread out
+      }),
+      begin: function() {
+        console.log('Hero title animation started');
+      },
+      complete: function() {
+        console.log('Hero title animation completed');
+      }
+    });
+  }
+}
+
+// Initialize animation only once when page loads
+window.addEventListener('load', function() {
+  // Single initialization with a delay to ensure everything is loaded
+  setTimeout(initHeroAnimation, 500);
+});
 </script>
 <script src="media/scripts.js"></script>
 <!-- Instagram Embed Script -->
