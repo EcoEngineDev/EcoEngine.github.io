@@ -286,7 +286,7 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: -100px;
+  margin-top: 0;
   position: relative;
   z-index: 1;
 }
@@ -895,7 +895,7 @@ html {
   }
   
   .mission-section {
-    margin-top: 0; /* Remove any gap */
+    margin-top: -1000vh; /* Remove any gap on mobile */
     position: relative;
     z-index: 1;
   }
