@@ -884,18 +884,18 @@ html {
   
   /* Make next section snap to bottom of front.png on mobile */
   .layered-images {
-    height: 60vh; /* Reduced height on mobile */
-    min-height: 400px; /* Reduced minimum height */
+    height: 60vh; /* Keep normal height */
+    min-height: 400px; /* Keep normal minimum height */
     position: relative;
   }
   
   .front-image {
-    height: 60vh !important; /* Match the layered-images height */
+    height: 60vh !important; /* Keep normal height */
     object-fit: cover;
   }
   
   .mission-section {
-    margin-top: 0; /* Reset to normal */
+    margin-top: -274px; /* Much more aggressive to eliminate gap */
     position: relative;
     z-index: 1;
   }
