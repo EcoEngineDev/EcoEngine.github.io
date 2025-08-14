@@ -798,6 +798,15 @@ html {
     width: 180px;
     height: 345px;
   }
+  
+  /* Show only first Instagram post on mobile */
+  .instagram-grid .embed-wrapper:not(:first-child) {
+    display: none;
+  }
+  
+  .instagram-grid {
+    justify-content: center !important;
+  }
 
   .instagram-carousel {
     animation: scrollLeft 80s linear infinite;
@@ -848,11 +857,23 @@ html {
   
   /* Ensure dropdown items are properly styled on mobile */
   #dropdown-bits {
-    max-height: 400px; /* Increase max height to accommodate more items */
+    max-height: 500px; /* Increase max height to accommodate more items */
+    width: 200px; /* Ensure dropdown is wide enough for text */
+    right: 10px; /* Adjust position to prevent cutoff */
   }
   
   .mobile-nav-text {
     font-size: 24px; /* Slightly smaller for mobile */
+  }
+  
+  /* Make next section snap to bottom of front.png on mobile */
+  .layered-images {
+    height: 100vh; /* Full viewport height on mobile */
+    min-height: 600px; /* Minimum height */
+  }
+  
+  .mission-section {
+    margin-top: 0; /* Remove any gap */
   }
 }
 
