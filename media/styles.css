@@ -895,7 +895,7 @@ html {
   }
   
   .mission-section {
-    margin-top: -274px; /* Much more aggressive to eliminate gap */
+    margin-top: -200px; /* Much more aggressive to eliminate gap */
     position: relative;
     z-index: 1;
   }
