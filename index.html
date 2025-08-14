@@ -86,8 +86,8 @@
 <nav class="drop-down">
   <div class="logo logo-container">
     <div class="logo logo-stack">
-      <img src="/media/animlogo3.png" class="logo spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
-      <img src="/media/animlogo4.png" class="logo static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
+      <img src="/media/animlogo3.png?v=1.0.1" class="logo spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
+      <img src="/media/animlogo4.png?v=1.0.1" class="logo static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
       <div id="logo-fallback" class="logo" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
     </div>
     <div class="logo-text">
@@ -105,16 +105,16 @@
   </div>
   <div class="social-media-buttons">
     <a href="https://discord.gg/QeNfh6RmCv" class="social-btn" title="Discord" target="_blank">
-      <img src="media/discord-logo.png" alt="Discord" />
+      <img src="media/discord-logo.png?v=1.0.1" alt="Discord" />
     </a>
     <a href="https://github.com/EcoEngineDev" class="social-btn" title="GitHub" target="_blank">
-      <img src="media/github-logo.png" alt="GitHub" />
+      <img src="media/github-logo.png?v=1.0.1" alt="GitHub" />
     </a>
     <a href="https://www.instagram.com/mallard.motorsports/" class="social-btn" title="Instagram" target="_blank">
-      <img src="media/instagram-new--v2.png" alt="Instagram" />
+      <img src="media/instagram-new--v2.png?v=1.0.1" alt="Instagram" />
     </a>
   </div>
-  <img src="media/menu.svg" id="navbar-dropdown"></img>
+  <img src="media/menu.svg?v=1.0.1" id="navbar-dropdown"></img>
   <div id="dropdown-bits">
       <div class="dropdown-item"><a class="mobile-nav-text" href="/index.html" data-spa>Home</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/team.html" data-spa>Team</a></div>
@@ -128,7 +128,7 @@
     </div>
 </nav>
 <!-- Full-screen backdrop image -->
-<img src="media/backdrop.jpg" alt="Backdrop" class="backdrop-image" />
+<img src="media/backdrop.jpg?v=1.0.1" alt="Backdrop" class="backdrop-image" />
 <div id="spa-root">
   <div class="spa-content">
     <div class="section">
@@ -155,7 +155,7 @@
             <span class="char">S</span>
           </div>
 
-          <img src="media/front.png" alt="Front" class="front-image" />
+          <img src="media/front.png?v=1.0.1" alt="Front" class="front-image" />
         </div>
     </div>
 
@@ -300,6 +300,10 @@
                 if (typeof initHeroAnimation === 'function') {
                   initHeroAnimation();
                 }
+                // Force reload images for iOS when returning to home page
+                if (typeof reloadImagesForIOS === 'function') {
+                  reloadImagesForIOS();
+                }
               }, 100);
             }
           }
@@ -440,10 +444,30 @@ function refreshCSS() {
   });
 }
 
+// Force image reloading for iOS devices
+function reloadImagesForIOS() {
+  // Check if it's iOS
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  
+  if (isIOS) {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.includes('data:') && !src.includes('blob:')) {
+        // Add timestamp to force reload
+        const separator = src.includes('?') ? '&' : '?';
+        img.setAttribute('src', src + separator + 't=' + Date.now());
+      }
+    });
+  }
+}
+
 // Refresh CSS on page load to ensure latest version
 window.addEventListener('load', function() {
   // Small delay to ensure everything is loaded
   setTimeout(refreshCSS, 100);
+  setTimeout(reloadImagesForIOS, 200);
 });
 </script>
 <!-- Instagram Embed Script -->
