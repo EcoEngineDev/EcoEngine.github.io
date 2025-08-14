@@ -807,6 +807,19 @@ html {
   .instagram-grid {
     justify-content: center !important;
   }
+  
+  /* Ensure proper section spacing on mobile */
+  .section:first-child {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Remove any padding that might create gaps */
+  .section:first-child .layered-images {
+    padding: 0;
+    margin: 0;
+  }
 
   .instagram-carousel {
     animation: scrollLeft 80s linear infinite;
@@ -870,10 +883,25 @@ html {
   .layered-images {
     height: 100vh; /* Full viewport height on mobile */
     min-height: 600px; /* Minimum height */
+    position: relative;
+  }
+  
+  .front-image {
+    height: 100vh !important; /* Make front image full height */
+    object-fit: cover;
   }
   
   .mission-section {
     margin-top: 0; /* Remove any gap */
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Make backdrop more zoomed out on mobile */
+  .backdrop-image {
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.2); /* Zoom out the backdrop */
   }
 }
 
@@ -1039,5 +1067,11 @@ body, html {
       font-size: 0.9rem !important;
       -webkit-text-size-adjust: 100%;
     }
+  }
+  
+  /* iOS backdrop scaling */
+  .backdrop-image {
+    transform: scale(1.2) !important;
+    object-fit: cover !important;
   }
 }
