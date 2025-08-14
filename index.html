@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Mallard Motorsports</title>
   <link rel="icon" type="image/png" href="media/animlogo4.png"/>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -12,7 +15,7 @@
   <link rel="preload" as="image" href="media/animlogo4.png?v=2">
   
   <!-- External CSS -->
-  <link rel="stylesheet" href="media/styles.css">
+  <link rel="stylesheet" href="media/styles.css?v=1.0.1">
   <style>
     @font-face {
       font-family: 'Lexend';
@@ -424,6 +427,25 @@ window.initHeroAnimation = function() {
   });
 </script>
 <script src="media/scripts.js"></script>
+<script>
+// Force CSS cache refresh
+function refreshCSS() {
+  const links = document.querySelectorAll('link[rel="stylesheet"]');
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.includes('styles.css')) {
+      const separator = href.includes('?') ? '&' : '?';
+      link.setAttribute('href', href + separator + 'v=' + Date.now());
+    }
+  });
+}
+
+// Refresh CSS on page load to ensure latest version
+window.addEventListener('load', function() {
+  // Small delay to ensure everything is loaded
+  setTimeout(refreshCSS, 100);
+});
+</script>
 <!-- Instagram Embed Script -->
 <script async src="https://www.instagram.com/embed.js"></script>
 </body>
