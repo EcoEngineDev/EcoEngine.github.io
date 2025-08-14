@@ -895,9 +895,16 @@ html {
   }
   
   .mission-section {
-    margin-top: -200px; /* Much more aggressive to eliminate gap */
+    margin-top: -250px; /* Fine-tuned to align with bottom of image */
     position: relative;
     z-index: 1;
+  }
+  
+  /* iOS-specific adjustments for perfect alignment */
+  @supports (-webkit-touch-callout: none) {
+    .mission-section {
+      margin-top: -280px; /* iOS-specific fine-tuning */
+    }
   }
   
   /* Make backdrop more zoomed out on mobile */
