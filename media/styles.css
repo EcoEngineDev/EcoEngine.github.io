@@ -286,6 +286,9 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: -100px;
+  position: relative;
+  z-index: 1;
 }
 
 .mission-text {
@@ -974,6 +977,7 @@ html {
   padding: 0;
   animation: none !important;
   overflow: visible;
+  margin-bottom: 0;
 }
 
 .hero-title {
@@ -1017,6 +1021,7 @@ html {
 .section:first-child {
   padding: 0;
   margin: 0;
+  margin-bottom: 0;
   background-color: transparent !important;
   scroll-margin-top: 0;
 }
