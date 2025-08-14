@@ -919,7 +919,7 @@ html {
   /* iOS-specific adjustments for perfect alignment */
   @supports (-webkit-touch-callout: none) {
     .mission-section {
-      margin-top: -214px; /* iOS-specific fine-tuning */
+      margin-top: -213px; /* iOS-specific fine-tuning I AM ACTUALLY SO PISSED AT HOW SAFARI LOADS THINGS BRUH */
     }
   }
   
