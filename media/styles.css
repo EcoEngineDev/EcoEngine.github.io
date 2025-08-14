@@ -841,6 +841,7 @@ html {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     padding: 0 10px;
+    margin-bottom: 30px;
   }
 
   .sponsor-item {
@@ -855,6 +856,21 @@ html {
     grid-column: 1 / -1;
     max-width: 140px;
     justify-self: center;
+  }
+  
+  /* Fix mobile positioning for FRCtees and USA Homes Group logos */
+  .sponsor-item:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+    transform: none; /* Remove transform on mobile */
+    max-width: 140px;
+  }
+
+  .sponsor-item:nth-child(5) {
+    grid-column: 2;
+    grid-row: 2;
+    transform: none; /* Remove transform on mobile */
+    max-width: 140px;
   }
   
   /* Mobile adjustments for hero title animation - make it much smaller */
@@ -903,7 +919,7 @@ html {
   /* iOS-specific adjustments for perfect alignment */
   @supports (-webkit-touch-callout: none) {
     .mission-section {
-      margin-top: -210px; /* iOS-specific fine-tuning */
+      margin-top: -211px; /* iOS-specific fine-tuning */
     }
   }
   
