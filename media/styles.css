@@ -569,6 +569,7 @@ html {
     align-items: center;
     display: flex;
     justify-content: center;
+    background: var(--color-dark); /* Remove gradient, use solid color */
   }
 
   nav .logo-container {
@@ -831,9 +832,9 @@ html {
     justify-self: center;
   }
   
-  /* Mobile adjustments for hero title animation */
+  /* Mobile adjustments for hero title animation - make it half the size */
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Reduced from 3rem to 2.5rem (half of desktop 5rem) */
   }
   
   .hero-title .char {
@@ -890,6 +891,7 @@ html {
   margin: 0;
   padding: 0;
   animation: none !important;
+  overflow: visible;
 }
 
 .hero-title {
@@ -926,6 +928,8 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+
+
 
 /* Override section padding for the first section with layered images */
 .section:first-child {

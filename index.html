@@ -119,6 +119,9 @@
       <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/resources.html" data-spa>Resources</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="mailto:info@ecoengine.net">Contact</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="https://github.com/EcoEngineDev" target="_blank">Github</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="https://www.instagram.com/mallard.motorsports/" target="_blank">Instagram</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="https://discord.gg/QeNfh6RmCv" target="_blank">Discord</a></div>
     </div>
 </nav>
 <!-- Full-screen backdrop image -->
@@ -126,30 +129,31 @@
 <div id="spa-root">
   <div class="spa-content">
     <div class="section">
-      <div class="layered-images">
-        <div class="hero-title">
-          <span class="char">M</span>
-          <span class="char">A</span>
-          <span class="char">L</span>
-          <span class="char">L</span>
-          <span class="char">A</span>
-          <span class="char">R</span>
-          <span class="char">D</span>
-          <span class="char">&nbsp;</span>
-          <span class="char">M</span>
-          <span class="char">O</span>
-          <span class="char">T</span>
-          <span class="char">O</span>
-          <span class="char">R</span>
-          <span class="char">S</span>
-          <span class="char">P</span>
-          <span class="char">O</span>
-          <span class="char">R</span>
-          <span class="char">T</span>
-          <span class="char">S</span>
+              <div class="layered-images">
+          <div class="hero-title">
+            <span class="char">M</span>
+            <span class="char">A</span>
+            <span class="char">L</span>
+            <span class="char">L</span>
+            <span class="char">A</span>
+            <span class="char">R</span>
+            <span class="char">D</span>
+            <span class="char">&nbsp;</span>
+            <span class="char">M</span>
+            <span class="char">O</span>
+            <span class="char">T</span>
+            <span class="char">O</span>
+            <span class="char">R</span>
+            <span class="char">S</span>
+            <span class="char">P</span>
+            <span class="char">O</span>
+            <span class="char">R</span>
+            <span class="char">T</span>
+            <span class="char">S</span>
+          </div>
+
+          <img src="media/front.png" alt="Front" class="front-image" />
         </div>
-        <img src="media/front.png" alt="Front" class="front-image" />
-      </div>
     </div>
 
     <div class="mission-section">
@@ -284,6 +288,17 @@
             if (push) history.pushState({spa: true, url}, '', url);
             // Re-initialize Instagram embeds if present
             if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
+            
+            // Check if we're back on the home page and trigger animation
+            if (url === '/index.html' || url === '/' || url === window.location.origin + '/') {
+              // Reset animation flag and trigger animation
+              window.animationInitialized = false;
+              setTimeout(() => {
+                if (typeof initHeroAnimation === 'function') {
+                  initHeroAnimation();
+                }
+              }, 100);
+            }
           }
         });
     }, 350);
@@ -304,7 +319,37 @@
 })();
 </script>
 <!-- External JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+  // Audio playback for navbar clicks
+  function playQuackSound() {
+    const audio = new Audio('media/Audio/quack.mp3');
+    audio.volume = 0.5; // Set volume to 50%
+    
+    audio.play().catch(function(error) {
+      console.log('Audio playback failed:', error);
+    });
+  }
+  
+  // Add click event listeners to all navbar links
+  document.addEventListener('DOMContentLoaded', function() {
+    const navbarLinks = document.querySelectorAll('nav a, .dropdown-item a');
+    
+    navbarLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        playQuackSound();
+      });
+    });
+  });
+  
+  // Also handle dynamically loaded content (for SPA navigation)
+  document.addEventListener('click', function(e) {
+    const clickedLink = e.target.closest('a[data-spa]');
+    if (clickedLink) {
+      playQuackSound();
+    }
+  });
+  </script>
 <script>
 // Ensure page loads at the top - enhanced version
 window.addEventListener('load', function() {
@@ -334,18 +379,18 @@ window.addEventListener('beforeunload', function() {
 </script>
 <script>
 // Hero title animation using anime.js with stagger grid
-let animationInitialized = false;
+window.animationInitialized = false;
 
-function initHeroAnimation() {
+window.initHeroAnimation = function() {
   // Prevent multiple initializations
-  if (animationInitialized) {
+  if (window.animationInitialized) {
     return;
   }
   
   const chars = document.querySelectorAll('.hero-title .char');
   
   if (chars.length > 0) {
-    animationInitialized = true;
+    window.animationInitialized = true;
     
     // Create a grid layout for the text
     const grid = [19, 1]; // 19 characters total, 1 row
@@ -370,11 +415,13 @@ function initHeroAnimation() {
   }
 }
 
-// Initialize animation only once when page loads
-window.addEventListener('load', function() {
-  // Single initialization with a delay to ensure everything is loaded
-  setTimeout(initHeroAnimation, 500);
-});
+  // Initialize animation only once when page loads
+  window.addEventListener('load', function() {
+    // Single initialization with a delay to ensure everything is loaded
+    setTimeout(window.initHeroAnimation, 500);
+    
+
+  });
 </script>
 <script src="media/scripts.js"></script>
 <!-- Instagram Embed Script -->
