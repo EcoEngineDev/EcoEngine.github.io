@@ -520,6 +520,798 @@ html {
   max-width: 400px;
 }
 
+/* Prevent logo clipping on smaller screens */
+@media (max-width: 1200px) {
+  .sponsor-item:nth-child(4) {
+    transform: translateX(100px) scale(1.2);
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: translateX(-80px) scale(1.2);
+  }
+}
+
+@media (max-width: 1000px) {
+  .sponsor-item:nth-child(4) {
+    transform: translateX(50px) scale(1.1);
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: translateX(-40px) scale(1.1);
+  }
+}
+
+@media (max-width: 900px) {
+  .sponsor-item:nth-child(4) {
+    transform: translateX(20px) scale(1.0);
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: translateX(-20px) scale(1.0);
+  }
+}
+
+@media (max-width: 800px) {
+  .sponsor-item:nth-child(4) {
+    transform: translateX(10px) scale(0.9);
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: translateX(-10px) scale(0.9);
+  }
+}
+
+@media (max-width: 700px) {
+  .sponsor-item:nth-child(4) {
+    transform: translateX(5px) scale(0.8);
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: translateX(-5px) scale(0.8);
+  }
+}
+
+@media (max-width: 650px) {
+  .sponsor-item:nth-child(4) {
+    transform: translateX(2px) scale(0.7);
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: translateX(-2px) scale(0.7);
+  }
+}
+
+/* Super aggressive anti-overlap system */
+@media (max-width: 600px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+    transform: scale(0.4);
+    justify-self: end;
+    margin-right: 20px;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    grid-column: 2;
+    grid-row: 2;
+    transform: scale(0.4);
+    justify-self: start;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    transform: scale(0.3);
+    margin-right: 30px;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: scale(0.3);
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    transform: scale(0.2);
+    margin-right: 40px;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: scale(0.2);
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 350px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    transform: scale(0.15);
+    margin-right: 50px;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: scale(0.15);
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 300px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 150px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    transform: scale(0.1);
+    margin-right: 60px;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    transform: scale(0.1);
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 250px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+    transform: scale(0.08);
+    justify-self: center;
+    margin: 0;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    grid-column: 1;
+    grid-row: 4;
+    transform: scale(0.08);
+    justify-self: center;
+    margin: 0;
+  }
+}
+
+/* Ensure duck logo stays on the right on smaller screens */
+@media (max-width: 1200px) {
+  .mission-section {
+    flex-wrap: nowrap;
+  }
+  
+  .mission-text {
+    flex: 1 1 60%;
+    min-width: 0;
+  }
+  
+  .mission-logo {
+    flex: 0 0 40%;
+    min-width: 400px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .mission-text {
+    flex: 1 1 62%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 38%;
+    min-width: 380px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 380px;
+    height: 380px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 380px !important;
+    height: 380px !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .mission-text {
+    flex: 1 1 65%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 35%;
+    min-width: 350px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 350px !important;
+    height: 350px !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .mission-text {
+    flex: 1 1 65%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 35%;
+    min-width: 350px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 350px !important;
+    height: 350px !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  .mission-text {
+    flex: 1 1 68%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 32%;
+    min-width: 320px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 320px !important;
+    height: 320px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .mission-text {
+    flex: 1 1 70%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 30%;
+    min-width: 300px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .mission-text {
+    flex: 1 1 72%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 28%;
+    min-width: 280px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 280px !important;
+    height: 280px !important;
+  }
+}
+
+@media (max-width: 925px) {
+  .mission-text {
+    flex: 1 1 74%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 26%;
+    min-width: 260px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 260px !important;
+    height: 260px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .mission-text {
+    flex: 1 1 75%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 25%;
+    min-width: 250px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 875px) {
+  .mission-text {
+    flex: 1 1 76%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 24%;
+    min-width: 240px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 240px !important;
+    height: 240px !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .mission-text {
+    flex: 1 1 78%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 22%;
+    min-width: 220px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 220px !important;
+    height: 220px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .mission-text {
+    flex: 1 1 80%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 20%;
+    min-width: 200px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .mission-text {
+    flex: 1 1 82%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 18%;
+    min-width: 180px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .mission-text {
+    flex: 1 1 84%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 16%;
+    min-width: 160px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 160px !important;
+    height: 160px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .mission-text {
+    flex: 1 1 86%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 14%;
+    min-width: 140px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 140px !important;
+    height: 140px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .mission-text {
+    flex: 1 1 88%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 12%;
+    min-width: 120px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .mission-text {
+    flex: 1 1 90%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 10%;
+    min-width: 100px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .mission-text {
+    flex: 1 1 92%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 8%;
+    min-width: 80px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .mission-text {
+    flex: 1 1 94%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 6%;
+    min-width: 60px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .mission-text {
+    flex: 1 1 96%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 4%;
+    min-width: 40px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 350px) {
+  .mission-text {
+    flex: 1 1 98%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 2%;
+    min-width: 20px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+@media (max-width: 325px) {
+  .mission-text {
+    flex: 1 1 99%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 1%;
+    min-width: 15px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
+
+@media (max-width: 300px) {
+  .mission-text {
+    flex: 1 1 99.5%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0.5%;
+    min-width: 10px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
+@media (max-width: 275px) {
+  .mission-text {
+    flex: 1 1 99.7%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0.3%;
+    min-width: 8px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
+@media (max-width: 250px) {
+  .mission-text {
+    flex: 1 1 99.8%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0.2%;
+    min-width: 6px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 6px !important;
+    height: 6px !important;
+  }
+}
+
+@media (max-width: 225px) {
+  .mission-text {
+    flex: 1 1 99.9%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0.1%;
+    min-width: 4px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 4px !important;
+    height: 4px !important;
+  }
+}
+
+@media (max-width: 200px) {
+  .mission-text {
+    flex: 1 1 99.95%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0.05%;
+    min-width: 2px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 2px;
+    height: 2px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 2px !important;
+    height: 2px !important;
+  }
+}
+
+@media (max-width: 175px) {
+  .mission-text {
+    flex: 1 1 99.98%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0.02%;
+    min-width: 1px;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 1px;
+    height: 1px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 1px !important;
+    height: 1px !important;
+  }
+}
+
+@media (max-width: 150px) {
+  .mission-text {
+    flex: 1 1 100%;
+  }
+  
+  .mission-logo {
+    flex: 0 0 0%;
+    min-width: 0px;
+    display: none;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 0px;
+    height: 0px;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 0px !important;
+    height: 0px !important;
+  }
+}
+
 #navbar-dropdown {
   display: none;
   position: absolute;
@@ -802,13 +1594,81 @@ html {
     height: 345px;
   }
   
-  /* Show only first Instagram post on mobile */
-  .instagram-grid .embed-wrapper:not(:first-child) {
-    display: none;
+  /* Super aggressive Instagram grid - keep all in one row */
+  .instagram-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    padding: 0 10px !important;
   }
   
-  .instagram-grid {
-    justify-content: center !important;
+  .instagram-grid .embed-wrapper {
+    flex: 0 0 auto !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+  }
+  
+  /* Ensure all embeds stay visible */
+  .instagram-grid .embed-wrapper:not(:first-child) {
+    display: block !important;
+  }
+  
+  /* Even more aggressive for smaller screens */
+  @media (max-width: 600px) {
+    .instagram-grid {
+      gap: 5px !important;
+      padding: 0 5px !important;
+    }
+    
+    .instagram-grid .embed-wrapper {
+      min-width: 250px !important;
+      max-width: 250px !important;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .instagram-grid {
+      gap: 3px !important;
+      padding: 0 3px !important;
+    }
+    
+    .instagram-grid .embed-wrapper {
+      min-width: 220px !important;
+      max-width: 220px !important;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .instagram-grid {
+      gap: 2px !important;
+      padding: 0 2px !important;
+    }
+    
+    .instagram-grid .embed-wrapper {
+      min-width: 200px !important;
+      max-width: 200px !important;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .instagram-grid {
+      gap: 1px !important;
+      padding: 0 1px !important;
+    }
+    
+    .instagram-grid .embed-wrapper {
+      min-width: 180px !important;
+      max-width: 180px !important;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .instagram-grid .embed-wrapper {
+      min-width: 160px !important;
+      max-width: 160px !important;
+    }
   }
   
   /* Ensure proper section spacing on mobile */
