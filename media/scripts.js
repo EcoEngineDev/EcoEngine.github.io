@@ -71,3 +71,61 @@ window.addEventListener('resize', preventLogoOverlap);
 
 // Also run periodically to catch any dynamic changes
 setInterval(preventLogoOverlap, 1000);
+
+// Force mobile layout on iOS Safari
+function forceMobileLayout() {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && /Safari/.test(navigator.userAgent)) {
+        const sponsorGrid = document.querySelector('.sponsor-grid');
+        if (sponsorGrid && window.innerWidth <= 768) {
+            // Force 2x3 grid layout
+            sponsorGrid.style.setProperty('grid-template-columns', 'repeat(2, 1fr)', 'important');
+            sponsorGrid.style.setProperty('grid-template-rows', 'auto auto auto', 'important');
+            sponsorGrid.style.setProperty('gap', '15px', 'important');
+            sponsorGrid.style.setProperty('padding', '0 10px', 'important');
+            
+            // Force all sponsor items to center
+            const sponsorItems = document.querySelectorAll('.sponsor-item');
+            sponsorItems.forEach((item, index) => {
+                item.style.setProperty('transform', 'none', 'important');
+                item.style.setProperty('max-width', '140px', 'important');
+                item.style.setProperty('justify-self', 'center', 'important');
+                
+                // Set grid positions
+                const row = Math.floor(index / 2) + 1;
+                const col = (index % 2) + 1;
+                item.style.setProperty('grid-column', col.toString(), 'important');
+                item.style.setProperty('grid-row', row.toString(), 'important');
+            });
+            
+            // Force mission text centering
+            const missionText = document.querySelector('.mission-text');
+            if (missionText) {
+                const h2 = missionText.querySelector('h2');
+                const p = missionText.querySelector('p');
+                if (h2) h2.style.setProperty('text-align', 'center', 'important');
+                if (p) p.style.setProperty('text-align', 'center', 'important');
+            }
+            
+            // Force button and donor text centering
+            const sponsorPlaceholder = document.querySelector('.sponsor-placeholder');
+            if (sponsorPlaceholder) {
+                sponsorPlaceholder.style.setProperty('text-align', 'center', 'important');
+                const button = sponsorPlaceholder.querySelector('button');
+                if (button) {
+                    button.style.setProperty('margin', '0 auto', 'important');
+                    button.style.setProperty('display', 'block', 'important');
+                }
+            }
+            
+            const donorText = document.querySelector('.donor-text');
+            if (donorText) {
+                donorText.style.setProperty('text-align', 'center', 'important');
+                donorText.style.setProperty('margin', '0 auto', 'important');
+            }
+        }
+    }
+}
+
+// Run on load and resize
+window.addEventListener('load', forceMobileLayout);
+window.addEventListener('resize', forceMobileLayout);

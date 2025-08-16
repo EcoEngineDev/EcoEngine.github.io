@@ -2356,4 +2356,33 @@ body, html {
     transform: scale(1.2) !important;
     object-fit: cover !important;
   }
+  
+  /* Additional iOS Safari force rules */
+  @media (max-width: 768px) and (orientation: portrait) {
+    .sponsor-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-template-rows: auto auto auto !important;
+      gap: 15px !important;
+      padding: 0 10px !important;
+      margin-bottom: 30px !important;
+    }
+    
+    .sponsor-item {
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .mission-text h2,
+    .mission-text p,
+    .sponsor-placeholder,
+    .donor-text {
+      text-align: center !important;
+    }
+    
+    .sponsor-placeholder button {
+      margin: 0 auto !important;
+      display: block !important;
+    }
+  }
 }
