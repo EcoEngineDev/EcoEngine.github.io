@@ -2696,3 +2696,30 @@ body, html {
     height: 200px !important;
   }
 }
+
+/* Desktop-specific sponsor logo sizing - 2x larger for PC */
+@media (min-width: 769px) {
+  .sponsor-item {
+    max-width: 500px !important; /* Increased from 250px */
+  }
+  
+  .sponsor-item:nth-child(2) {
+    max-width: 800px !important; /* Increased from 400px */
+  }
+  
+  .sponsor-logo {
+    max-width: 300px !important; /* Increased from 150px - 2x larger */
+  }
+  
+  img[alt="Delsan Logo"].sponsor-logo {
+    max-width: 400px !important; /* Increased from 200px - 2x larger */
+  }
+  
+  .sponsor-placeholder img {
+    max-width: 360px !important; /* Increased from 180px - 2x larger */
+  }
+  
+  a[href="https://polymaker.com/"] img {
+    max-width: 280px !important; /* Increased from 140px - 2x larger */
+  }
+}
