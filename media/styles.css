@@ -2009,6 +2009,89 @@ html {
     .mission-section {
       margin-top: -213px; /* iOS-specific fine-tuning I AM ACTUALLY SO PISSED AT HOW SAFARI LOADS THINGS BRUH */
     }
+    
+    /* Force mobile styles on iOS Safari */
+    .sponsor-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-template-rows: auto auto auto !important;
+      gap: 15px !important;
+      padding: 0 10px !important;
+      margin-bottom: 30px !important;
+    }
+    
+    .sponsor-item:nth-child(1) {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(2) {
+      grid-column: 2 !important;
+      grid-row: 1 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(3) {
+      grid-column: 1 !important;
+      grid-row: 2 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(4) {
+      grid-column: 2 !important;
+      grid-row: 2 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(5) {
+      grid-column: 1 !important;
+      grid-row: 3 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(6) {
+      grid-column: 2 !important;
+      grid-row: 3 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .mission-text h2 {
+      text-align: center !important;
+    }
+    
+    .mission-text p {
+      text-align: center !important;
+    }
+    
+    .sponsor-placeholder {
+      text-align: center !important;
+    }
+    
+    .sponsor-placeholder button {
+      margin: 0 auto !important;
+      display: block !important;
+    }
+    
+    .donor-text {
+      text-align: center !important;
+      margin: 0 auto !important;
+    }
+    
+    .mission-logo .logo-stack img {
+      display: none !important;
+    }
   }
   
   /* Make backdrop more zoomed out on mobile */
@@ -2161,6 +2244,89 @@ body, html {
     .hero-title {
       font-size: 1.5rem !important; /* Much smaller for mobile */
       -webkit-text-size-adjust: 100%;
+    }
+    
+    /* Force iOS Safari mobile layout */
+    .sponsor-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-template-rows: auto auto auto !important;
+      gap: 15px !important;
+      padding: 0 10px !important;
+      margin-bottom: 30px !important;
+    }
+    
+    .sponsor-item:nth-child(1) {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(2) {
+      grid-column: 2 !important;
+      grid-row: 1 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(3) {
+      grid-column: 1 !important;
+      grid-row: 2 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(4) {
+      grid-column: 2 !important;
+      grid-row: 2 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(5) {
+      grid-column: 1 !important;
+      grid-row: 3 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .sponsor-item:nth-child(6) {
+      grid-column: 2 !important;
+      grid-row: 3 !important;
+      transform: none !important;
+      max-width: 140px !important;
+      justify-self: center !important;
+    }
+    
+    .mission-text h2 {
+      text-align: center !important;
+    }
+    
+    .mission-text p {
+      text-align: center !important;
+    }
+    
+    .sponsor-placeholder {
+      text-align: center !important;
+    }
+    
+    .sponsor-placeholder button {
+      margin: 0 auto !important;
+      display: block !important;
+    }
+    
+    .donor-text {
+      text-align: center !important;
+      margin: 0 auto !important;
+    }
+    
+    .mission-logo .logo-stack img {
+      display: none !important;
     }
   }
   
