@@ -1868,6 +1868,7 @@ html {
     grid-row: 1;
     transform: none;
     max-width: 140px;
+    justify-self: center;
   }
   
   .sponsor-item:nth-child(2) {
@@ -1875,6 +1876,7 @@ html {
     grid-row: 1;
     transform: none;
     max-width: 140px;
+    justify-self: center;
   }
   
   .sponsor-item:nth-child(3) {
@@ -1882,6 +1884,7 @@ html {
     grid-row: 2;
     transform: none;
     max-width: 140px;
+    justify-self: center;
   }
   
   .sponsor-item:nth-child(4) {
@@ -1889,6 +1892,7 @@ html {
     grid-row: 2;
     transform: none;
     max-width: 140px;
+    justify-self: center;
   }
   
   .sponsor-item:nth-child(5) {
@@ -1896,6 +1900,7 @@ html {
     grid-row: 3;
     transform: none;
     max-width: 140px;
+    justify-self: center;
   }
   
   .sponsor-item:nth-child(6) {
@@ -1903,6 +1908,7 @@ html {
     grid-row: 3;
     transform: none;
     max-width: 140px;
+    justify-self: center;
   }
   
   /* Mobile placeholder styling */
@@ -1913,6 +1919,30 @@ html {
   
   .placeholder-text {
     font-size: 0.9rem;
+  }
+  
+  /* Center mission text on mobile */
+  .mission-text h2 {
+    text-align: center !important;
+  }
+  
+  .mission-text p {
+    text-align: center !important;
+  }
+  
+  /* Center button and donor text on mobile */
+  .sponsor-placeholder {
+    text-align: center !important;
+  }
+  
+  .sponsor-placeholder button {
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  
+  .donor-text {
+    text-align: center !important;
+    margin: 0 auto !important;
   }
 
   .sponsor-item {
