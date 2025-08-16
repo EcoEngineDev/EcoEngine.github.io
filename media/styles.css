@@ -1509,6 +1509,216 @@ html {
 
 /* Mobile Styles - covers all mobile devices and developer mode */
 @media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
+  /* AGGRESSIVE MOBILE OVERRIDE - Force everything to mobile layout */
+  .sponsor-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 15px !important;
+    padding: 0 10px !important;
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .sponsor-item {
+    max-width: 140px !important;
+    width: 100% !important;
+    transform: none !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+  
+  .sponsor-item:nth-child(1) {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+  
+  .sponsor-item:nth-child(2) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+  
+  .sponsor-item:nth-child(3) {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+  
+  .sponsor-item:nth-child(6) {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+  }
+  
+  /* Force mission text centering */
+  .mission-text {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .mission-text h2 {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .mission-text p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  /* Force button and donor text centering */
+  .sponsor-placeholder {
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .sponsor-placeholder button {
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  
+  .donor-text {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  /* Force placeholder styling */
+  .placeholder-logo {
+    min-height: 80px !important;
+    border-width: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .placeholder-text {
+    font-size: 0.9rem !important;
+    text-align: center !important;
+  }
+  
+  /* Additional nuclear overrides for stubborn elements */
+  body .mission-section .mission-text h2 {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  body .mission-section .mission-text p {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  body .sponsor-placeholder {
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  body .sponsor-placeholder button {
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    width: auto !important;
+  }
+  
+  body .donor-text {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  /* Force grid layout with maximum specificity */
+  body .sponsor-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 15px !important;
+    padding: 0 10px !important;
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  body .sponsor-item {
+    max-width: 140px !important;
+    width: 100% !important;
+    transform: none !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+  
+  /* Ultra-specific mobile overrides */
+  html body .mission-section .mission-text h2 {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  html body .mission-section .mission-text p {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  html body .sponsor-placeholder {
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  html body .sponsor-placeholder button {
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    width: auto !important;
+  }
+  
+  html body .donor-text {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  html body .sponsor-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 15px !important;
+    padding: 0 10px !important;
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  html body .sponsor-item {
+    max-width: 140px !important;
+    width: 100% !important;
+    transform: none !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+  
   nav {
     flex-direction: row;
     padding: 2px 2px;
@@ -1854,95 +2064,105 @@ html {
     }
   }
 
+  /* NUCLEAR MOBILE OVERRIDE - Maximum specificity */
   .sponsor-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto auto;
-    gap: 15px;
-    padding: 0 10px;
-    margin-bottom: 30px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 15px !important;
+    padding: 0 10px !important;
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
-  /* Mobile 2x3 grid layout */
+  .sponsor-item {
+    max-width: 140px !important;
+    width: 100% !important;
+    transform: none !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+  
   .sponsor-item:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-    transform: none;
-    max-width: 140px;
-    justify-self: center;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
   }
   
   .sponsor-item:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
-    transform: none;
-    max-width: 140px;
-    justify-self: center;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
   }
   
   .sponsor-item:nth-child(3) {
-    grid-column: 1;
-    grid-row: 2;
-    transform: none;
-    max-width: 140px;
-    justify-self: center;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
   }
   
   .sponsor-item:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
-    transform: none;
-    max-width: 140px;
-    justify-self: center;
+    grid-column: 2 !important;
+    grid-row: 2 !important;
   }
   
   .sponsor-item:nth-child(5) {
-    grid-column: 1;
-    grid-row: 3;
-    transform: none;
-    max-width: 140px;
-    justify-self: center;
+    grid-column: 1 !important;
+    grid-row: 3 !important;
   }
   
   .sponsor-item:nth-child(6) {
-    grid-column: 2;
-    grid-row: 3;
-    transform: none;
-    max-width: 140px;
-    justify-self: center;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
   }
   
-  /* Mobile placeholder styling */
-  .placeholder-logo {
-    min-height: 80px;
-    border-width: 1px;
+  /* Force mission text centering with maximum specificity */
+  .mission-text {
+    text-align: center !important;
+    width: 100% !important;
   }
   
-  .placeholder-text {
-    font-size: 0.9rem;
-  }
-  
-  /* Center mission text on mobile */
   .mission-text h2 {
     text-align: center !important;
+    width: 100% !important;
   }
   
   .mission-text p {
     text-align: center !important;
+    width: 100% !important;
   }
   
-  /* Center button and donor text on mobile */
+  /* Force button and donor text centering */
   .sponsor-placeholder {
     text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
   
   .sponsor-placeholder button {
     margin: 0 auto !important;
     display: block !important;
+    text-align: center !important;
   }
   
   .donor-text {
     text-align: center !important;
     margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  /* Force placeholder styling */
+  .placeholder-logo {
+    min-height: 80px !important;
+    border-width: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .placeholder-text {
+    font-size: 0.9rem !important;
+    text-align: center !important;
   }
 
   .sponsor-item {
