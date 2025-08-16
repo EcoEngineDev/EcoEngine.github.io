@@ -677,54 +677,28 @@ html {
 /* Super aggressive anti-overlap system */
 @media (max-width: 600px) {
   .sponsor-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 20px;
-  }
-  
-  .sponsor-item:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-    transform: scale(0.4);
-    justify-self: end;
-    margin-right: 10px;
-  }
-  
-  .sponsor-item:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
-    transform: scale(0.4);
-    justify-self: start;
-    margin-left: 10px;
-  }
-  
-  .sponsor-item:nth-child(3) {
-    grid-column: 1;
-    grid-row: 2;
-    transform: scale(0.4);
-    justify-self: end;
-    margin-right: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
   }
   
   .sponsor-item:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
-    transform: scale(0.4);
-    justify-self: start;
-    margin-left: 10px;
-  }
-  
-  .sponsor-item:nth-child(5) {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2;
     transform: scale(0.4);
     justify-self: end;
     margin-right: 10px;
   }
   
-  .sponsor-item:nth-child(6) {
+  .sponsor-item:nth-child(5) {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
+    transform: scale(0.4);
+    justify-self: center;
+  }
+  
+  .sponsor-item:nth-child(6) {
+    grid-column: 3;
+    grid-row: 2;
     transform: scale(0.4);
     justify-self: start;
     margin-left: 10px;
@@ -757,34 +731,18 @@ html {
 
 @media (max-width: 500px) {
   .sponsor-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 25px;
-  }
-  
-  .sponsor-item:nth-child(1) {
-    transform: scale(0.3);
-    margin-right: 15px;
-  }
-  
-  .sponsor-item:nth-child(2) {
-    transform: scale(0.3);
-    margin-left: 15px;
-  }
-  
-  .sponsor-item:nth-child(3) {
-    transform: scale(0.3);
-    margin-right: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
   }
   
   .sponsor-item:nth-child(4) {
     transform: scale(0.3);
-    margin-left: 15px;
+    margin-right: 15px;
   }
   
   .sponsor-item:nth-child(5) {
     transform: scale(0.3);
-    margin-right: 15px;
+    margin: 0;
   }
   
   .sponsor-item:nth-child(6) {
@@ -795,34 +753,18 @@ html {
 
 @media (max-width: 400px) {
   .sponsor-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 30px;
-  }
-  
-  .sponsor-item:nth-child(1) {
-    transform: scale(0.2);
-    margin-right: 20px;
-  }
-  
-  .sponsor-item:nth-child(2) {
-    transform: scale(0.2);
-    margin-left: 20px;
-  }
-  
-  .sponsor-item:nth-child(3) {
-    transform: scale(0.2);
-    margin-right: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
   }
   
   .sponsor-item:nth-child(4) {
     transform: scale(0.2);
-    margin-left: 20px;
+    margin-right: 20px;
   }
   
   .sponsor-item:nth-child(5) {
     transform: scale(0.2);
-    margin-right: 20px;
+    margin: 0;
   }
   
   .sponsor-item:nth-child(6) {
@@ -833,34 +775,18 @@ html {
 
 @media (max-width: 350px) {
   .sponsor-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 35px;
-  }
-  
-  .sponsor-item:nth-child(1) {
-    transform: scale(0.15);
-    margin-right: 25px;
-  }
-  
-  .sponsor-item:nth-child(2) {
-    transform: scale(0.15);
-    margin-left: 25px;
-  }
-  
-  .sponsor-item:nth-child(3) {
-    transform: scale(0.15);
-    margin-right: 25px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
   }
   
   .sponsor-item:nth-child(4) {
     transform: scale(0.15);
-    margin-left: 25px;
+    margin-right: 25px;
   }
   
   .sponsor-item:nth-child(5) {
     transform: scale(0.15);
-    margin-right: 25px;
+    margin: 0;
   }
   
   .sponsor-item:nth-child(6) {
@@ -1643,69 +1569,6 @@ html {
   .mission-logo .logo-stack img {
     display: none !important;
   }
-  
-  /* Mobile sponsor grid - 2x3 layout */
-  .sponsor-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 20px;
-    padding: 0 15px;
-  }
-  
-  /* First row: CarePredict, Delsan */
-  .sponsor-item:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-    transform: none;
-    max-width: 140px;
-  }
-  
-  .sponsor-item:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
-    transform: none;
-    max-width: 140px;
-  }
-  
-  /* Second row: Polymaker, USA Homes Group */
-  .sponsor-item:nth-child(3) {
-    grid-column: 1;
-    grid-row: 2;
-    transform: none;
-    max-width: 140px;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
-    transform: none;
-    max-width: 140px;
-  }
-  
-  /* Third row: Placeholder, FRCtees */
-  .sponsor-item:nth-child(5) {
-    grid-column: 1;
-    grid-row: 3;
-    transform: none;
-    max-width: 140px;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    grid-column: 2;
-    grid-row: 3;
-    transform: none;
-    max-width: 140px;
-  }
-  
-  /* Mobile placeholder styling */
-  .placeholder-logo {
-    min-height: 80px;
-    border-width: 1px;
-  }
-  
-  .placeholder-text {
-    font-size: 0.9rem;
-  }
 
   .sponsor-placeholder {
     margin-top: 30px;
@@ -1991,6 +1854,81 @@ html {
     }
   }
 
+  .sponsor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    padding: 0 10px;
+    margin-bottom: 30px;
+  }
+  
+  /* Mobile 2x3 grid layout */
+  .sponsor-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    transform: none;
+    max-width: 140px;
+  }
+  
+  .sponsor-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+    transform: none;
+    max-width: 140px;
+  }
+  
+  .sponsor-item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+    transform: none;
+    max-width: 140px;
+  }
+  
+  .sponsor-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    transform: none;
+    max-width: 140px;
+  }
+  
+  .sponsor-item:nth-child(5) {
+    grid-column: 1;
+    grid-row: 3;
+    transform: none;
+    max-width: 140px;
+  }
+  
+  .sponsor-item:nth-child(6) {
+    grid-column: 2;
+    grid-row: 3;
+    transform: none;
+    max-width: 140px;
+  }
+  
+  /* Mobile placeholder styling */
+  .placeholder-logo {
+    min-height: 80px;
+    border-width: 1px;
+  }
+  
+  .placeholder-text {
+    font-size: 0.9rem;
+  }
+
+  .sponsor-item {
+    max-width: 140px;
+  }
+
+  .sponsor-item:nth-child(2) {
+    max-width: 180px;
+  }
+
+  .sponsor-item.polymaker {
+    grid-column: 1 / -1;
+    max-width: 140px;
+    justify-self: center;
+  }
+  
 
   
   /* Mobile adjustments for hero title animation - make it much smaller */
