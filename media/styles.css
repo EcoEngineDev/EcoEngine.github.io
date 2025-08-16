@@ -2148,7 +2148,6 @@ html {
   .donor-text {
     text-align: center !important;
     margin: 0 auto !important;
-    width: 100% !important;
   }
   
   /* Force placeholder styling */
@@ -2604,5 +2603,96 @@ body, html {
       margin: 0 auto !important;
       display: block !important;
     }
+  }
+}
+
+/* Mobile-specific mission section centering */
+@media (max-width: 768px) {
+  .mission-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 20px !important;
+  }
+  
+  .mission-text {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .mission-text h2 {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 15px auto !important;
+  }
+  
+  .mission-text p {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  .mission-logo {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: auto !important;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 300px !important;
+    height: 300px !important;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}
+
+/* Additional mobile breakpoints for very small screens */
+@media (max-width: 480px) {
+  .mission-section {
+    padding: 15px !important;
+  }
+  
+  .mission-text h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  .mission-text p {
+    font-size: 1.1rem !important;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .mission-text h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  .mission-text p {
+    font-size: 1rem !important;
+  }
+  
+  .mission-logo .logo-stack {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  .mission-logo .logo-stack img {
+    width: 200px !important;
+    height: 200px !important;
   }
 }
