@@ -55,7 +55,7 @@
     :root {
       --section-bg: #334255;          /* Main section background */
       --mission-bg: #0B0C10;          /* Mission section background */
-      --cta-bg: #45A29E;              /* CTA section background */
+      --cta-bg: #2a2a2a;              /* CTA section background */
       --instagram-bg: #0B0C10;        /* Instagram section background */
       --mentoring-bg: #0B0C10;        /* Mentoring section background */
     }
@@ -129,6 +129,17 @@
 </nav>
 <!-- Full-screen backdrop image -->
 <img src="media/backdrop.jpg?v=1.0.1" alt="Backdrop" class="backdrop-image" />
+<!-- Floating particles animation -->
+<div class="particles-container">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
 <div id="spa-root">
   <div class="spa-content">
     <div class="section">
@@ -188,9 +199,6 @@
           </div>
           
           <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')" style="margin: 0 auto; display: block; text-align: center;">Support Our Mission</button>
-          <p class="donor-text" style="text-align: center; margin: 0 auto; width: 100%;">
-            We would also like to thank our non-corporate donors: The Wenbo Family, Mei Dong, and Min Luo.
-          </p>
         </div>
       </div>
       <div class="mission-logo">
@@ -215,7 +223,8 @@
             <img src="media/mold1.png" alt="Chair Mold" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
           </div>
         </div>
-        <div class="viewer-container" style="flex: 1.2; height: 650px; margin-top: -40px;">
+        <div class="viewer-container" style="flex: 1.2; height: 500px; margin-top: -40px; margin-left: 80px; margin-right: 80px; position: relative; max-width: 400px;">
+          <div class="grid-background"></div>
           <model-viewer
             class="model-viewer"
             id="chairViewer"
@@ -226,7 +235,7 @@
             camera-orbit="40deg 60deg 2.2m"
             min-camera-orbit="-Infinity 0deg 1.2m"
             max-camera-orbit="Infinity 180deg 10m"
-            style="width: 100%; height: 100%; --model-color: rgb(45, 45, 45);"
+            style="width: 100%; height: 100%; --model-color: rgb(45, 45, 45); position: relative; z-index: 2;"
             shadow-intensity="0"
             environment-image="neutral"
             exposure="0.7"
@@ -434,6 +443,7 @@ window.initHeroAnimation = function() {
   });
 </script>
 <script src="media/scripts.js"></script>
+
 <script>
 // Force CSS cache refresh
 function refreshCSS() {

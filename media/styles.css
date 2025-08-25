@@ -1,10 +1,13 @@
 :root {
-  --color-dark: #0B0C10;
-  --color-darker: #334255;
-  --color-light: #C5C6C7;
-  --color-accent: #66FCF1;
-  --color-secondary: #45A29E;
-  --color-white: #FFFFFF;
+  --color-dark: #0a0e1a;
+  --color-darker: #1a2332;
+  --color-light: #e2e8f0;
+  --color-accent: #00d9ff;
+  --color-secondary: #0ea5e9;
+  --color-tertiary: #8b5cf6;
+  --color-white: #ffffff;
+  --color-gradient-1: linear-gradient(135deg, #00d9ff 0%, #0ea5e9 50%, #8b5cf6 100%);
+  --color-gradient-2: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 50%, #00d9ff 100%);
   
   /* Navigation variables */
   --nav-mobile-side-margin: 20px;  /* Space from edges of screen */
@@ -122,8 +125,17 @@ nav .logo-container {
 }
 
 .logo-stack .spinning {
-  animation: spin 36s linear infinite;
+  animation: spin 36s linear infinite, pulse 2s ease-in-out infinite alternate;
   transform-origin: center;
+}
+
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.4));
+  }
 }
 
 .logo-stack .static {
@@ -157,7 +169,7 @@ nav a:hover {
   font-size: 1.3rem;
   font-weight: bold;
   transform: scale(1.18);
-  text-shadow: 0 2px 8px rgba(102,252,241,0.18);
+  text-shadow: 0 2px 8px rgba(0,217,255,0.5), 0 4px 16px rgba(139,92,246,0.3);
 }
 
 .social-media-buttons {
@@ -175,14 +187,35 @@ nav a:hover {
   justify-content: center;
   width: 105px;
   height: 105px;
-  transition: all 0.1s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   margin-left: -5px;
   margin-right: -5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(0,217,255,0.3) 0%, rgba(139,92,246,0.2) 50%, transparent 70%);
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.social-btn:hover::before {
+  width: 120px;
+  height: 120px;
 }
 
 .social-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(1.2);
 }
 
 .social-btn img {
@@ -230,7 +263,7 @@ nav a:hover {
 }
 
 .cta-section {
-  background-color: var(--color-secondary);
+  background-color: #2a2a2a;
   color: var(--color-white);
   padding: 30px;
   display: flex;
@@ -334,19 +367,39 @@ nav a:hover {
 }
 
 .sponsor-placeholder button {
-  background-color: var(--color-accent);
-  color: var(--color-dark);
+  background: var(--color-gradient-1);
+  color: var(--color-white);
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+}
+
+.sponsor-placeholder button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.sponsor-placeholder button:hover::before {
+  left: 100%;
 }
 
 .sponsor-placeholder button:hover {
-  background-color: var(--color-light);
-  transition: all 0.2s ease-in-out;
-  transform: scale(2.05);
+  background: var(--color-gradient-2);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.5);
 }
 
 footer {
@@ -467,28 +520,35 @@ html {
 
 .mentoring-section a {
   display: inline-block;
-  background-color: var(--color-accent);
-  color: var(--color-dark);
+  background: var(--color-gradient-1);
+  color: var(--color-white);
   padding: 14px 32px;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 1.2rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+}
+
+.mentoring-section a:hover {
+  background: var(--color-gradient-2);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.5);
 }
 
 .sponsor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
-  gap: 40px 20px;
+  gap: 40px 60px;
   align-items: center;
   justify-items: center;
   margin-bottom: 18px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 20px;
+  padding: 0 40px;
   position: relative;
   min-height: 200px;
 }
@@ -548,6 +608,33 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}
+
+.sponsor-item:hover::before {
+  opacity: 1;
+}
+
+.sponsor-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
 }
 
 .sponsor-item img {
@@ -647,7 +734,9 @@ html {
 /* Comprehensive solution for all laptop screen sizes to prevent overlap */
 @media (max-width: 1200px) and (min-width: 800px) {
   .sponsor-grid {
-    gap: 30px;
+    gap: 30px 50px;
+    max-width: 1200px;
+    padding: 0 30px;
   }
   
   .sponsor-item:nth-child(4) {
@@ -662,7 +751,7 @@ html {
 /* Additional safety net for medium laptop screens */
 @media (max-width: 1100px) and (min-width: 900px) {
   .sponsor-grid {
-    gap: 40px;
+    gap: 40px 45px;
   }
   
   .sponsor-item:nth-child(4) {
@@ -2364,7 +2453,7 @@ html {
   position: relative;
 }
 
-/* Full-screen backdrop image */
+/* Full-screen backdrop image with subtle animation */
 .backdrop-image {
   position: fixed;
   top: 0;
@@ -2375,6 +2464,124 @@ html {
   z-index: -1;
   margin: 0;
   padding: 0;
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Grid background for 3D model viewer */
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: var(--grid-size-x, 20px) var(--grid-size-y, 20px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 8px;
+  
+  /* Configurable grid variables - change these to adjust grid size */
+  --grid-size-x: 20px;  /* Horizontal spacing */
+  --grid-size-y: 20px;  /* Vertical spacing */
+}
+
+/* Floating particles animation */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.4) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border-radius: 50%;
+  animation: float 20s infinite linear;
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.3);
+}
+
+.particle:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.particle:nth-child(2) {
+  left: 20%;
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+.particle:nth-child(3) {
+  left: 30%;
+  animation-delay: -10s;
+  animation-duration: 30s;
+}
+
+.particle:nth-child(4) {
+  left: 40%;
+  animation-delay: -15s;
+  animation-duration: 22s;
+}
+
+.particle:nth-child(5) {
+  left: 60%;
+  animation-delay: -20s;
+  animation-duration: 28s;
+}
+
+.particle:nth-child(6) {
+  left: 70%;
+  animation-delay: -25s;
+  animation-duration: 24s;
+}
+
+.particle:nth-child(7) {
+  left: 80%;
+  animation-delay: -30s;
+  animation-duration: 26s;
+}
+
+.particle:nth-child(8) {
+  left: 90%;
+  animation-delay: -35s;
+  animation-duration: 32s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Layered Images Styling */
@@ -2700,26 +2907,26 @@ body, html {
 /* Desktop-specific sponsor logo sizing - 2x larger for PC */
 @media (min-width: 769px) {
   .sponsor-item {
-    max-width: 500px !important; /* Increased from 250px */
+    max-width: 300px !important;
   }
   
   .sponsor-item:nth-child(2) {
-    max-width: 800px !important; /* Increased from 400px */
+    max-width: 450px !important;
   }
   
   .sponsor-logo {
-    max-width: 300px !important; /* Increased from 150px - 2x larger */
+    max-width: 280px !important;
   }
   
   img[alt="Delsan Logo"].sponsor-logo {
-    max-width: 400px !important; /* Increased from 200px - 2x larger */
+    max-width: 350px !important;
   }
   
   .sponsor-placeholder img {
-    max-width: 360px !important; /* Increased from 180px - 2x larger */
+    max-width: 300px !important;
   }
   
   a[href="https://polymaker.com/"] img {
-    max-width: 280px !important; /* Increased from 140px - 2x larger */
+    max-width: 260px !important;
   }
 }
