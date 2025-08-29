@@ -2417,6 +2417,18 @@ html {
     margin: 20px auto !important;
     display: block !important;
   }
+  
+  /* Support Our Mission button mobile centering - override grid positioning */
+  .sponsor-placeholder button {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    margin: 10px auto !important;
+    display: block !important;
+    width: auto !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 }
 
 /* Additional mobile breakpoints for different screen sizes */
