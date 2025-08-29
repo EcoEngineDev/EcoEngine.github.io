@@ -54,10 +54,11 @@
     /* Easily changeable section backgrounds */
     :root {
       --section-bg: #334255;          /* Main section background */
-      --mission-bg: #0B0C10;          /* Mission section background */
+      --mission-bg: url('media/fiber.jpg');          /* Mission section background - carbon fiber pattern */
       --cta-bg: #2a2a2a;              /* CTA section background */
       --instagram-bg: #0B0C10;        /* Instagram section background */
       --mentoring-bg: #0B0C10;        /* Mentoring section background */
+      --pattern-size: 350px;          /* Carbon fiber pattern size - easily adjustable */
     }
     
     .section {
@@ -65,7 +66,10 @@
     }
     
     .mission-section {
-      background-color: var(--mission-bg) !important;
+      background-image: var(--mission-bg) !important;
+      background-size: var(--pattern-size) var(--pattern-size) !important;
+      background-position: center !important;
+      background-repeat: repeat !important;
     }
     
     .cta-section {
@@ -202,13 +206,13 @@
           </div>
         </div>
       </div>
-      <div class="mission-logo">
-        <div class="logo-stack">
-          <img src="media/animlogo3.png" class="spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
-          <img src="media/animlogo4.png" class="static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
-          <div id="logo-fallback2" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
-        </div>
-      </div>
+             <div class="mission-logo">
+         <div class="logo-stack">
+           <img src="/media/animlogo3.png?v=1.0.1" class="spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
+           <img src="/media/animlogo4.png?v=1.0.1" class="static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
+           <div id="logo-fallback2" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
+         </div>
+       </div>
     </div>
 
     <div class="cta-section" id="team">
@@ -318,6 +322,8 @@
                 if (typeof reloadImagesForIOS === 'function') {
                   reloadImagesForIOS();
                 }
+                // Force reload all images when returning to home page
+                forceReloadAllImages();
               }, 100);
             }
           }
@@ -478,11 +484,49 @@ function reloadImagesForIOS() {
   }
 }
 
+// Force reload all images when returning to home page
+function forceReloadAllImages() {
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && !src.includes('data:') && !src.includes('blob:')) {
+      // Add timestamp to force reload
+      const separator = src.includes('?') ? '&' : '?';
+      const newSrc = src + separator + 't=' + Date.now();
+      img.setAttribute('src', newSrc);
+      
+      // Also trigger a load event to ensure the image loads
+      img.addEventListener('load', function() {
+        console.log('Image reloaded successfully:', newSrc);
+      }, { once: true });
+      
+      img.addEventListener('error', function() {
+        console.log('Image failed to reload:', newSrc);
+        // Fallback: try to reload without timestamp
+        img.setAttribute('src', src);
+      }, { once: true });
+    }
+  });
+}
+
 // Refresh CSS on page load to ensure latest version
 window.addEventListener('load', function() {
   // Small delay to ensure everything is loaded
   setTimeout(refreshCSS, 100);
   setTimeout(reloadImagesForIOS, 200);
+});
+
+// Handle page visibility changes (when user switches tabs and comes back)
+document.addEventListener('visibilitychange', function() {
+  if (!document.hidden) {
+    // Page is now visible again
+    console.log('Page became visible, reloading images...');
+    setTimeout(() => {
+      if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        forceReloadAllImages();
+      }
+    }, 100);
+  }
 });
 </script>
 <!-- Instagram Embed Script -->

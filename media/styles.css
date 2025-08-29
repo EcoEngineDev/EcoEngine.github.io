@@ -2428,6 +2428,44 @@ html {
     position: relative !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    /* Force absolute centering by breaking out of grid constraints */
+    grid-area: unset !important;
+    float: none !important;
+    clear: both !important;
+  }
+  
+  /* Additional override to ensure button breaks free from grid */
+  .sponsor-grid {
+    position: relative !important;
+  }
+  
+  .sponsor-placeholder button {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -40px !important;
+    z-index: 10 !important;
+  }
+  
+  /* Make "Our Latest Design" text half size on mobile */
+  .cta-section h2 {
+    font-size: 1.1rem !important; /* Half of the original 2.2rem */
+  }
+  
+  .cta-section p {
+    font-size: 0.8rem !important; /* Half of the original 1.6rem */
+    line-height: 1.4 !important;
+  }
+  
+  /* White background for Our Mission section */
+  .mission-section {
+    background-color: #ffffff !important;
+  }
+  
+  /* Force override for mission section background */
+  body .mission-section,
+  html body .mission-section {
+    background-color: #ffffff !important;
   }
 }
 
