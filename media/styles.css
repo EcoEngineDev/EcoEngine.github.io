@@ -2408,6 +2408,15 @@ html {
     object-position: center;
     transform: scale(1.2); /* Zoom out the backdrop */
   }
+  
+  /* Mother duck image mobile styling */
+  .mentoring-section img[src*="mother_duck.png"] {
+    max-width: 90% !important;
+    width: 90% !important;
+    height: auto !important;
+    margin: 20px auto !important;
+    display: block !important;
+  }
 }
 
 /* Additional mobile breakpoints for different screen sizes */
