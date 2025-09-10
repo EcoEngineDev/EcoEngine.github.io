@@ -178,41 +178,32 @@
       <div class="mission-text" style="text-align: center; width: 100%;">
         <h2 style="text-align: center; width: 100%;">Our Mission</h2>
         <p style="text-align: center; width: 100%;">
-          We aim to educate the community on sustainable engineering through hands-on innovation with our solar powered racing car project. Our team brings together high school students from across South Florida.
+          We aim to educate the community on sustainable engineering through hands-on innovation with our solar powered racing car project. Our team brings together high school students from across South Florida.  This would not be possible without our sponsors:
         </p>
         <div class="sponsor-placeholder" style="text-align: center; width: 100%; display: flex; flex-direction: column; align-items: center;">
-          <div class="sponsor-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto auto auto auto; gap: 15px; padding: 0 10px; margin-bottom: 30px; width: 100%; max-width: 100%;">
-            <a href="https://www.carepredict.com/" target="_blank" rel="noopener" class="sponsor-item" style="max-width: 140px; width: 100%; transform: none; justify-self: center; align-self: center;">
-              <img src="media/CarePredict.svg" alt="CarePredict Logo" class="sponsor-logo" />
-            </a>
-            <a href="https://www.delsanonline.com/" target="_blank" rel="noopener" class="sponsor-item" style="max-width: 140px; width: 100%; transform: none; justify-self: center; align-self: center;">
-              <img src="media/delsan.png" alt="Delsan Logo" class="sponsor-logo delsan-logo" />
-            </a>
-            <a href="https://polymaker.com/" target="_blank" rel="noopener" class="sponsor-item polymaker" style="max-width: 140px; width: 100%; transform: none; justify-self: center; align-self: center;">
-              <img src="media/Polymaker.avif" alt="Polymaker Logo" class="sponsor-logo" />
-            </a>
-            <a href="https://www.usahomesgroup.com/home" target="_blank" rel="noopener" class="sponsor-item" style="max-width: 140px; width: 100%; transform: none; justify-self: center; align-self: center;">
-              <img src="media/usahg-logo2.png" alt="USA Homes Group Logo" class="sponsor-logo" />
-            </a>
-            <div class="sponsor-item placeholder-logo" style="max-width: 140px; width: 100%; transform: none; justify-self: center; align-self: center; min-height: 80px; border-width: 1px; display: flex; align-items: center; justify-content: center;">
-              <div class="placeholder-text" style="font-size: 0.9rem; text-align: center;">YOUR LOGO HERE</div>
-            </div>
-            <a href="https://frc-tees.com/" target="_blank" rel="noopener" class="sponsor-item" style="max-width: 140px; width: 100%; transform: none; justify-self: center; align-self: center;">
-              <img src="media/frctees.png" alt="FRCtees Logo" class="sponsor-logo frctees-logo" />
-            </a>
-            <!-- Empty space to maintain grid alignment -->
-            <div style="grid-column: 1; justify-self: center;"></div>
-            <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')" style="grid-column: 2; justify-self: center; align-self: start; margin-top: 10px;">Support Our Mission</button>
-          </div>
+           <div class="sponsor-logos-container">
+             <a href="https://www.carepredict.com/" target="_blank" rel="noopener" class="sponsor-item">
+               <img src="media/CarePredict.svg" alt="CarePredict Logo" class="sponsor-logo" />
+             </a>
+             <a href="https://www.delsanonline.com/" target="_blank" rel="noopener" class="sponsor-item">
+               <img src="media/delsan.png" alt="Delsan Logo" class="sponsor-logo delsan-logo" />
+             </a>
+             <a href="https://polymaker.com/" target="_blank" rel="noopener" class="sponsor-item">
+               <img src="media/Polymaker.avif" alt="Polymaker Logo" class="sponsor-logo" />
+             </a>
+             <a href="https://www.usahomesgroup.com/home" target="_blank" rel="noopener" class="sponsor-item">
+               <img src="media/usahg-logo2.png" alt="USA Homes Group Logo" class="sponsor-logo" />
+             </a>
+             <div class="sponsor-item placeholder-logo">
+               <div class="placeholder-text">YOUR LOGO HERE</div>
+             </div>
+             <a href="https://frc-tees.com/" target="_blank" rel="noopener" class="sponsor-item">
+               <img src="media/frctees.png" alt="FRCtees Logo" class="sponsor-logo frctees-logo" />
+             </a>
+           </div>
+           <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')" style="margin-top: 20px; background: var(--color-gradient-1); color: var(--color-white); border: none; padding: 12px 24px; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Support Our Mission</button>
         </div>
       </div>
-             <div class="mission-logo">
-         <div class="logo-stack">
-           <img src="/media/animlogo3.png?v=1.0.1" class="spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
-           <img src="/media/animlogo4.png?v=1.0.1" class="static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback2').style.display='block';"/>
-           <div id="logo-fallback2" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
-         </div>
-       </div>
     </div>
 
     <div class="cta-section" id="team">
@@ -254,9 +245,11 @@
     <!-- Projects/Resources SPA-like fade transition -->
     <!-- Remove SPA loader script for Projects/Resources -->
     <!-- Wrap all main page content in a #main-content div for SPA transitions -->
-    <div class="instagram-section">
-      <h2>Follow Our Journey on Instagram</h2>
-      <div class="instagram-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <div class="instagram-section" style="background-image: url('media/fiber.jpg'); background-size: 400px 400px; background-position: center; background-repeat: repeat; position: relative;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10, 14, 26, 0.85);"></div>
+      <div style="position: relative; z-index: 1;">
+        <h2>Follow Our Journey on Instagram</h2>
+        <div class="instagram-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
         <div class="embed-wrapper">
           <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DKFqLn_Jv0c/"></blockquote>
         </div>
@@ -274,6 +267,7 @@
         </div>
         <div class="embed-wrapper">
           <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DLRFiBfo56k/"></blockquote>
+        </div>
         </div>
       </div>
     </div>
@@ -303,29 +297,76 @@
           const temp = document.createElement('div');
           temp.innerHTML = html;
           const newContent = temp.querySelector('.spa-content');
-          if (newContent) {
-            if (oldContent) spaRoot.removeChild(oldContent);
-            spaRoot.appendChild(newContent);
-            if (push) history.pushState({spa: true, url}, '', url);
+            if (newContent) {
+              if (oldContent) spaRoot.removeChild(oldContent);
+              spaRoot.appendChild(newContent);
+              if (push) history.pushState({spa: true, url}, '', url);
+              
+              // Handle backdrop visibility based on page
+              const backdrop = document.querySelector('.backdrop-image');
+              if (url === '/index.html' || url === '/' || url === window.location.origin + '/') {
+                // Home page - show backdrop and remove no-backdrop class
+                if (backdrop) backdrop.style.display = 'block';
+                document.body.classList.remove('no-backdrop');
+                
+                // Reset animation flag and trigger animation
+                window.animationInitialized = false;
+                setTimeout(() => {
+                  if (typeof initHeroAnimation === 'function') {
+                    initHeroAnimation();
+                  }
+                  // Force reload images for iOS when returning to home page
+                  if (typeof reloadImagesForIOS === 'function') {
+                    reloadImagesForIOS();
+                  }
+                  // Force reload all images when returning to home page
+                  forceReloadAllImages();
+                }, 100);
+              } else {
+                // Other pages - hide backdrop and add no-backdrop class
+                if (backdrop) backdrop.style.display = 'none';
+                document.body.classList.add('no-backdrop');
+
+                // Initialize team page collage if on team page
+                if (url.includes('/team.html')) {
+                  setTimeout(() => {
+                    // Initialize modal functionality
+                    const modal = document.getElementById('imageModal');
+                    const modalImg = document.getElementById('modalImage');
+
+                    if (modal && modalImg) {
+                      // Set up modal click handlers
+                      modal.onclick = function(e) {
+                        if (e.target !== modalImg) {
+                          modal.style.display = 'none';
+                          document.body.style.overflow = 'auto';
+                        }
+                      };
+
+                      // Set up escape key handler
+                      document.onkeydown = function(e) {
+                        if (e.key === 'Escape') {
+                          modal.style.display = 'none';
+                          document.body.style.overflow = 'auto';
+                        }
+                      };
+
+                      // Set up image click handlers
+                      const images = document.querySelectorAll('.collage-item img');
+                      images.forEach(img => {
+                        img.onclick = function() {
+                          modal.style.display = 'block';
+                          modalImg.src = this.src;
+                          document.body.style.overflow = 'hidden';
+                        };
+                      });
+                    }
+                  }, 100);
+                }
+              }
+            
             // Re-initialize Instagram embeds if present
             if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
-            
-            // Check if we're back on the home page and trigger animation
-            if (url === '/index.html' || url === '/' || url === window.location.origin + '/') {
-              // Reset animation flag and trigger animation
-              window.animationInitialized = false;
-              setTimeout(() => {
-                if (typeof initHeroAnimation === 'function') {
-                  initHeroAnimation();
-                }
-                // Force reload images for iOS when returning to home page
-                if (typeof reloadImagesForIOS === 'function') {
-                  reloadImagesForIOS();
-                }
-                // Force reload all images when returning to home page
-                forceReloadAllImages();
-              }, 100);
-            }
           }
         });
     }, 350);
@@ -341,6 +382,17 @@
   window.addEventListener('popstate', function(e) {
     if (e.state && e.state.spa && e.state.url) {
       loadSpaContent(e.state.url, false);
+    } else {
+      // Handle direct navigation or page refresh
+      const currentPath = window.location.pathname;
+      const backdrop = document.querySelector('.backdrop-image');
+      if (currentPath === '/' || currentPath === '/index.html' || currentPath === '') {
+        if (backdrop) backdrop.style.display = 'block';
+        document.body.classList.remove('no-backdrop');
+      } else {
+        if (backdrop) backdrop.style.display = 'none';
+        document.body.classList.add('no-backdrop');
+      }
     }
   });
 })();
@@ -378,29 +430,12 @@
   });
   </script>
 <script>
-// Ensure page loads at the top - enhanced version
+// Ensure page loads at the top
 window.addEventListener('load', function() {
-  // Force scroll to top immediately
   window.scrollTo(0, 0);
-  
-  // Also try after a short delay to ensure it works
-  setTimeout(function() {
-    window.scrollTo(0, 0);
-  }, 100);
-  
-  // And after all resources are loaded
-  setTimeout(function() {
-    window.scrollTo(0, 0);
-  }, 500);
 });
 
-// Also ensure scroll position is reset on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
-  window.scrollTo(0, 0);
-});
-
-// Prevent any automatic scrolling
-window.addEventListener('beforeunload', function() {
   window.scrollTo(0, 0);
 });
 </script>
@@ -444,10 +479,7 @@ window.initHeroAnimation = function() {
 
   // Initialize animation only once when page loads
   window.addEventListener('load', function() {
-    // Single initialization with a delay to ensure everything is loaded
     setTimeout(window.initHeroAnimation, 500);
-    
-
   });
 </script>
 <script src="media/scripts.js"></script>
@@ -509,23 +541,16 @@ function forceReloadAllImages() {
   });
 }
 
-// Refresh CSS on page load to ensure latest version
+// Refresh CSS and images on page load
 window.addEventListener('load', function() {
-  // Small delay to ensure everything is loaded
   setTimeout(refreshCSS, 100);
   setTimeout(reloadImagesForIOS, 200);
 });
 
-// Handle page visibility changes (when user switches tabs and comes back)
+// Handle page visibility changes
 document.addEventListener('visibilitychange', function() {
-  if (!document.hidden) {
-    // Page is now visible again
-    console.log('Page became visible, reloading images...');
-    setTimeout(() => {
-      if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-        forceReloadAllImages();
-      }
-    }, 100);
+  if (!document.hidden && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
+    setTimeout(forceReloadAllImages, 100);
   }
 });
 </script>

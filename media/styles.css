@@ -32,15 +32,6 @@ body {
   scroll-padding-top: 0;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-darker);
-  color: var(--color-light);
-  overflow-x: hidden;
-}
-
 .drop-down {
   transform: translateY(-100%);
   animation: dropDown 0.6s ease-out forwards;
@@ -317,7 +308,7 @@ nav a:hover {
   color: var(--color-white);
   padding: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 0;
   position: relative;
@@ -325,34 +316,24 @@ nav a:hover {
 }
 
 .mission-text {
-  flex: 1 1 60%;
+  flex: 1 1 100%;
+  max-width: 1000px;
 }
 
 .mission-text h2 {
   font-size: 2rem;
   color: var(--color-white);
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .mission-text p {
   font-size: 1.3rem;
   line-height: 1.6;
   font-weight: 700;
+  margin-bottom: 8px;
 }
 
-.mission-logo {
-  flex: 1 1 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  min-height: 560px;
-}
-
-.mission-logo .logo-stack {
-  width: 560px;
-  height: 560px;
-}
+/* Mission logo styles removed - no longer needed */
 
 .sponsor-placeholder {
   margin-top: 90px;
@@ -431,37 +412,6 @@ footer {
   margin-bottom: 30px;
 }
 
-.instagram-carousel-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 0;
-  height: 500px;
-}
-
-.instagram-carousel {
-  display: flex;
-  gap: 20px;
-  animation: scrollLeft 120s linear infinite;
-  padding: 10px 0 0 0;
-  margin-bottom: 0;
-  width: fit-content;
-  height: 100%;
-  align-items: flex-start;
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-210px * 20 - 20px * 20));
-  }
-}
-
-.instagram-carousel:hover {
-  animation-play-state: paused;
-}
 
 .embed-wrapper {
   flex: 0 0 auto;
@@ -488,9 +438,6 @@ footer {
   border-radius: 0 !important;
 }
 
-html {
-  /* scroll-behavior removed to prevent page from starting at bottom */
-}
 
 #team {
   scroll-margin-top: 130px;
@@ -549,6 +496,21 @@ html {
   margin-left: auto;
   margin-right: auto;
   padding: 0 40px;
+  position: relative;
+  min-height: 200px;
+}
+
+.sponsor-logos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 60px;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 18px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 20px 60px 20px;
   position: relative;
   min-height: 200px;
 }
@@ -615,6 +577,11 @@ html {
   overflow: hidden;
 }
 
+.sponsor-logos-container .sponsor-item {
+  width: 100%;
+  max-width: none;
+}
+
 .sponsor-item::before {
   content: '';
   position: absolute;
@@ -648,88 +615,6 @@ html {
 
 
 
-/* Prevent logo clipping on smaller screens with grid-based positioning */
-@media (max-width: 1200px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(15px) scale(1.0);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-15px) scale(1.0);
-  }
-}
-
-@media (max-width: 1000px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(10px) scale(0.95);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-10px) scale(0.95);
-  }
-}
-
-@media (max-width: 900px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(5px) scale(0.9);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-5px) scale(0.9);
-  }
-}
-
-@media (max-width: 800px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(2px) scale(0.85);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-2px) scale(0.85);
-  }
-}
-
-@media (max-width: 700px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(0px) scale(0.8);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(0px) scale(0.8);
-  }
-}
-
-@media (max-width: 650px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(0px) scale(0.75);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(0px) scale(0.75);
-  }
-}
-
-/* Critical width range where FRCtees and USA Homes Group logos overlap */
-@media (max-width: 1100px) and (min-width: 900px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(8px) scale(0.92);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-8px) scale(0.92);
-  }
-}
-
-/* Even more specific range for laptop screens where overlap is most problematic */
-@media (max-width: 1050px) and (min-width: 950px) {
-  .sponsor-item:nth-child(4) {
-    transform: translateX(3px) scale(0.88);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-3px) scale(0.88);
-  }
-}
 
 /* Comprehensive solution for all laptop screen sizes to prevent overlap */
 @media (max-width: 1200px) and (min-width: 800px) {
@@ -740,57 +625,11 @@ html {
   }
   
   .sponsor-item:nth-child(4) {
-    transform: translateX(12px) scale(0.98);
+    transform: translateX(10px) scale(0.95);
   }
   
   .sponsor-item:nth-child(6) {
-    transform: translateX(-12px) scale(0.98);
-  }
-}
-
-/* Additional safety net for medium laptop screens */
-@media (max-width: 1100px) and (min-width: 900px) {
-  .sponsor-grid {
-    gap: 40px 45px;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    transform: translateX(6px) scale(0.9);
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: translateX(-6px) scale(0.9);
-  }
-}
-
-/* Super aggressive anti-overlap system */
-@media (max-width: 600px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    grid-column: 1;
-    grid-row: 2;
-    transform: scale(0.4);
-    justify-self: end;
-    margin-right: 10px;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    grid-column: 2;
-    grid-row: 2;
-    transform: scale(0.4);
-    justify-self: center;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    grid-column: 3;
-    grid-row: 2;
-    transform: scale(0.4);
-    justify-self: start;
-    margin-left: 10px;
+    transform: translateX(-10px) scale(0.95);
   }
 }
 
@@ -818,122 +657,60 @@ html {
   }
 }
 
-@media (max-width: 500px) {
+/* Small screen sponsor grid adjustments */
+@media (max-width: 600px) {
   .sponsor-grid {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
   }
-  
-  .sponsor-item:nth-child(4) {
-    transform: scale(0.3);
-    margin-right: 15px;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    transform: scale(0.3);
-    margin: 0;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: scale(0.3);
-    margin-left: 15px;
-  }
-}
 
-@media (max-width: 400px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    transform: scale(0.2);
-    margin-right: 20px;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    transform: scale(0.2);
-    margin: 0;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: scale(0.2);
-    margin-left: 20px;
-  }
-}
-
-@media (max-width: 350px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 60px;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    transform: scale(0.15);
-    margin-right: 25px;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    transform: scale(0.15);
-    margin: 0;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: scale(0.15);
-    margin-left: 25px;
-  }
-}
-
-@media (max-width: 300px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    transform: scale(0.1);
-    margin-right: 30px;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    transform: scale(0.1);
-    margin: 0;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    transform: scale(0.1);
-    margin-left: 30px;
-  }
-}
-
-@media (max-width: 250px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .sponsor-logos-container {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 5px 15px 40px 15px !important;
   }
   
   .sponsor-item:nth-child(4) {
     grid-column: 1;
-    grid-row: 3;
-    transform: scale(0.08);
-    justify-self: center;
-    margin: 0;
+    grid-row: 2;
+    transform: scale(0.4);
+    justify-self: end;
+    margin-right: 10px;
   }
   
   .sponsor-item:nth-child(5) {
-    grid-column: 1;
-    grid-row: 4;
-    transform: scale(0.08);
+    grid-column: 2;
+    grid-row: 2;
+    transform: scale(0.4);
     justify-self: center;
-    margin: 0;
   }
   
   .sponsor-item:nth-child(6) {
-    grid-column: 1;
-    grid-row: 5;
-    transform: scale(0.08);
-    justify-self: center;
-    margin: 0;
+    grid-column: 3;
+    grid-row: 2;
+    transform: scale(0.4);
+    justify-self: start;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-placeholder > div:first-of-type {
+    gap: 25px !important;
+    padding: 30px 10px !important;
+  }
+  
+  .sponsor-item {
+    width: 160px !important;
+  }
+  
+  .sponsor-item.placeholder-logo {
+    width: 160px !important;
+    height: 80px !important;
+  }
+  
+  .placeholder-text {
+    font-size: 1rem !important;
   }
 }
 
@@ -1006,48 +783,6 @@ html {
   }
 }
 
-@media (max-width: 1100px) {
-  .mission-text {
-    flex: 1 1 65%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 35%;
-    min-width: 350px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 350px;
-    height: 350px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 350px !important;
-    height: 350px !important;
-  }
-}
-
-@media (max-width: 1050px) {
-  .mission-text {
-    flex: 1 1 68%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 32%;
-    min-width: 320px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 320px;
-    height: 320px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 320px !important;
-    height: 320px !important;
-  }
-}
-
 @media (max-width: 1000px) {
   .mission-text {
     flex: 1 1 70%;
@@ -1069,111 +804,6 @@ html {
   }
 }
 
-@media (max-width: 950px) {
-  .mission-text {
-    flex: 1 1 72%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 28%;
-    min-width: 280px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 280px !important;
-    height: 280px !important;
-  }
-}
-
-@media (max-width: 925px) {
-  .mission-text {
-    flex: 1 1 74%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 26%;
-    min-width: 260px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 260px;
-    height: 260px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 260px !important;
-    height: 260px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .mission-text {
-    flex: 1 1 75%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 25%;
-    min-width: 250px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 250px !important;
-    height: 250px !important;
-  }
-}
-
-@media (max-width: 875px) {
-  .mission-text {
-    flex: 1 1 76%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 24%;
-    min-width: 240px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 240px;
-    height: 240px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 240px !important;
-    height: 240px !important;
-  }
-}
-
-@media (max-width: 850px) {
-  .mission-text {
-    flex: 1 1 78%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 22%;
-    min-width: 220px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 220px !important;
-    height: 220px !important;
-  }
-}
-
 @media (max-width: 800px) {
   .mission-text {
     flex: 1 1 80%;
@@ -1192,364 +822,6 @@ html {
   .mission-logo .logo-stack img {
     width: 200px !important;
     height: 200px !important;
-  }
-}
-
-@media (max-width: 750px) {
-  .mission-text {
-    flex: 1 1 82%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 18%;
-    min-width: 180px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 180px !important;
-    height: 180px !important;
-  }
-}
-
-@media (max-width: 700px) {
-  .mission-text {
-    flex: 1 1 84%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 16%;
-    min-width: 160px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 160px !important;
-    height: 160px !important;
-  }
-}
-
-@media (max-width: 650px) {
-  .mission-text {
-    flex: 1 1 86%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 14%;
-    min-width: 140px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 140px;
-    height: 140px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 140px !important;
-    height: 140px !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .mission-text {
-    flex: 1 1 88%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 12%;
-    min-width: 120px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 120px !important;
-    height: 120px !important;
-  }
-}
-
-@media (max-width: 550px) {
-  .mission-text {
-    flex: 1 1 90%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 10%;
-    min-width: 100px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 100px !important;
-    height: 100px !important;
-  }
-}
-
-@media (max-width: 500px) {
-  .mission-text {
-    flex: 1 1 92%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 8%;
-    min-width: 80px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 80px !important;
-    height: 80px !important;
-  }
-}
-
-@media (max-width: 450px) {
-  .mission-text {
-    flex: 1 1 94%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 6%;
-    min-width: 60px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 60px !important;
-    height: 60px !important;
-  }
-}
-
-@media (max-width: 400px) {
-  .mission-text {
-    flex: 1 1 96%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 4%;
-    min-width: 40px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 40px !important;
-    height: 40px !important;
-  }
-}
-
-@media (max-width: 350px) {
-  .mission-text {
-    flex: 1 1 98%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 2%;
-    min-width: 20px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 20px !important;
-    height: 20px !important;
-  }
-}
-
-@media (max-width: 325px) {
-  .mission-text {
-    flex: 1 1 99%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 1%;
-    min-width: 15px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 15px;
-    height: 15px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 15px !important;
-    height: 15px !important;
-  }
-}
-
-@media (max-width: 300px) {
-  .mission-text {
-    flex: 1 1 99.5%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0.5%;
-    min-width: 10px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 10px;
-    height: 10px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 10px !important;
-    height: 10px !important;
-  }
-}
-
-@media (max-width: 275px) {
-  .mission-text {
-    flex: 1 1 99.7%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0.3%;
-    min-width: 8px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 8px;
-    height: 8px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 8px !important;
-    height: 8px !important;
-  }
-}
-
-@media (max-width: 250px) {
-  .mission-text {
-    flex: 1 1 99.8%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0.2%;
-    min-width: 6px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 6px;
-    height: 6px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 6px !important;
-    height: 6px !important;
-  }
-}
-
-@media (max-width: 225px) {
-  .mission-text {
-    flex: 1 1 99.9%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0.1%;
-    min-width: 4px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 4px;
-    height: 4px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 4px !important;
-    height: 4px !important;
-  }
-}
-
-@media (max-width: 200px) {
-  .mission-text {
-    flex: 1 1 99.95%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0.05%;
-    min-width: 2px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 2px;
-    height: 2px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 2px !important;
-    height: 2px !important;
-  }
-}
-
-@media (max-width: 175px) {
-  .mission-text {
-    flex: 1 1 99.98%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0.02%;
-    min-width: 1px;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 1px;
-    height: 1px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 1px !important;
-    height: 1px !important;
-  }
-}
-
-@media (max-width: 150px) {
-  .mission-text {
-    flex: 1 1 100%;
-  }
-  
-  .mission-logo {
-    flex: 0 0 0%;
-    min-width: 0px;
-    display: none;
-  }
-  
-  .mission-logo .logo-stack {
-    width: 0px;
-    height: 0px;
-  }
-  
-  .mission-logo .logo-stack img {
-    width: 0px !important;
-    height: 0px !important;
   }
 }
 
@@ -1598,54 +870,30 @@ html {
 
 /* Mobile Styles - covers all mobile devices and developer mode */
 @media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
-  /* AGGRESSIVE MOBILE OVERRIDE - Force everything to mobile layout */
-  .sponsor-grid {
-    display: grid !important;
+  /* Sponsor logos mobile layout */
+  .sponsor-placeholder > div:first-of-type {
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    padding: 40px 15px !important;
+  }
+
+  .sponsor-logos-container {
     grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: auto auto auto !important;
-    gap: 15px !important;
-    padding: 0 10px !important;
-    margin-bottom: 30px !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    gap: 30px !important;
+    padding: 5px 15px 40px 15px !important;
   }
   
   .sponsor-item {
-    max-width: 140px !important;
-    width: 100% !important;
-    transform: none !important;
-    justify-self: center !important;
-    align-self: center !important;
+    width: 224px !important;
   }
   
-  .sponsor-item:nth-child(1) {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
+  .sponsor-item.placeholder-logo {
+    width: 224px !important;
+    height: 112px !important;
   }
   
-  .sponsor-item:nth-child(2) {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-  }
-  
-  .sponsor-item:nth-child(3) {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    grid-column: 1 !important;
-    grid-row: 3 !important;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    grid-column: 2 !important;
-    grid-row: 3 !important;
+  .placeholder-text {
+    font-size: 1.2rem !important;
   }
   
   /* Force mission text centering */
@@ -1699,114 +947,6 @@ html {
     text-align: center !important;
   }
   
-  /* Additional nuclear overrides for stubborn elements */
-  body .mission-section .mission-text h2 {
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-  }
-  
-  body .mission-section .mission-text p {
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-  }
-  
-  body .sponsor-placeholder {
-    text-align: center !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  
-  body .sponsor-placeholder button {
-    margin: 0 auto !important;
-    display: block !important;
-    text-align: center !important;
-    width: auto !important;
-  }
-  
-  body .donor-text {
-    text-align: center !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    display: block !important;
-  }
-  
-  /* Force grid layout with maximum specificity */
-  body .sponsor-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: auto auto auto !important;
-    gap: 15px !important;
-    padding: 0 10px !important;
-    margin-bottom: 30px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  body .sponsor-item {
-    max-width: 140px !important;
-    width: 100% !important;
-    transform: none !important;
-    justify-self: center !important;
-    align-self: center !important;
-  }
-  
-  /* Ultra-specific mobile overrides */
-  html body .mission-section .mission-text h2 {
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-  }
-  
-  html body .mission-section .mission-text p {
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-  }
-  
-  html body .sponsor-placeholder {
-    text-align: center !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  
-  html body .sponsor-placeholder button {
-    margin: 0 auto !important;
-    display: block !important;
-    text-align: center !important;
-    width: auto !important;
-  }
-  
-  html body .donor-text {
-    text-align: center !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    display: block !important;
-  }
-  
-  html body .sponsor-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: auto auto auto !important;
-    gap: 15px !important;
-    padding: 0 10px !important;
-    margin-bottom: 30px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  html body .sponsor-item {
-    max-width: 140px !important;
-    width: 100% !important;
-    transform: none !important;
-    justify-self: center !important;
-    align-self: center !important;
-  }
   
   nav {
     flex-direction: row;
@@ -1938,6 +1078,11 @@ html {
 
   .instagram-section h2 {
     font-size: 1.6rem;
+  }
+  
+  /* Instagram section carbon fiber background mobile adjustments */
+  .instagram-section {
+    background-size: 300px 300px !important;
   }
 
   .sponsor-logo {
@@ -2106,6 +1251,11 @@ html {
       min-width: 200px !important;
       max-width: 200px !important;
     }
+    
+    /* Smaller carbon fiber pattern for very small screens */
+    .instagram-section {
+      background-size: 250px 250px !important;
+    }
   }
   
   @media (max-width: 350px) {
@@ -2140,118 +1290,7 @@ html {
     margin: 0;
   }
 
-  .instagram-carousel {
-    animation: scrollLeft 80s linear infinite;
-  }
 
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-180px * 20 - 20px * 20));
-    }
-  }
-
-  /* NUCLEAR MOBILE OVERRIDE - Maximum specificity */
-  .sponsor-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: auto auto auto !important;
-    gap: 15px !important;
-    padding: 0 10px !important;
-    margin-bottom: 30px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  .sponsor-item {
-    max-width: 140px !important;
-    width: 100% !important;
-    transform: none !important;
-    justify-self: center !important;
-    align-self: center !important;
-  }
-  
-  .sponsor-item:nth-child(1) {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-  }
-  
-  .sponsor-item:nth-child(2) {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-  }
-  
-  .sponsor-item:nth-child(3) {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-  }
-  
-  .sponsor-item:nth-child(4) {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-  }
-  
-  .sponsor-item:nth-child(5) {
-    grid-column: 1 !important;
-    grid-row: 3 !important;
-  }
-  
-  .sponsor-item:nth-child(6) {
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-  }
-  
-  /* Force mission text centering with maximum specificity */
-  .mission-text {
-    text-align: center !important;
-    width: 100% !important;
-  }
-  
-  .mission-text h2 {
-    text-align: center !important;
-    width: 100% !important;
-  }
-  
-  .mission-text p {
-    text-align: center !important;
-    width: 100% !important;
-  }
-  
-  /* Force button and donor text centering */
-  .sponsor-placeholder {
-    text-align: center !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  
-  .sponsor-placeholder button {
-    margin: 0 auto !important;
-    display: block !important;
-    text-align: center !important;
-  }
-  
-  .donor-text {
-    text-align: center !important;
-    margin: 0 auto !important;
-  }
-  
-  /* Force placeholder styling */
-  .placeholder-logo {
-    min-height: 80px !important;
-    border-width: 1px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  
-  .placeholder-text {
-    font-size: 0.9rem !important;
-    text-align: center !important;
-  }
 
   .sponsor-item {
     max-width: 140px;
@@ -2402,7 +1441,7 @@ html {
     }
   }
   
-  /* Make backdrop more zoomed out on mobile */
+  /* Make backdrop more zoomed out on mobile - HOME PAGE ONLY */
   .backdrop-image {
     object-fit: cover;
     object-position: center;
@@ -2512,7 +1551,7 @@ html {
   position: relative;
 }
 
-/* Full-screen backdrop image with subtle animation */
+/* Full-screen backdrop image with subtle animation - HOME PAGE ONLY */
 .backdrop-image {
   position: fixed;
   top: 0;
@@ -2524,6 +1563,12 @@ html {
   margin: 0;
   padding: 0;
   animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+/* Ensure non-home pages have proper dark background */
+body.no-backdrop {
+  background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 100%);
+  min-height: 100vh;
 }
 
 @keyframes subtleZoom {
@@ -2705,16 +1750,7 @@ html {
   scroll-margin-top: 0;
 }
 
-/* Ensure the page starts at the very top */
-body, html {
-  scroll-padding-top: 0;
-  scroll-margin-top: 0;
-}
 
-/* Prevent any automatic scrolling behavior */
-* {
-  scroll-behavior: auto !important;
-}
 
 /* iOS-specific fixes */
 @supports (-webkit-touch-callout: none) {
@@ -2731,88 +1767,6 @@ body, html {
       -webkit-text-size-adjust: 100%;
     }
     
-    /* Force iOS Safari mobile layout */
-    .sponsor-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      grid-template-rows: auto auto auto !important;
-      gap: 15px !important;
-      padding: 0 10px !important;
-      margin-bottom: 30px !important;
-    }
-    
-    .sponsor-item:nth-child(1) {
-      grid-column: 1 !important;
-      grid-row: 1 !important;
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .sponsor-item:nth-child(2) {
-      grid-column: 2 !important;
-      grid-row: 1 !important;
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .sponsor-item:nth-child(3) {
-      grid-column: 1 !important;
-      grid-row: 2 !important;
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .sponsor-item:nth-child(4) {
-      grid-column: 2 !important;
-      grid-row: 2 !important;
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .sponsor-item:nth-child(5) {
-      grid-column: 1 !important;
-      grid-row: 3 !important;
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .sponsor-item:nth-child(6) {
-      grid-column: 2 !important;
-      grid-row: 3 !important;
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .mission-text h2 {
-      text-align: center !important;
-    }
-    
-    .mission-text p {
-      text-align: center !important;
-    }
-    
-    .sponsor-placeholder {
-      text-align: center !important;
-    }
-    
-    .sponsor-placeholder button {
-      margin: 0 auto !important;
-      display: block !important;
-    }
-    
-    .donor-text {
-      text-align: center !important;
-      margin: 0 auto !important;
-    }
-    
-    .mission-logo .logo-stack img {
-      display: none !important;
-    }
   }
   
   @media (max-width: 480px) {
@@ -2836,40 +1790,12 @@ body, html {
     }
   }
   
-  /* iOS backdrop scaling */
+  /* iOS backdrop scaling - HOME PAGE ONLY */
   .backdrop-image {
     transform: scale(1.2) !important;
     object-fit: cover !important;
   }
   
-  /* Additional iOS Safari force rules */
-  @media (max-width: 768px) and (orientation: portrait) {
-    .sponsor-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      grid-template-rows: auto auto auto !important;
-      gap: 15px !important;
-      padding: 0 10px !important;
-      margin-bottom: 30px !important;
-    }
-    
-    .sponsor-item {
-      transform: none !important;
-      max-width: 140px !important;
-      justify-self: center !important;
-    }
-    
-    .mission-text h2,
-    .mission-text p,
-    .sponsor-placeholder,
-    .donor-text {
-      text-align: center !important;
-    }
-    
-    .sponsor-placeholder button {
-      margin: 0 auto !important;
-      display: block !important;
-    }
-  }
 }
 
 /* Mobile-specific mission section centering */
@@ -2988,10 +1914,4 @@ body, html {
   a[href="https://polymaker.com/"] img {
     max-width: 260px !important;
   }
-}
-
-.image-thing {
-  width: inherit;
-  height: inherit;
-  overflow: hidden;
 }

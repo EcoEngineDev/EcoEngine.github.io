@@ -39,9 +39,89 @@
     body, html, input, button, textarea {
       font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
+    
+     /* Mobile-specific styles for team page */
+     @media (max-width: 1200px) {
+       .team-grid {
+         grid-template-columns: repeat(3, 1fr) !important;
+         gap: 25px !important;
+         max-width: 100% !important;
+       }
+       
+       .team-section-bg {
+         padding: 40px 20px !important;
+         margin: 10px !important;
+         min-width: auto !important;
+         width: 100% !important;
+       }
+       
+       .team-member div:first-child {
+         width: 180px !important;
+         height: 180px !important;
+       }
+     }
+     
+     @media (max-width: 768px) {
+       .team-grid {
+         grid-template-columns: repeat(2, 1fr) !important;
+         gap: 20px !important;
+         max-width: 100% !important;
+       }
+       
+       .team-section-bg {
+         padding: 30px 15px !important;
+         background-size: 300px 300px !important;
+         min-width: auto !important;
+         width: 100% !important;
+         margin: 10px !important;
+       }
+       
+       .team-member div:first-child {
+         width: 160px !important;
+         height: 160px !important;
+       }
+       
+       .team-member h3 {
+         font-size: 1.2rem !important;
+       }
+       
+       .team-member p {
+         font-size: 1rem !important;
+       }
+       
+       h1 {
+         font-size: 2rem !important;
+         margin-bottom: 32px !important;
+       }
+     }
+     
+     @media (max-width: 480px) {
+       .team-grid {
+         grid-template-columns: 1fr !important;
+         gap: 25px !important;
+         max-width: 100% !important;
+       }
+       
+       .team-section-bg {
+         padding: 25px 10px !important;
+         margin: 5px !important;
+         background-size: 240px 240px !important;
+         min-width: auto !important;
+         width: 100% !important;
+       }
+       
+       .team-member div:first-child {
+         width: 140px !important;
+         height: 140px !important;
+       }
+       
+       h1 {
+         font-size: 1.8rem !important;
+       }
+     }
   </style>
 </head>
-<body>
+<body class="no-backdrop">
   <nav class="drop-down">
     <div class="logo-container">
       <div class="logo-stack">
@@ -60,35 +140,135 @@
   </nav>
   <div id="spa-root">
     <div class="spa-content">
-      <div class="section" style="flex-direction:column;align-items:center;">
-        <h1 style="color:var(--color-accent);margin-bottom:32px;">UNDER CONSTRUCTION</h1>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/asshole.jpg">
+      <div class="section" style="flex-direction:column;align-items:center;padding:40px 20px;">
+        <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;">Meet Our Team</h1>
+         <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 40px;border-radius:20px;margin:20px;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;min-width:1600px;">
+           <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(10,14,26,0.4);border-radius:20px;"></div>
+          <!-- Single Row - 6 members -->
+          <div class="team-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:30px;width:100%;max-width:1600px;justify-items:center;position:relative;z-index:1;margin:0 auto;">
+          
+          <!-- Team Member 1 -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/charlie.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Team Member">
+            </div>
+             <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Charlie</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;">Team Lead</p>
           </div>
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/danny.png">
+
+          <!-- Team Member 2 -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/danny.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Team Member">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Daniel</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
           </div>
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/ann.png">
+
+          <!-- Team Member 3 -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/emma_numba_2_annie_edition.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Team Member">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Emma</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
           </div>
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/emma_numba_2_annie_edition.png">
+
+          <!-- Team Member 4 -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/jame.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Team Member">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">James</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
           </div>
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/jame.png">
+
+          <!-- Team Member 5 -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/john.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Team Member">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">John</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
           </div>
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/john.png">
+
+          <!-- Team Member 6 -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/xan.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Team Member">
+            </div>
+             <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Xan</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
           </div>
-          <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;color:var(--color-white);font-size:2rem;font-weight:bold; overflow: hidden;">
-            <img class="image-thing" src="/media/xan.png">
+
           </div>
-          <div style="font-size:1.3rem;font-weight:700;color:var(--color-accent);margin-top:8px;">Team Lead</div>
+          </div>
         </div>
+
+        <!-- Team Collage Section -->
+        <div class="team-collage" style="margin: 80px 0 120px 0; position: relative; z-index: 1; width: 100%; overflow: hidden;">
+          <div class="collage-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1600px; margin: 0 auto; padding: 0 20px;">
+            <div class="collage-item" style="cursor: pointer;">
+              <img src="/media/team/IMG_8378.jpg" alt="Team Photo 1" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+            </div>
+            <div class="collage-item" style="cursor: pointer;">
+              <img src="/media/team/team.png" alt="Team Photo 2" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+            </div>
+            <div class="collage-item" style="cursor: pointer;">
+              <img src="/media/team/team1.jpg" alt="Team Photo 3" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+            </div>
+            <div class="collage-item" style="cursor: pointer;">
+              <img src="/media/team/team2.jpg" alt="Team Photo 4" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+            </div>
+            <div class="collage-item" style="cursor: pointer;">
+              <img src="/media/team/team3.jpg" alt="Team Photo 5" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for enlarged images -->
+        <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000; cursor: pointer;">
+          <img id="modalImage" style="max-width: 90%; max-height: 90vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 8px; box-shadow: 0 0 50px rgba(0, 217, 255, 0.3);">
+          <div style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer;" onclick="closeModal()">×</div>
+        </div>
+
       </div>
     </div>
-  </div>
+
+    <style>
+      .collage-item:hover img {
+        transform: scale(1.05);
+      }
+      
+      @media (max-width: 1200px) {
+        .collage-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 20px !important;
+        }
+        
+        .collage-item img {
+          height: 250px !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .collage-grid {
+          grid-template-columns: 1fr !important;
+          padding: 0 15px !important;
+        }
+        
+        .collage-item img {
+          height: 200px !important;
+        }
+        
+        .team-collage {
+          margin-top: 60px !important;
+        }
+      }
+    </style>
+
+    <!-- Initialization moved to main SPA handler in index.html -->
+
   <script src="/media/scripts.js"></script>
-</body>
+  </body>
 </html> 
