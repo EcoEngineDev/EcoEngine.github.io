@@ -99,7 +99,7 @@ nav .logo-container {
   color: var(--color-white);
   font-family: 'Lexend', sans-serif;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 19.2;
   line-height: 1.2;
   text-align: left;
 }
@@ -1577,7 +1577,7 @@ html {
 
 #dropdown-bits.show {
   opacity: 1;
-  max-height: 300px;
+  max-height: 350px;
   pointer-events: auto;
   padding: 8px;
 }
@@ -2988,4 +2988,10 @@ body, html {
   a[href="https://polymaker.com/"] img {
     max-width: 260px !important;
   }
+}
+
+.image-thing {
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
 }

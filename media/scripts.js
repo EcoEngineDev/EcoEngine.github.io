@@ -7,6 +7,10 @@ function fixMobile() {
         console.log("we on mobile mf");
         document.getElementById("mobileNav").style.display = "none";
         document.getElementById("navbar-dropdown").style.display = "block";
+        const text = document.querySelectorAll("logo-text");
+        text.forEach((element) => {
+            element.setAttribute(".font-size", "16px");
+        });
     }
 }
 
@@ -20,8 +24,8 @@ document.querySelectorAll(".dropdown-item").forEach(element => {
     element.addEventListener("click", function() {
         document.getElementById("dropdown-bits").classList.remove("show");
         fixMobile();
-    })
-})
+    });
+});
 
 // Dynamic logo overlap prevention
 function preventLogoOverlap() {
