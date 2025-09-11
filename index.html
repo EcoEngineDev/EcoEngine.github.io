@@ -55,7 +55,7 @@
     :root {
       --section-bg: #334255;          /* Main section background */
       --mission-bg: url('media/fiber.jpg');          /* Mission section background - carbon fiber pattern */
-      --cta-bg: #2a2a2a;              /* CTA section background */
+      --cta-bg: #555555;              /* CTA section background */
       --instagram-bg: #0B0C10;        /* Instagram section background */
       --mentoring-bg: #0B0C10;        /* Mentoring section background */
       --pattern-size: 350px;          /* Carbon fiber pattern size - easily adjustable */
@@ -82,6 +82,127 @@
     
     .mentoring-section {
       background-color: var(--mentoring-bg) !important;
+    }
+    
+    /* Team section specific background override */ 
+    .section[style*="background-color: #8B0000"] {
+      background-color: #1b282e !important;
+    }
+    
+    /* Team Preview Section Responsive Styles */
+    @media (max-width: 1400px) {
+      .team-preview-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 30px !important;
+        max-width: 900px !important;
+        margin: 0 auto 40px auto !important;
+      }
+
+      .team-member-preview div:first-child {
+        width: 170px !important;
+        height: 170px !important;
+      }
+    }
+    
+    @media (max-width: 1000px) {
+      .team-preview-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
+      }
+      
+      .team-member-preview div:first-child {
+        width: 150px !important;
+        height: 150px !important;
+      }
+      
+      .team-member-preview h3 {
+        font-size: 1.1rem !important;
+      }
+      
+      .team-member-preview p {
+        font-size: 0.9rem !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .team-preview-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+        padding: 0 10px !important;
+      }
+      
+      .team-member-preview div:first-child {
+        width: 120px !important;
+        height: 120px !important;
+      }
+      
+      .team-member-preview h3 {
+        font-size: 1rem !important;
+        margin-bottom: 4px !important;
+      }
+      
+      .team-member-preview p {
+        font-size: 0.85rem !important;
+      }
+      
+      /* Team section padding adjustment */
+      .section[style*="background-color: #8B0000"] {
+        padding: 40px 15px !important;
+      }
+      
+      .section[style*="background-color: #8B0000"] h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 30px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .team-preview-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        padding: 0 10px !important;
+      }
+      
+      .team-member-preview div:first-child {
+        width: 110px !important;
+        height: 110px !important;
+      }
+      
+      .team-member-preview h3 {
+        font-size: 0.95rem !important;
+        margin-bottom: 2px !important;
+      }
+      
+      .team-member-preview p {
+        font-size: 0.8rem !important;
+      }
+      
+      .section[style*="background-color: #8B0000"] {
+        padding: 30px 10px !important;
+      }
+      
+      .section[style*="background-color: #8B0000"] h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 25px !important;
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 360px) {
+      .team-preview-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      
+      .team-member-preview div:first-child {
+        width: 100px !important;
+        height: 100px !important;
+      }
+      
+      .team-member-preview h3 {
+        font-size: 0.9rem !important;
+      }
     }
   </style>
 </head>
@@ -202,6 +323,79 @@
              </a>
            </div>
            <button onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')" style="margin-top: 20px; background: var(--color-gradient-1); color: var(--color-white); border: none; padding: 12px 24px; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Support Our Mission</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meet the Team Section -->
+    <div class="section" style="background-color: #8B0000; padding: 80px 40px;">
+      <div style="text-align: center; width: 100%; max-width: 1400px; margin: 0 auto;">
+        <h2 style="color: var(--color-white); font-size: 2.5rem; margin-bottom: 60px; text-align: center;">Meet the Team</h2>
+        
+        <!-- Team Preview Grid -->
+        <div class="team-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; justify-items: center;">
+          
+          <!-- Charlie -->
+          <div class="team-member-preview" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-light); box-shadow: 0 8px 32px rgba(0,217,255,0.3); background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px; position: relative;">
+              <img src="/media/charlie.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Charlie">
+            </div>
+            <h3 style="color: var(--color-white); font-size: 1.3rem; font-weight: 600; margin: 0 0 8px 0;">Charlie</h3>
+            <p style="color: var(--color-accent); font-size: 1rem; font-weight: 500; margin: 0;">Team Lead</p>
+          </div>
+
+          <!-- Daniel -->
+          <div class="team-member-preview" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-light); box-shadow: 0 8px 32px rgba(0,217,255,0.3); background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px; position: relative;">
+              <img src="/media/danny.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Daniel">
+            </div>
+            <h3 style="color: var(--color-white); font-size: 1.3rem; font-weight: 600; margin: 0 0 8px 0;">Daniel</h3>
+            <p style="color: var(--color-accent); font-size: 1rem; font-weight: 500; margin: 0;"></p>
+          </div>
+
+          <!-- Emma -->
+          <div class="team-member-preview" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-light); box-shadow: 0 8px 32px rgba(0,217,255,0.3); background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px; position: relative;">
+              <img src="/media/emma_numba_2_annie_edition.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Emma">
+            </div>
+            <h3 style="color: var(--color-white); font-size: 1.3rem; font-weight: 600; margin: 0 0 8px 0;">Emma</h3>
+            <p style="color: var(--color-accent); font-size: 1rem; font-weight: 500; margin: 0;"></p>
+          </div>
+
+          <!-- James -->
+          <div class="team-member-preview" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-light); box-shadow: 0 8px 32px rgba(0,217,255,0.3); background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px; position: relative;">
+              <img src="/media/jame.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="James">
+            </div>
+            <h3 style="color: var(--color-white); font-size: 1.3rem; font-weight: 600; margin: 0 0 8px 0;">James</h3>
+            <p style="color: var(--color-accent); font-size: 1rem; font-weight: 500; margin: 0;"></p>
+          </div>
+
+          <!-- John -->
+          <div class="team-member-preview" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-light); box-shadow: 0 8px 32px rgba(0,217,255,0.3); background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px; position: relative;">
+              <img src="/media/john.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="John">
+            </div>
+            <h3 style="color: var(--color-white); font-size: 1.3rem; font-weight: 600; margin: 0 0 8px 0;">John</h3>
+            <p style="color: var(--color-accent); font-size: 1rem; font-weight: 500; margin: 0;"></p>
+          </div>
+
+          <!-- Xan -->
+          <div class="team-member-preview" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--color-light); box-shadow: 0 8px 32px rgba(0,217,255,0.3); background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px; position: relative;">
+              <img src="/media/xan.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="Xan">
+            </div>
+            <h3 style="color: var(--color-white); font-size: 1.3rem; font-weight: 600; margin: 0 0 8px 0;">Xan</h3>
+            <p style="color: var(--color-accent); font-size: 1rem; font-weight: 500; margin: 0;"></p>
+          </div>
+
+        </div>
+
+        <!-- See More Button -->
+        <div style="text-align: center;">
+          <a href="/modules/team.html" data-spa onclick="scrollToTeamTop()" style="display: inline-block; background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); color: var(--color-white); padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);">
+            See More →
+          </a>
         </div>
       </div>
     </div>
@@ -428,6 +622,17 @@
       playQuackSound();
     }
   });
+  
+  // Smooth scroll to top of team page
+  function scrollToTeamTop() {
+    // First navigate to team page, then scroll to top
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  }
   </script>
 <script>
 // Ensure page loads at the top
