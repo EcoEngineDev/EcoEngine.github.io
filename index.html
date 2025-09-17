@@ -688,7 +688,6 @@
           </div>
 
           <img src="media/front.png?v=1.0.1" alt="Front" class="front-image" />
-        </div>
     </div>
 
     <div class="mission-section">
@@ -869,9 +868,14 @@
         <a href="https://discord.gg/QeNfh6RmCv" target="_blank" style="display:inline-block;background-color:var(--color-accent);color:var(--color-dark);padding:14px 32px;border-radius:8px;font-size:1.2rem;font-weight:700;text-decoration:none;transition:background 0.2s;">Reach Out to us Here</a>
       </div>
     </div>
+  </div>
+</div>
+</div>
 
-    <!-- Team Section (Full) -->
-    <div id="team-section" class="section" style="display: none; flex-direction:column;align-items:center;padding:40px 0;">
+<!-- Team Section (Full) -->
+<div id="team-section" style="display: none;">
+  <div class="spa-content">
+    <div class="section" style="flex-direction:column;align-items:center;padding:40px 0;">
       <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Meet Our Team</h1>
       <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 20px;border-radius:20px;margin:0;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;max-width:1600px;width:100%;">
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(10,14,26,0.4);border-radius:20px;"></div>
@@ -882,7 +886,7 @@
           <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
             <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
               <img src="/media/charlie.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Charlie">
-            </div>
+</div>
             <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Charlie</h3>
             <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;">Team Lead</p>
           </div>
@@ -961,10 +965,14 @@
         <img id="modalImage" style="max-width: 90%; max-height: 90vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 8px; box-shadow: 0 0 50px rgba(0, 217, 255, 0.3);">
         <div style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer;" onclick="closeModal()">×</div>
       </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Projects Section -->
-    <div id="projects-section" class="section" style="display: none; flex-direction:column;align-items:center;">
+<!-- Projects Section -->
+<div id="projects-section" style="display: none;">
+  <div class="spa-content">
+    <div class="section" style="flex-direction:column;align-items:center;">
       <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Our Projects</h1>
       <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; width: 100%; max-width: 1200px; padding: 20px;">
         <div class="project-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
@@ -987,11 +995,14 @@
           <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">Puddle UI</h2>
           <p style="text-align:center;line-height:1.5;">Descriptions and info coming soon</p>
         </div>
+        </div>
       </div>
     </div>
 
-    <!-- Resources Section -->
-    <div id="resources-section" class="section" style="display: none; flex-direction:column;align-items:center;">
+<!-- Resources Section -->
+<div id="resources-section" style="display: none;">
+  <div class="spa-content">
+    <div class="section" style="flex-direction:column;align-items:center;">
       <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Resources</h1>
       <div class="resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; width: 100%; max-width: 1200px; padding: 20px;">
         <div class="resource-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
@@ -1009,10 +1020,10 @@
           <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFO SOON</h2>
           <p>COMING SOON</p>
         </div>
-      </div>
     </div>
   </div>
 </div>
+
 <script>
 // Internal section navigation system
 function showSection(sectionName) {
@@ -1028,81 +1039,81 @@ function showSection(sectionName) {
   // Show the requested section
   const targetSection = document.getElementById(sectionName + '-section');
   if (targetSection) {
-    targetSection.style.display = 'flex';
+    targetSection.style.display = 'block';
   }
 
   // Handle backdrop visibility
-  const backdrop = document.querySelector('.backdrop-image');
+              const backdrop = document.querySelector('.backdrop-image');
   if (sectionName === 'home') {
-    // Home page - show backdrop and remove no-backdrop class
-    if (backdrop) backdrop.style.display = 'block';
-    document.body.classList.remove('no-backdrop');
-    
-    // Reset animation flag and trigger animation
-    window.animationInitialized = false;
-    setTimeout(() => {
-      if (typeof initHeroAnimation === 'function') {
-        initHeroAnimation();
-      }
-      // Force reload images for iOS when returning to home page
-      if (typeof reloadImagesForIOS === 'function') {
-        reloadImagesForIOS();
-      }
-      // Force reload all images when returning to home page
-      forceReloadAllImages();
-    }, 100);
-  } else {
-    // Other pages - hide backdrop and add no-backdrop class
-    if (backdrop) backdrop.style.display = 'none';
-    document.body.classList.add('no-backdrop');
+                // Home page - show backdrop and remove no-backdrop class
+                if (backdrop) backdrop.style.display = 'block';
+                document.body.classList.remove('no-backdrop');
+                
+                // Reset animation flag and trigger animation
+                window.animationInitialized = false;
+                setTimeout(() => {
+                  if (typeof initHeroAnimation === 'function') {
+                    initHeroAnimation();
+                  }
+                  // Force reload images for iOS when returning to home page
+                  if (typeof reloadImagesForIOS === 'function') {
+                    reloadImagesForIOS();
+                  }
+                  // Force reload all images when returning to home page
+                  forceReloadAllImages();
+                }, 100);
+              } else {
+                // Other pages - hide backdrop and add no-backdrop class
+                if (backdrop) backdrop.style.display = 'none';
+                document.body.classList.add('no-backdrop');
 
-    // Initialize team page collage if on team page
+                // Initialize team page collage if on team page
     if (sectionName === 'team') {
-      setTimeout(() => {
-        // Initialize modal functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
+                  setTimeout(() => {
+                    // Initialize modal functionality
+                    const modal = document.getElementById('imageModal');
+                    const modalImg = document.getElementById('modalImage');
 
-        if (modal && modalImg) {
-          // Set up modal click handlers
-          modal.onclick = function(e) {
-            if (e.target !== modalImg) {
-              modal.style.display = 'none';
-              document.body.style.overflow = 'auto';
-            }
-          };
+                    if (modal && modalImg) {
+                      // Set up modal click handlers
+                      modal.onclick = function(e) {
+                        if (e.target !== modalImg) {
+                          modal.style.display = 'none';
+                          document.body.style.overflow = 'auto';
+                        }
+                      };
 
-          // Set up escape key handler
-          document.onkeydown = function(e) {
-            if (e.key === 'Escape') {
-              modal.style.display = 'none';
-              document.body.style.overflow = 'auto';
-            }
-          };
+                      // Set up escape key handler
+                      document.onkeydown = function(e) {
+                        if (e.key === 'Escape') {
+                          modal.style.display = 'none';
+                          document.body.style.overflow = 'auto';
+                        }
+                      };
 
-          // Set up image click handlers
-          const images = document.querySelectorAll('.collage-item img');
-          images.forEach(img => {
-            img.onclick = function() {
-              modal.style.display = 'block';
-              modalImg.src = this.src;
-              document.body.style.overflow = 'hidden';
-            };
-          });
-        }
-      }, 100);
-    }
-  }
-  
+                      // Set up image click handlers
+                      const images = document.querySelectorAll('.collage-item img');
+                      images.forEach(img => {
+                        img.onclick = function() {
+                          modal.style.display = 'block';
+                          modalImg.src = this.src;
+                          document.body.style.overflow = 'hidden';
+                        };
+                      });
+                    }
+                  }, 100);
+                }
+              }
+            
   // Update URL hash without page reload
   window.location.hash = sectionName;
   
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  
-  // Re-initialize Instagram embeds if present
-  if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
-}
+            
+            // Re-initialize Instagram embeds if present
+            if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
+          }
 
 // Handle initial page load and hash changes
 window.addEventListener('load', function() {
@@ -1118,7 +1129,7 @@ window.addEventListener('hashchange', function() {
   const hash = window.location.hash.substring(1); // Remove the '#'
   if (hash && ['home', 'team', 'projects', 'resources'].includes(hash)) {
     showSection(hash);
-  } else {
+    } else {
     showSection('home');
   }
 });
