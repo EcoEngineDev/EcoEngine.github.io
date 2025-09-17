@@ -41,39 +41,73 @@
     }
     
      /* Mobile-specific styles for team page */
+     @media (max-width: 1400px) {
+       .team-grid {
+         grid-template-columns: repeat(3, 1fr) !important;
+         gap: 30px !important;
+         max-width: 100% !important;
+         padding: 0 20px !important;
+       }
+       
+       .team-section-bg {
+         padding: 50px 20px !important;
+         margin: 0 !important;
+         min-width: auto !important;
+         width: 100% !important;
+         border-radius: 0 !important;
+       }
+       
+       .team-member div:first-child {
+         width: 200px !important;
+         height: 200px !important;
+       }
+     }
+
      @media (max-width: 1200px) {
        .team-grid {
          grid-template-columns: repeat(3, 1fr) !important;
          gap: 25px !important;
-         max-width: 100% !important;
-       }
-       
-       .team-section-bg {
-         padding: 40px 20px !important;
-         margin: 10px !important;
-         min-width: auto !important;
-         width: 100% !important;
        }
        
        .team-member div:first-child {
          width: 180px !important;
          height: 180px !important;
        }
+       
+       .team-member h3 {
+         font-size: 1.3rem !important;
+       }
      }
      
-     @media (max-width: 768px) {
+     @media (max-width: 900px) {
        .team-grid {
          grid-template-columns: repeat(2, 1fr) !important;
-         gap: 20px !important;
-         max-width: 100% !important;
+         gap: 30px !important;
        }
        
        .team-section-bg {
+         padding: 40px 15px !important;
+       }
+       
+       .team-member div:first-child {
+         width: 200px !important;
+         height: 200px !important;
+       }
+     }
+     
+     @media (max-width: 768px) {
+       .section {
          padding: 30px 15px !important;
+       }
+       
+       .team-grid {
+         gap: 25px !important;
+         padding: 0 10px !important;
+       }
+       
+       .team-section-bg {
+         padding: 30px 10px !important;
          background-size: 300px 300px !important;
-         min-width: auto !important;
-         width: 100% !important;
-         margin: 10px !important;
        }
        
        .team-member div:first-child {
@@ -92,31 +126,63 @@
        h1 {
          font-size: 2rem !important;
          margin-bottom: 32px !important;
+         padding: 0 20px !important;
        }
      }
      
      @media (max-width: 480px) {
+       .section {
+         padding: 20px 10px !important;
+       }
+       
        .team-grid {
-         grid-template-columns: 1fr !important;
-         gap: 25px !important;
-         max-width: 100% !important;
+         grid-template-columns: repeat(2, 1fr) !important;
+         gap: 20px !important;
+         padding: 0 5px !important;
        }
        
        .team-section-bg {
-         padding: 25px 10px !important;
-         margin: 5px !important;
+         padding: 20px 5px !important;
          background-size: 240px 240px !important;
-         min-width: auto !important;
-         width: 100% !important;
        }
        
        .team-member div:first-child {
-         width: 140px !important;
-         height: 140px !important;
+         width: 130px !important;
+         height: 130px !important;
+         margin-bottom: 12px !important;
+       }
+       
+       .team-member h3 {
+         font-size: 1.1rem !important;
+         margin-bottom: 4px !important;
+       }
+       
+       .team-member p {
+         font-size: 0.9rem !important;
        }
        
        h1 {
          font-size: 1.8rem !important;
+         margin-bottom: 24px !important;
+       }
+     }
+     
+     @media (max-width: 360px) {
+       .team-grid {
+         gap: 15px !important;
+       }
+       
+       .team-member div:first-child {
+         width: 120px !important;
+         height: 120px !important;
+       }
+       
+       .team-member h3 {
+         font-size: 1rem !important;
+       }
+       
+       .team-member p {
+         font-size: 0.85rem !important;
        }
      }
   </style>
@@ -142,7 +208,7 @@
     <div class="spa-content">
       <div class="section" style="flex-direction:column;align-items:center;padding:40px 20px;">
         <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;">Meet Our Team</h1>
-         <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 40px;border-radius:20px;margin:20px;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;min-width:1600px;">
+         <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 40px;border-radius:20px;margin:20px;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;max-width:1600px;width:100%;">
            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(10,14,26,0.4);border-radius:20px;"></div>
           <!-- Single Row - 6 members -->
           <div class="team-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:30px;width:100%;max-width:1600px;justify-items:center;position:relative;z-index:1;margin:0 auto;">
