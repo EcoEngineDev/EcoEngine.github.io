@@ -204,6 +204,401 @@
         font-size: 0.9rem !important;
       }
     }
+
+    /* Full Team Section Mobile Styles */
+    @media (max-width: 1400px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 30px !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      
+      .team-section-bg {
+        padding: 50px 15px !important;
+        margin: 0 !important;
+        min-width: auto !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+      }
+      
+      .team-member div:first-child {
+        width: 200px !important;
+        height: 200px !important;
+      }
+
+      #team-section {
+        padding: 40px 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 25px !important;
+      }
+      
+      .team-member div:first-child {
+        width: 180px !important;
+        height: 180px !important;
+      }
+      
+      .team-member h3 {
+        font-size: 1.3rem !important;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+      }
+      
+      .team-section-bg {
+        padding: 40px 15px !important;
+      }
+      
+      .team-member div:first-child {
+        width: 200px !important;
+        height: 200px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      #team-section {
+        padding: 30px 15px !important;
+      }
+      
+      .team-grid {
+        gap: 25px !important;
+        padding: 0 10px !important;
+      }
+      
+      .team-section-bg {
+        padding: 30px 10px !important;
+        background-size: 300px 300px !important;
+      }
+      
+      .team-member div:first-child {
+        width: 160px !important;
+        height: 160px !important;
+      }
+      
+      .team-member h3 {
+        font-size: 1.2rem !important;
+      }
+      
+      .team-member p {
+        font-size: 1rem !important;
+      }
+      
+      #team-section h1 {
+        font-size: 2rem !important;
+        margin-bottom: 32px !important;
+        padding: 0 20px !important;
+      }
+
+      .collage-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 15px !important;
+      }
+      
+      .collage-item img {
+        height: 200px !important;
+      }
+      
+      .team-collage {
+        margin-top: 60px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #team-section {
+        padding: 20px 10px !important;
+      }
+      
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 0 5px !important;
+      }
+      
+      .team-section-bg {
+        padding: 20px 5px !important;
+        background-size: 240px 240px !important;
+      }
+      
+      .team-member div:first-child {
+        width: 130px !important;
+        height: 130px !important;
+        margin-bottom: 12px !important;
+      }
+      
+      .team-member h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 4px !important;
+      }
+      
+      .team-member p {
+        font-size: 0.9rem !important;
+      }
+      
+      #team-section h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 24px !important;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .team-grid {
+        gap: 15px !important;
+      }
+      
+      .team-member div:first-child {
+        width: 120px !important;
+        height: 120px !important;
+      }
+      
+      .team-member h3 {
+        font-size: 1rem !important;
+      }
+      
+      .team-member p {
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Projects Section Mobile Styles */
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(0,217,255,0.3);
+    }
+
+    .project-card:hover .project-icon {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 1200px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+        padding: 15px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #projects-section {
+        padding: 30px 15px !important;
+      }
+
+      #projects-section h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 30px !important;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 10px !important;
+      }
+
+      .project-card {
+        padding: 28px !important;
+      }
+
+      .project-icon {
+        height: 160px !important;
+        margin-bottom: 16px !important;
+      }
+
+      .project-card h2 {
+        font-size: 1.4rem !important;
+      }
+
+      .project-card p {
+        font-size: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #projects-section {
+        padding: 25px 10px !important;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        padding: 5px !important;
+      }
+
+      .project-card {
+        padding: 20px !important;
+      }
+
+      .project-icon {
+        height: 140px !important;
+        margin-bottom: 12px !important;
+      }
+
+      #projects-section h1 {
+        font-size: 2rem !important;
+        margin-bottom: 25px !important;
+      }
+
+      .project-card h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 6px !important;
+      }
+
+      .project-card p {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .project-card {
+        padding: 16px !important;
+      }
+
+      .project-icon {
+        height: 120px !important;
+      }
+
+      .project-card h2 {
+        font-size: 1.1rem !important;
+      }
+
+      .project-card p {
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Resources Section Mobile Styles */
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(0,217,255,0.3);
+    }
+
+    .resource-card:hover .resource-icon {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 1200px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+        padding: 15px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #resources-section {
+        padding: 30px 15px !important;
+      }
+
+      #resources-section h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 30px !important;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 10px !important;
+      }
+
+      .resource-card {
+        padding: 28px !important;
+      }
+
+      .resource-icon {
+        width: 90px !important;
+        height: 90px !important;
+        margin-bottom: 16px !important;
+      }
+
+      .resource-card h2 {
+        font-size: 1.4rem !important;
+      }
+
+      .resource-card p {
+        font-size: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #resources-section {
+        padding: 25px 10px !important;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        padding: 5px !important;
+      }
+
+      .resource-card {
+        padding: 20px !important;
+      }
+
+      .resource-icon {
+        width: 75px !important;
+        height: 75px !important;
+        margin-bottom: 12px !important;
+      }
+
+      #resources-section h1 {
+        font-size: 2rem !important;
+        margin-bottom: 25px !important;
+      }
+
+      .resource-card h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 6px !important;
+      }
+
+      .resource-card p {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .resource-card {
+        padding: 16px !important;
+      }
+
+      .resource-icon {
+        width: 65px !important;
+        height: 65px !important;
+      }
+
+      .resource-card h2 {
+        font-size: 1.1rem !important;
+      }
+
+      .resource-card p {
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Collage hover effects */
+    .collage-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 1200px) {
+      .collage-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      
+      .collage-item img {
+        height: 250px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -221,10 +616,10 @@
     </div>
   </div>
   <div class="nav-links" id="mobileNav">
-    <a href="/index.html" data-spa>Home</a>
-    <a href="/modules/team.html" data-spa>Team</a>
-    <a href="/modules/projects.html" data-spa>Projects</a>
-    <a href="/modules/resources.html" data-spa>Resources</a>
+    <a href="#home" onclick="showSection('home')">Home</a>
+    <a href="#team" onclick="showSection('team')">Team</a>
+    <a href="#projects" onclick="showSection('projects')">Projects</a>
+    <a href="#resources" onclick="showSection('resources')">Resources</a>
     <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
     <a href="mailto:info@ecoengine.net">Contact</a>
   </div>
@@ -241,10 +636,10 @@
   </div>
   <img src="media/menu.svg?v=1.0.1" id="navbar-dropdown"></img>
   <div id="dropdown-bits">
-      <div class="dropdown-item"><a class="mobile-nav-text" href="/index.html" data-spa>Home</a></div>
-      <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/team.html" data-spa>Team</a></div>
-      <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/projects.html" data-spa>Projects</a></div>
-      <div class="dropdown-item"><a class="mobile-nav-text" href="/modules/resources.html" data-spa>Resources</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="#home" onclick="showSection('home')">Home</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="#team" onclick="showSection('team')">Team</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="#projects" onclick="showSection('projects')">Projects</a></div>
+      <div class="dropdown-item"><a class="mobile-nav-text" href="#resources" onclick="showSection('resources')">Resources</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="mailto:info@ecoengine.net">Contact</a></div>
       <div class="dropdown-item"><a class="mobile-nav-text" href="https://github.com/EcoEngineDev" target="_blank">Github</a></div>
@@ -267,7 +662,8 @@
 </div>
 <div id="spa-root">
   <div class="spa-content">
-    <div class="section">
+    <!-- Home Section -->
+    <div id="home-section" class="section">
               <div class="layered-images">
           <div class="hero-title">
             <span class="char">M</span>
@@ -390,7 +786,7 @@
 
         <!-- See More Button -->
         <div style="text-align: center;">
-          <a href="/modules/team.html" data-spa onclick="scrollToTeamTop()" style="display: inline-block; background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); color: var(--color-white); padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);">
+          <a href="#team" onclick="showSection('team')" style="display: inline-block; background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); color: var(--color-white); padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);">
             See More →
           </a>
         </div>
@@ -473,149 +869,268 @@
         <a href="https://discord.gg/QeNfh6RmCv" target="_blank" style="display:inline-block;background-color:var(--color-accent);color:var(--color-dark);padding:14px 32px;border-radius:8px;font-size:1.2rem;font-weight:700;text-decoration:none;transition:background 0.2s;">Reach Out to us Here</a>
       </div>
     </div>
+
+    <!-- Team Section (Full) -->
+    <div id="team-section" class="section" style="display: none; flex-direction:column;align-items:center;padding:40px 0;">
+      <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Meet Our Team</h1>
+      <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 20px;border-radius:20px;margin:0;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;max-width:1600px;width:100%;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(10,14,26,0.4);border-radius:20px;"></div>
+        <!-- Team Grid -->
+        <div class="team-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:30px;width:100%;max-width:1600px;justify-items:center;position:relative;z-index:1;margin:0 auto;">
+          
+          <!-- Charlie -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/charlie.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Charlie">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Charlie</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;">Team Lead</p>
+          </div>
+
+          <!-- Daniel -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/danny.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Daniel">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Daniel</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
+          </div>
+
+          <!-- Emma -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/emma_numba_2_annie_edition.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Emma">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Emma</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
+          </div>
+
+          <!-- James -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/jame.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="James">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">James</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
+          </div>
+
+          <!-- John -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/john.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="John">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">John</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
+          </div>
+
+          <!-- Xan -->
+          <div class="team-member" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+            <div style="width:220px;height:220px;border-radius:50%;border:3px solid var(--color-light);box-shadow:0 8px 32px rgba(0,217,255,0.3);background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;position:relative;">
+              <img src="/media/xan.png" style="width:100%;height:100%;object-fit:cover;object-position:center;" alt="Xan">
+            </div>
+            <h3 style="color:var(--color-white);font-size:1.4rem;font-weight:600;margin:0 0 8px 0;">Xan</h3>
+            <p style="color:var(--color-accent);font-size:1.1rem;font-weight:500;margin:0;"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Team Collage Section -->
+      <div class="team-collage" style="margin: 80px 0 120px 0; position: relative; z-index: 1; width: 100%; overflow: hidden;">
+        <div class="collage-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1600px; margin: 0 auto; padding: 0 20px;">
+          <div class="collage-item" style="cursor: pointer;">
+            <img src="/media/team/IMG_8378.jpg" alt="Team Photo 1" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+          </div>
+          <div class="collage-item" style="cursor: pointer;">
+            <img src="/media/team/team.png" alt="Team Photo 2" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+          </div>
+          <div class="collage-item" style="cursor: pointer;">
+            <img src="/media/team/team1.jpg" alt="Team Photo 3" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+          </div>
+          <div class="collage-item" style="cursor: pointer;">
+            <img src="/media/team/team2.jpg" alt="Team Photo 4" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+          </div>
+          <div class="collage-item" style="cursor: pointer;">
+            <img src="/media/team/team3.jpg" alt="Team Photo 5" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3); transition: transform 0.3s ease;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for enlarged images -->
+      <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000; cursor: pointer;">
+        <img id="modalImage" style="max-width: 90%; max-height: 90vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 8px; box-shadow: 0 0 50px rgba(0, 217, 255, 0.3);">
+        <div style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer;" onclick="closeModal()">×</div>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects-section" class="section" style="display: none; flex-direction:column;align-items:center;">
+      <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Our Projects</h1>
+      <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; width: 100%; max-width: 1200px; padding: 20px;">
+        <div class="project-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="project-icon" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 3rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-accent), var(--color-tertiary));">🚗</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">The Quackmobile</h2>
+          <p style="text-align:center;line-height:1.5;">Descriptions and info coming soon</p>
+        </div>
+        <div class="project-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="project-icon" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 3rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-secondary), var(--color-accent));">💺</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">Carbon Fiber Racing Seats</h2>
+          <p style="text-align:center;line-height:1.5;">Descriptions and info coming soon</p>
+        </div>
+        <div class="project-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="project-icon" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 3rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-tertiary), var(--color-secondary));">🤖</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">Puddles Bot</h2>
+          <p style="text-align:center;line-height:1.5;">Descriptions and info coming soon</p>
+        </div>
+        <div class="project-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="project-icon" style="width: 100%; height: 180px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 3rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-accent), var(--color-secondary));">🖥️</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">Puddle UI</h2>
+          <p style="text-align:center;line-height:1.5;">Descriptions and info coming soon</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources Section -->
+    <div id="resources-section" class="section" style="display: none; flex-direction:column;align-items:center;">
+      <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Resources</h1>
+      <div class="resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; width: 100%; max-width: 1200px; padding: 20px;">
+        <div class="resource-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="resource-icon" style="width: 100px; height: 100px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-accent), var(--color-tertiary));">R1</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFOSOON</h2>
+          <p>COMING SOON</p>
+        </div>
+        <div class="resource-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="resource-icon" style="width: 100px; height: 100px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-secondary), var(--color-accent));">R2</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFO SOON</h2>
+          <p>COMING SOON</p>
+        </div>
+        <div class="resource-card" style="background: var(--color-dark); color: var(--color-light); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <div class="resource-icon" style="width: 100px; height: 100px; border-radius: 8px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1rem; font-weight: bold; transition: transform 0.3s ease; background:linear-gradient(135deg, var(--color-tertiary), var(--color-secondary));">R3</div>
+          <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFO SOON</h2>
+          <p>COMING SOON</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <script>
-(function() {
-  const spaRoot = document.getElementById('spa-root');
-  function loadSpaContent(url, push=true) {
-    // Start preloading images as soon as possible
-    function preloadImages(html) {
-      const temp = document.createElement('div');
-      temp.innerHTML = html;
-      const images = temp.getElementsByTagName('img');
-      for (let img of images) {
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.as = 'image';
-        preloadLink.href = img.src;
-        document.head.appendChild(preloadLink);
-      }
+// Internal section navigation system
+function showSection(sectionName) {
+  // Hide all sections
+  const sections = ['home-section', 'team-section', 'projects-section', 'resources-section'];
+  sections.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.display = 'none';
     }
+  });
 
-    const oldContent = spaRoot.querySelector('.spa-content');
-    if (oldContent) oldContent.classList.add('fade-out');
-    
-    // Reduce transition time for faster page switches
-    setTimeout(() => {
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          // Start preloading images while processing the HTML
-          preloadImages(html);
-          
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          const newContent = temp.querySelector('.spa-content');
-            if (newContent) {
-              if (oldContent) spaRoot.removeChild(oldContent);
-              spaRoot.appendChild(newContent);
-              if (push) history.pushState({spa: true, url}, '', url);
-              
-              // Handle backdrop visibility based on page
-              const backdrop = document.querySelector('.backdrop-image');
-              if (url === '/index.html' || url === '/' || url === window.location.origin + '/') {
-                // Home page - show backdrop and remove no-backdrop class
-                if (backdrop) backdrop.style.display = 'block';
-                document.body.classList.remove('no-backdrop');
-                
-                // Reset animation flag and trigger animation
-                window.animationInitialized = false;
-                setTimeout(() => {
-                  if (typeof initHeroAnimation === 'function') {
-                    initHeroAnimation();
-                  }
-                  // Force reload images for iOS when returning to home page
-                  if (typeof reloadImagesForIOS === 'function') {
-                    reloadImagesForIOS();
-                  }
-                  // Force reload all images when returning to home page
-                  forceReloadAllImages();
-                }, 100);
-              } else {
-                // Other pages - hide backdrop and add no-backdrop class
-                if (backdrop) backdrop.style.display = 'none';
-                document.body.classList.add('no-backdrop');
-
-                // Initialize team page collage if on team page
-                if (url.includes('/team.html')) {
-                  setTimeout(() => {
-                    // Initialize modal functionality
-                    const modal = document.getElementById('imageModal');
-                    const modalImg = document.getElementById('modalImage');
-
-                    if (modal && modalImg) {
-                      // Set up modal click handlers
-                      modal.onclick = function(e) {
-                        if (e.target !== modalImg) {
-                          modal.style.display = 'none';
-                          document.body.style.overflow = 'auto';
-                        }
-                      };
-
-                      // Set up escape key handler
-                      document.onkeydown = function(e) {
-                        if (e.key === 'Escape') {
-                          modal.style.display = 'none';
-                          document.body.style.overflow = 'auto';
-                        }
-                      };
-
-                      // Set up image click handlers
-                      const images = document.querySelectorAll('.collage-item img');
-                      images.forEach(img => {
-                        img.onclick = function() {
-                          modal.style.display = 'block';
-                          modalImg.src = this.src;
-                          document.body.style.overflow = 'hidden';
-                        };
-                      });
-                    }
-                  }, 100);
-                }
-              }
-            
-            // Re-initialize Instagram embeds if present
-            if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
-          }
-        });
-    }, 150); // Reduced transition time from 350ms to 150ms for faster page switches
+  // Show the requested section
+  const targetSection = document.getElementById(sectionName + '-section');
+  if (targetSection) {
+    targetSection.style.display = 'flex';
   }
-  document.addEventListener('click', function(e) {
-    const a = e.target.closest('a[data-spa]');
-    if (a && a.href && !a.target) {
-      e.preventDefault();
-      const url = a.getAttribute('href');
-      loadSpaContent(url);
-    }
-  });
-  window.addEventListener('popstate', function(e) {
-    if (e.state && e.state.spa && e.state.url) {
-      loadSpaContent(e.state.url, false);
-    } else {
-      // Handle direct navigation or page refresh
-      const currentPath = window.location.pathname;
-      const backdrop = document.querySelector('.backdrop-image');
-      if (currentPath === '/' || currentPath === '/index.html' || currentPath === '') {
-        if (backdrop) backdrop.style.display = 'block';
-        document.body.classList.remove('no-backdrop');
-      } else {
-        if (backdrop) backdrop.style.display = 'none';
-        document.body.classList.add('no-backdrop');
-        // Load the current page content on refresh for non-home pages
-        loadSpaContent(currentPath, false);
-      }
-    }
-  });
 
-  // Handle initial page load
-  document.addEventListener('DOMContentLoaded', function() {
-    const currentPath = window.location.pathname;
-    if (currentPath !== '/' && currentPath !== '/index.html' && currentPath !== '') {
-      loadSpaContent(currentPath, false);
+  // Handle backdrop visibility
+  const backdrop = document.querySelector('.backdrop-image');
+  if (sectionName === 'home') {
+    // Home page - show backdrop and remove no-backdrop class
+    if (backdrop) backdrop.style.display = 'block';
+    document.body.classList.remove('no-backdrop');
+    
+    // Reset animation flag and trigger animation
+    window.animationInitialized = false;
+    setTimeout(() => {
+      if (typeof initHeroAnimation === 'function') {
+        initHeroAnimation();
+      }
+      // Force reload images for iOS when returning to home page
+      if (typeof reloadImagesForIOS === 'function') {
+        reloadImagesForIOS();
+      }
+      // Force reload all images when returning to home page
+      forceReloadAllImages();
+    }, 100);
+  } else {
+    // Other pages - hide backdrop and add no-backdrop class
+    if (backdrop) backdrop.style.display = 'none';
+    document.body.classList.add('no-backdrop');
+
+    // Initialize team page collage if on team page
+    if (sectionName === 'team') {
+      setTimeout(() => {
+        // Initialize modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        if (modal && modalImg) {
+          // Set up modal click handlers
+          modal.onclick = function(e) {
+            if (e.target !== modalImg) {
+              modal.style.display = 'none';
+              document.body.style.overflow = 'auto';
+            }
+          };
+
+          // Set up escape key handler
+          document.onkeydown = function(e) {
+            if (e.key === 'Escape') {
+              modal.style.display = 'none';
+              document.body.style.overflow = 'auto';
+            }
+          };
+
+          // Set up image click handlers
+          const images = document.querySelectorAll('.collage-item img');
+          images.forEach(img => {
+            img.onclick = function() {
+              modal.style.display = 'block';
+              modalImg.src = this.src;
+              document.body.style.overflow = 'hidden';
+            };
+          });
+        }
+      }, 100);
     }
-  });
-})();
+  }
+  
+  // Update URL hash without page reload
+  window.location.hash = sectionName;
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  // Re-initialize Instagram embeds if present
+  if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
+}
+
+// Handle initial page load and hash changes
+window.addEventListener('load', function() {
+  const hash = window.location.hash.substring(1); // Remove the '#'
+  if (hash && ['team', 'projects', 'resources'].includes(hash)) {
+    showSection(hash);
+  } else {
+    showSection('home');
+  }
+});
+
+window.addEventListener('hashchange', function() {
+  const hash = window.location.hash.substring(1); // Remove the '#'
+  if (hash && ['home', 'team', 'projects', 'resources'].includes(hash)) {
+    showSection(hash);
+  } else {
+    showSection('home');
+  }
+});
+
+// Close modal function for team page
+function closeModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+}
 </script>
 <!-- External JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
