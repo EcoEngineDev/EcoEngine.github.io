@@ -86,33 +86,41 @@
     }
 
     /* Mobile Responsive Styles */
+    @media (max-width: 1200px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 15px;
+      }
+    }
+
     @media (max-width: 768px) {
       .section {
-        padding: 20px 10px !important;
+        padding: 30px 15px !important;
       }
 
       h1 {
-        font-size: 2rem !important;
-        margin-bottom: 20px !important;
+        font-size: 2.2rem !important;
+        margin-bottom: 30px !important;
       }
 
       .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         padding: 10px;
       }
 
       .project-card {
-        padding: 24px;
+        padding: 28px;
       }
 
       .project-icon {
-        height: 150px;
-        margin-bottom: 15px;
+        height: 160px;
+        margin-bottom: 16px;
       }
 
       h2 {
-        font-size: 1.3rem !important;
+        font-size: 1.4rem !important;
       }
 
       p {
@@ -121,9 +129,14 @@
     }
 
     @media (max-width: 480px) {
+      .section {
+        padding: 25px 10px !important;
+      }
+
       .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        padding: 5px;
       }
 
       .project-card {
@@ -131,15 +144,40 @@
       }
 
       .project-icon {
-        height: 130px;
+        height: 140px;
+        margin-bottom: 12px;
       }
 
       h1 {
-        font-size: 1.8rem !important;
+        font-size: 2rem !important;
+        margin-bottom: 25px !important;
       }
 
       h2 {
         font-size: 1.2rem !important;
+        margin-bottom: 6px !important;
+      }
+
+      p {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .project-card {
+        padding: 16px;
+      }
+
+      .project-icon {
+        height: 120px;
+      }
+
+      h2 {
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        font-size: 0.85rem !important;
       }
     }
   </style>

@@ -479,12 +479,31 @@
 (function() {
   const spaRoot = document.getElementById('spa-root');
   function loadSpaContent(url, push=true) {
+    // Start preloading images as soon as possible
+    function preloadImages(html) {
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const images = temp.getElementsByTagName('img');
+      for (let img of images) {
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'image';
+        preloadLink.href = img.src;
+        document.head.appendChild(preloadLink);
+      }
+    }
+
     const oldContent = spaRoot.querySelector('.spa-content');
     if (oldContent) oldContent.classList.add('fade-out');
+    
+    // Reduce transition time for faster page switches
     setTimeout(() => {
       fetch(url)
         .then(res => res.text())
         .then(html => {
+          // Start preloading images while processing the HTML
+          preloadImages(html);
+          
           const temp = document.createElement('div');
           temp.innerHTML = html;
           const newContent = temp.querySelector('.spa-content');
@@ -560,7 +579,7 @@
             if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
           }
         });
-    }, 350);
+    }, 150); // Reduced transition time from 350ms to 150ms for faster page switches
   }
   document.addEventListener('click', function(e) {
     const a = e.target.closest('a[data-spa]');
@@ -583,7 +602,17 @@
       } else {
         if (backdrop) backdrop.style.display = 'none';
         document.body.classList.add('no-backdrop');
+        // Load the current page content on refresh for non-home pages
+        loadSpaContent(currentPath, false);
       }
+    }
+  });
+
+  // Handle initial page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    if (currentPath !== '/' && currentPath !== '/index.html' && currentPath !== '') {
+      loadSpaContent(currentPath, false);
     }
   });
 })();

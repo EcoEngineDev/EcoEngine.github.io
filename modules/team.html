@@ -46,20 +46,27 @@
          grid-template-columns: repeat(3, 1fr) !important;
          gap: 30px !important;
          max-width: 100% !important;
-         padding: 0 20px !important;
+         padding: 0 !important;
        }
        
        .team-section-bg {
-         padding: 50px 20px !important;
+         padding: 50px 15px !important;
          margin: 0 !important;
          min-width: auto !important;
          width: 100% !important;
          border-radius: 0 !important;
+         overflow: hidden !important;
        }
        
        .team-member div:first-child {
          width: 200px !important;
          height: 200px !important;
+       }
+
+       .section {
+         padding: 40px 0 !important;
+         width: 100% !important;
+         overflow-x: hidden !important;
        }
      }
 
@@ -206,9 +213,9 @@
   </nav>
   <div id="spa-root">
     <div class="spa-content">
-      <div class="section" style="flex-direction:column;align-items:center;padding:40px 20px;">
-        <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;">Meet Our Team</h1>
-         <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 40px;border-radius:20px;margin:20px;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;max-width:1600px;width:100%;">
+      <div class="section" style="flex-direction:column;align-items:center;padding:40px 0;">
+        <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Meet Our Team</h1>
+         <div class="team-section-bg" style="background-image:url('/media/fiber.jpg');background-size:400px 400px;background-position:center;background-repeat:repeat;padding:60px 20px;border-radius:20px;margin:0;box-shadow:0 12px 40px rgba(0,0,0,0.4);position:relative;max-width:1600px;width:100%;">
            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(10,14,26,0.4);border-radius:20px;"></div>
           <!-- Single Row - 6 members -->
           <div class="team-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:30px;width:100%;max-width:1600px;justify-items:center;position:relative;z-index:1;margin:0 auto;">
