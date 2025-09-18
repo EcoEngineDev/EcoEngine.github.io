@@ -819,11 +819,33 @@
       }
     }
 
+    /* Section Visibility Management */
+    #team-section, #projects-section, #resources-section {
+      display: none !important;
+      visibility: hidden !important;
+      position: absolute !important;
+      top: -9999px !important;
+      z-index: -1 !important;
+    }
+
+    #home-section {
+      display: block !important;
+      visibility: visible !important;
+      position: relative !important;
+      z-index: auto !important;
+    }
+
     /* General Mobile Improvements */
     @media (max-width: 768px) {
-      /* Ensure all sections have proper mobile spacing */
+      /* Ensure all sections have proper mobile spacing when visible */
       #team-section, #projects-section, #resources-section {
         min-height: 100vh !important;
+      }
+
+      /* Override the hidden state when sections are shown */
+      #team-section[style*="display: block"], 
+      #projects-section[style*="display: block"], 
+      #resources-section[style*="display: block"] {
         display: flex !important;
         flex-direction: column !important;
       }
@@ -1300,12 +1322,16 @@
 <script>
 // Internal section navigation system
 function showSection(sectionName) {
-  // Hide all sections
+  // Hide all sections completely
   const sections = ['home-section', 'team-section', 'projects-section', 'resources-section'];
   sections.forEach(id => {
     const element = document.getElementById(id);
     if (element) {
       element.style.display = 'none';
+      element.style.visibility = 'hidden';
+      element.style.position = 'absolute';
+      element.style.top = '-9999px';
+      element.style.zIndex = '-1';
     }
   });
 
@@ -1313,6 +1339,10 @@ function showSection(sectionName) {
   const targetSection = document.getElementById(sectionName + '-section');
   if (targetSection) {
     targetSection.style.display = 'block';
+    targetSection.style.visibility = 'visible';
+    targetSection.style.position = 'relative';
+    targetSection.style.top = 'auto';
+    targetSection.style.zIndex = 'auto';
   }
 
   // Handle backdrop visibility
@@ -1386,10 +1416,34 @@ function showSection(sectionName) {
             
             // Re-initialize Instagram embeds if present
             if (window.instgrm) setTimeout(() => window.instgrm.Embeds.process(), 100);
-          }
+}
 
 // Handle initial page load and hash changes
 window.addEventListener('load', function() {
+  // First ensure all sections are properly hidden
+  const sections = ['team-section', 'projects-section', 'resources-section'];
+  sections.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.display = 'none';
+      element.style.visibility = 'hidden';
+      element.style.position = 'absolute';
+      element.style.top = '-9999px';
+      element.style.zIndex = '-1';
+    }
+  });
+
+  // Ensure home section is visible
+  const homeSection = document.getElementById('home-section');
+  if (homeSection) {
+    homeSection.style.display = 'block';
+    homeSection.style.visibility = 'visible';
+    homeSection.style.position = 'relative';
+    homeSection.style.top = 'auto';
+    homeSection.style.zIndex = 'auto';
+  }
+
+  // Then check hash
   const hash = window.location.hash.substring(1); // Remove the '#'
   if (hash && ['team', 'projects', 'resources'].includes(hash)) {
     showSection(hash);
@@ -1405,6 +1459,21 @@ window.addEventListener('hashchange', function() {
     } else {
     showSection('home');
   }
+});
+
+// Also ensure sections are hidden on DOM ready
+  document.addEventListener('DOMContentLoaded', function() {
+  const sections = ['team-section', 'projects-section', 'resources-section'];
+  sections.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.display = 'none';
+      element.style.visibility = 'hidden';
+      element.style.position = 'absolute';
+      element.style.top = '-9999px';
+      element.style.zIndex = '-1';
+    }
+  });
 });
 
 // Close modal function for team page
