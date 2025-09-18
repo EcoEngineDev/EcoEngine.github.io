@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Resources | Mallard Motorsports</title>
+  <link rel="icon" type="image/png" href="media/animlogo4.png"/>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="media/styles.css?v=1.0.4">
+  <style>
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-ExtraLight.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Lexend';
+      src: url('/fonts/Lexend-Thin.ttf') format('truetype');
+      font-weight: 100;
+      font-style: normal;
+    }
+    body, html, input, button, textarea {
+      font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Resources cards styles */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    .resource-card {
+      background: var(--color-dark);
+      color: var(--color-light);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(0,217,255,0.3);
+    }
+
+    .resource-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 1rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .resource-card:hover .resource-icon {
+      transform: scale(1.1);
+    }
+
+    /* Resources Section Mobile Styles - Enhanced */
+    @media (max-width: 1400px) {
+      .section {
+        padding: 30px 15px !important;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 25px !important;
+        padding: 0 !important;
+        max-width: 900px !important;
+        margin: 0 auto !important;
+      }
+
+      h1 {
+        font-size: 2.3rem !important;
+        margin-bottom: 35px !important;
+        padding: 0 15px !important;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .resources-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        max-width: 700px !important;
+      }
+
+      .resource-card {
+        padding: 25px !important;
+      }
+
+      .resource-icon {
+        width: 85px !important;
+        height: 85px !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 22px !important;
+        max-width: 600px !important;
+      }
+
+      .resource-card {
+        padding: 22px !important;
+      }
+
+      .resource-icon {
+        width: 90px !important;
+        height: 90px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 25px 15px !important;
+      }
+
+      h1 {
+        font-size: 2rem !important;
+        margin-bottom: 25px !important;
+        padding: 0 10px !important;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px !important;
+        max-width: 500px !important;
+      }
+
+      .resource-card {
+        padding: 20px !important;
+        border-radius: 12px !important;
+      }
+
+      .resource-icon {
+        width: 80px !important;
+        height: 80px !important;
+        margin-bottom: 12px !important;
+        border-radius: 6px !important;
+      }
+
+      .resource-card h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 6px !important;
+      }
+
+      .resource-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 20px 10px !important;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        max-width: 400px !important;
+      }
+
+      .resource-card {
+        padding: 16px !important;
+        border-radius: 10px !important;
+      }
+
+      .resource-icon {
+        width: 70px !important;
+        height: 70px !important;
+        margin-bottom: 10px !important;
+      }
+
+      h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 20px !important;
+        padding: 0 8px !important;
+      }
+
+      .resource-card h2 {
+        font-size: 1.1rem !important;
+        margin-bottom: 5px !important;
+      }
+
+      .resource-card p {
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .section {
+        padding: 15px 8px !important;
+      }
+
+      .resources-grid {
+        gap: 12px !important;
+        max-width: 320px !important;
+      }
+
+      .resource-card {
+        padding: 14px !important;
+        border-radius: 8px !important;
+      }
+
+      .resource-icon {
+        width: 60px !important;
+        height: 60px !important;
+      }
+
+      .resource-card h2 {
+        font-size: 1rem !important;
+      }
+
+      .resource-card p {
+        font-size: 0.8rem !important;
+      }
+
+      h1 {
+        font-size: 1.6rem !important;
+        margin-bottom: 18px !important;
+      }
+    }
+  </style>
+</head>
+<body class="no-backdrop">
+  <nav class="drop-down">
+    <div class="logo logo-container">
+      <div class="logo logo-stack">
+        <img src="/media/animlogo3.png?v=1.0.1" class="logo spinning" alt="Spinning Logo Background" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
+        <img src="/media/animlogo4.png?v=1.0.1" class="logo static" alt="Static Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"/>
+        <div id="logo-fallback" class="logo" style="display:none;color:#fff;text-align:center;width:100%;position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;">Logo unavailable</div>
+      </div>
+      <div class="logo-text">
+        <div id="mallard-text">MALLARD</div>
+        <div id="motorsports-text">MOTORSPORTS</div>
+      </div>
+    </div>
+    <div class="nav-links" id="mobileNav">
+      <a href="/index.html">Home</a>
+      <a href="/team.html">Team</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/resources.html">Resources</a>
+      <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a>
+      <a href="mailto:info@ecoengine.net">Contact</a>
+    </div>
+    <div class="social-media-buttons">
+      <a href="https://discord.gg/QeNfh6RmCv" class="social-btn" title="Discord" target="_blank">
+        <img src="media/discord-logo.png?v=1.0.1" alt="Discord" />
+      </a>
+      <a href="https://github.com/EcoEngineDev" class="social-btn" title="GitHub" target="_blank">
+        <img src="media/github-logo.png?v=1.0.1" alt="GitHub" />
+      </a>
+      <a href="https://www.instagram.com/mallard.motorsports/" class="social-btn" title="Instagram" target="_blank">
+        <img src="media/instagram-new--v2.png?v=1.0.1" alt="Instagram" />
+      </a>
+    </div>
+    <img src="media/menu.svg?v=1.0.1" id="navbar-dropdown"></img>
+    <div id="dropdown-bits">
+        <div class="dropdown-item"><a class="mobile-nav-text" href="/index.html">Home</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="/team.html">Team</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="/projects.html">Projects</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="/resources.html">Resources</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank">Sponsor Us</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="mailto:info@ecoengine.net">Contact</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="https://github.com/EcoEngineDev" target="_blank">Github</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="https://www.instagram.com/mallard.motorsports/" target="_blank">Instagram</a></div>
+        <div class="dropdown-item"><a class="mobile-nav-text" href="https://discord.gg/QeNfh6RmCv" target="_blank">Discord</a></div>
+    </div>
+  </nav>
+
+  <div class="section" style="flex-direction:column;align-items:center;">
+    <h1 style="color:var(--color-accent);margin-bottom:48px;font-size:2.5rem;text-align:center;padding:0 20px;">Resources</h1>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon" style="background:linear-gradient(135deg, var(--color-accent), var(--color-tertiary));">R1</div>
+        <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFOSOON</h2>
+        <p style="text-align:center;line-height:1.5;">COMING SOON</p>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon" style="background:linear-gradient(135deg, var(--color-secondary), var(--color-accent));">R2</div>
+        <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFO SOON</h2>
+        <p style="text-align:center;line-height:1.5;">COMING SOON</p>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon" style="background:linear-gradient(135deg, var(--color-tertiary), var(--color-secondary));">R3</div>
+        <h2 style="color:var(--color-accent);margin:0 0 10px 0;font-size:1.5rem;">INFO SOON</h2>
+        <p style="text-align:center;line-height:1.5;">COMING SOON</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/media/scripts.js"></script>
+  <script>
+    // Audio playback for navbar clicks
+    function playQuackSound() {
+      const audio = new Audio('media/Audio/quack.mp3');
+      audio.volume = 0.5;
+      
+      audio.play().catch(function(error) {
+        console.log('Audio playback failed:', error);
+      });
+    }
+    
+    // Add click event listeners to all navbar links
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbarLinks = document.querySelectorAll('nav a, .dropdown-item a');
+      
+      navbarLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          playQuackSound();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
