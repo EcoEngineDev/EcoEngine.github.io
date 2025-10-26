@@ -787,7 +787,7 @@
             <a href="contact.html" class="active">Contact</a>
         </div>
         <div class="social-media-buttons">
-            <a href="https://discord.gg/QeNfh6RmCv" class="social-btn" title="Discord" target="_blank">
+            <a href="https://discord.gg/rbFnYV5RnM" class="social-btn" title="Discord" target="_blank">
                 <img src="media/logos/discord-logo.png" alt="Discord" />
             </a>
             <a href="https://github.com/EcoEngineDev" class="social-btn" title="GitHub" target="_blank">
@@ -811,7 +811,7 @@
             <div class="dropdown-item"><a class="mobile-nav-text" href="contact.html">Contact</a></div>
             <div class="dropdown-item"><a class="mobile-nav-text" href="https://github.com/EcoEngineDev" target="_blank">Github</a></div>
             <div class="dropdown-item"><a class="mobile-nav-text" href="https://www.instagram.com/mallard.motorsports/" target="_blank">Instagram</a></div>
-            <div class="dropdown-item"><a class="mobile-nav-text" href="https://discord.gg/QeNfh6RmCv" target="_blank">Discord</a></div>
+            <div class="dropdown-item"><a class="mobile-nav-text" href="https://discord.gg/rbFnYV5RnM" target="_blank">Discord</a></div>
         </div>
     </nav>
 
@@ -835,7 +835,7 @@
                 <div class="contact-icon">💬</div>
                 <h3>Join Our Community</h3>
                 <p>Connect with fellow motorsports enthusiasts, get project updates, and participate in discussions on our Discord server.</p>
-                <a href="https://discord.gg/QeNfh6RmCv" target="_blank">Join Discord Server</a>
+                <a href="https://discord.gg/rbFnYV5RnM" target="_blank">Join Discord Server</a>
             </div>
             
             <div class="contact-card">
@@ -847,30 +847,19 @@
         </div>
 
         <div class="contact-form-section">
-            <h2>Send Us a Message</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your full name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            <h2>Contact Form Coming Soon</h2>
+            <div style="text-align: center; padding: 40px 20px;">
+                <div style="font-size: 4rem; margin-bottom: 20px; color: var(--color-accent);">🚧</div>
+                <p style="font-size: 1.2rem; color: var(--color-light); margin-bottom: 20px; line-height: 1.6;">
+                    We're currently working on building out our contact form backend. 
+                    A fully functional contact form will be available soon!
+                </p>
+                <p style="font-size: 1rem; color: var(--color-light); opacity: 0.8;">
+                    In the meantime, please reach out to us via email at 
+                    <a href="mailto:info@ecoengine.net" style="color: var(--color-accent); text-decoration: none;">info@ecoengine.net</a> 
+                    or join our Discord community.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -893,7 +882,7 @@
                     <a href="https://github.com/EcoEngineDev" title="GitHub" target="_blank">
                         <img src="media/logos/github-logo.png" alt="GitHub" />
                     </a>
-                    <a href="https://discord.gg/QeNfh6RmCv" title="Discord" target="_blank">
+                    <a href="https://discord.gg/rbFnYV5RnM" title="Discord" target="_blank">
                         <img src="media/logos/discord-logo.png" alt="Discord" />
                     </a>
                     <a href="https://www.instagram.com/mallard.motorsports/" title="Instagram" target="_blank">
@@ -948,29 +937,6 @@
             // Setup scroll-triggered animations
             setupScrollAnimations();
 
-            // Handle contact form submission
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    const name = formData.get('name');
-                    const email = formData.get('email');
-                    const subject = formData.get('subject');
-                    const message = formData.get('message');
-                    
-                    // Create mailto link
-                    const mailtoLink = `mailto:info@ecoengine.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-                    
-                    // Open email client
-                    window.location.href = mailtoLink;
-                    
-                    // Show success message
-                    alert('Your email client should open with a pre-filled message. If it doesn\'t, please email us directly at info@ecoengine.net');
-                });
-            }
         });
 
         function animateHeroSection() {
