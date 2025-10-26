@@ -1,0 +1,15 @@
+{
+  "section": "Software",
+  "description": "Software development, web applications, and data analysis projects",
+  "projects": [
+    {
+      "id": "team-website",
+      "title": "This Website!",
+      "description": "We program and upkeep this website with custom code!",
+      "image": "media/cover/front.png",
+      "status": "LIVE",
+      "technologies": ["HTML", "JavaScript", "CSS"],
+      "content": "A comprehensive web application for managing team activities, project timelines, and resource allocation. The platform includes features for task management, document sharing, and progress tracking to keep our team organized and efficient."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "sponsors": [
+    {
+      "name": "Polymaker",
+      "image": "Polymaker.avif",
+      "url": "https://polymaker.com",
+      "enabled": true,
+      "displayType": "image",
+      "width": 200,
+      "height": 120,
+      "sizeMultiplier": 1.0
+    },
+    {
+      "name": "CarePredict",
+      "image": "CarePredict.svg",
+      "url": "https://carepredict.com",
+      "enabled": true,
+      "displayType": "image",
+      "width": 200,
+      "height": 120,
+      "sizeMultiplier": 0.8
+    },
+    {
+      "name": "Delsan",
+      "image": "delsan.png",
+      "url": "https://delsan.com",
+      "enabled": true,
+      "displayType": "image",
+      "width": 200,
+      "height": 120,
+      "sizeMultiplier": 1.0
+    },
+    {
+      "name": "USA HG",
+      "image": "usahg-logo2.png",
+      "url": "https://www.usahomesgroup.com/home",
+      "enabled": true,
+      "displayType": "image",
+      "width": 200,
+      "height": 120,
+      "sizeMultiplier": 1.0
+    },
+    {
+      "name": "FRC Tees",
+      "text": "FRCTees",
+      "url": "https://frctees.com",
+      "enabled": true,
+      "displayType": "text",
+      "width": 200,
+      "height": 120,
+      "fontSize": "1.5rem",
+      "fontWeight": "700",
+      "color": "#00d9ff",
+      "sizeMultiplier": 1.0
+    }
+  ],
+  "settings": {
+    "scrollSpeed": 0.75,
+    "showConsoleLogs": false,
+    "autoRefresh": false,
+    "defaultImageWidth": 200,
+    "defaultImageHeight": 120,
+    "defaultTextSize": "1.5rem",
+    "defaultTextWeight": "700",
+    "defaultTextColor": "#00d9ff",
+    "defaultSizeMultiplier": 1.0
+  }
+}

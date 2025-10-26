@@ -1,0 +1,128 @@
+{
+  "textSizes": {
+    "name": "1.3rem",
+    "role": "1rem",
+    "socialIcon": "20px"
+  },
+  "socialLinks": {
+    "github": {
+      "image": "media/logos/github-logo.png",
+      "title": "GitHub"
+    },
+    "linkedin": {
+      "image": "media/logos/linkedin.png",
+      "title": "LinkedIn"
+    },
+    "twitter": {
+      "image": "media/logos/twitter-logo.png",
+      "title": "Twitter"
+    },
+    "dev": {
+      "image": "media/logos/web-logo.png",
+      "title": "Website"
+    },
+    "instagram": {
+      "image": "media/logos/instagram-logo.png",
+      "title": "Instagram"
+    }
+  },
+  "leadership": [
+    {
+      "name": "Charles Russo",
+      "role": "Team Lead",
+      "image": "media/team/charlie.jpg",
+      "social": {
+        "github": "https://github.com/CharlieRusso001",
+        "linkedin": "https://www.linkedin.com/in/charles-russo-b5bb20338/",
+        "dev": "https://charlierusso.dev/"
+      }
+    },
+    {
+      "name": "Yechang Liu",
+      "role": "Technical Director",
+      "image": "media/team/xan.jpg",
+      "social": {
+        "instagram": "https://www.instagram.com/zanbutwithx/"
+      }
+    },
+    {
+      "name": "Daniel Cai",
+      "role": "Integrated Systems Lead",
+      "image": "media/team/danny.jpg",
+      "social": {
+        "github": "https://github.com/DanielC8"
+      }
+    },
+    {
+      "name": "Ziyue Xu",
+      "role": "Software Lead",
+      "image": "media/team/john.jpg",
+      "social": {
+        "github": "https://github.com/Ziyue-Xu",
+        "linkedin": "https://www.linkedin.com/in/ziyue-xu-66701b2b2"
+      }
+    },
+    {
+      "name": "Emma Rubio",
+      "role": "Design Lead",
+      "image": "media/team/emma.jpg",
+      "social": {
+        "instagram": "https://www.instagram.com/em.rbio/"
+      }
+    },
+    {
+      "name": "Dylan Chen",
+      "role": "Head of Marketing",
+      "image": "media/team/dylan.jpg",
+      "social": {
+        "github": "https://github.com/dylan1225"
+      }
+    },
+    {
+      "name": "Juliette Plaisir",
+      "role": "External Operations Manager",
+      "image": "media/team/james-taylor.jpg",
+      "social": {
+      }
+    },
+    {
+      "name": "James Lerch",
+      "role": "Secretary",
+      "image": "media/team/maria-garcia.jpg",
+      "social": {
+      }
+    }
+  ],
+  "teamMembers": [
+    {
+      "name": "Jonah",
+      "role": "Software Developer",
+      "image": "media/team/jonah.jpg",
+      "social": {
+        "github": "https://github.com/Kiwian232"
+      }
+    },
+    {
+      "name": "Harrison",
+      "role": "",
+      "image": "media/team/sarah.jpg",
+      "social": {
+      }
+    },
+    {
+      "name": "Isa",
+      "role": "Mechanical Engineer",
+      "image": "media/team/sarah.jpg",
+      "social": {
+      }
+    },
+    {
+      "name": "Ethan",
+      "role": "",
+      "image": "media/team/mike.jpg",
+      "social": {
+      }
+    }
+  ],
+  "gallery": []
+}
