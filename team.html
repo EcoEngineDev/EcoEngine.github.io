@@ -29,36 +29,267 @@
             scroll-behavior: smooth;
         }
 
-        /* Navigation (matches other pages) */
+        /* Navigation Styles */
         nav {
             background: linear-gradient(to top, #00000000, #000000, #000000);
             color: var(--color-white);
-            position: sticky; top: 0; z-index: 100;
-            display: flex; align-items: center; justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 2px 22px;
+            transform: translateY(0);
         }
-        nav .logo-container { width: 300px; height: 120px; display: flex; align-items: center; margin-right: 11px; position: relative; }
-        .logo-stack { position: relative; width: 90px; height: 90px; }
-        .logo-stack img { position: absolute; width: 100%; height: 100%; object-fit: contain; }
-        .logo-stack .spinning { animation: spin 36s linear infinite, pulse 2s ease-in-out infinite alternate; transform-origin: center; }
-        .logo-text { margin-left: 15px; color: var(--color-white); font-weight: bold; font-size: 19.2px; line-height: 1.2; text-align: left; }
-        @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
-        @keyframes pulse { 0% { filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5)); } 100% { filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.4)); } }
-        nav .nav-links { display: flex; justify-content: center; gap: 25px; flex: 1; padding: 0 20px; }
-        nav a { color: var(--color-white); text-decoration: none; font-size: 1.32rem; white-space: nowrap; transition: all 0.18s cubic-bezier(0.4, 0.2, 0.2, 1); }
-        nav a:hover { color: var(--color-accent); transform: scale(1.18); text-shadow: 0 2px 8px rgba(0,217,255,0.5), 0 4px 16px rgba(139,92,246,0.3); }
-        nav a.active { color: var(--color-accent); font-weight: bold; text-shadow: 0 2px 8px rgba(0,217,255,0.5); }
-        .social-media-buttons { display: flex; align-items: center; margin: 0 10px; }
-        .social-btn { display: flex; align-items: center; justify-content: center; width: 105px; height: 105px; transition: all 0.3s; text-decoration: none; position: relative; overflow: hidden; }
-        .social-btn img { width: 50px; height: 50px; object-fit: contain; filter: brightness(0) invert(1); }
-        .burger-menu { display: none; width: 30px; height: 30px; background: transparent; border: none; cursor: pointer; position: relative; z-index: 101; }
-        .burger-line { width: 100%; height: 3px; background-color: var(--color-accent); border-radius: 2px; transition: all 0.3s; transform-origin: center; }
-        #dropdown-bits { position: absolute; right: 0; top: 50px; background-color: var(--color-dark); border-radius: 10px; padding: 15px; opacity: 0; max-height: 0; transition: all 0.3s; pointer-events: none; box-shadow: 0 8px 32px rgba(0,0,0,0.3); border: 1px solid rgba(0,217,255,0.2); min-width: 200px; }
-        #dropdown-bits.show { opacity: 1; max-height: 400px; pointer-events: auto; padding: 15px; }
-        .dropdown-item { padding: 8px 0; border-bottom: 1px solid rgba(0, 217, 255, 0.1); }
+
+        /* Navbar drop-down animation - only applied during boot sequence */
+        nav.boot-animation {
+            transform: translateY(-100%);
+            animation: dropDown 1.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes dropDown {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        nav .logo-container {
+            width: 300px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-right: 11px;
+            position: relative;
+            order: 1;
+        }
+
+        .logo-text {
+            margin-left: 15px;
+            color: var(--color-white);
+            font-family: 'Lexend', sans-serif;
+            font-weight: bold;
+            font-size: 19.2px;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .logo-stack {
+            position: relative;
+            width: 90px;
+            height: 90px;
+        }
+
+        .logo-stack img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: contain;
+        }
+
+        .logo-stack .spinning {
+            animation: spin 36s linear infinite, pulse 2s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        @keyframes pulse {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+            }
+            100% {
+                filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.8)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.4));
+            }
+        }
+
+        .logo-stack .static {
+            z-index: 2;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        nav .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex: 1;
+            padding: 0 20px;
+            order: 2;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 1.32rem;
+            white-space: nowrap;
+            transition: all 0.18s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+            font-size: 1.3rem;
+            font-weight: bold;
+            transform: scale(1.18);
+            text-shadow: 0 2px 8px rgba(0,217,255,0.5), 0 4px 16px rgba(139,92,246,0.3);
+        }
+
+        nav a.active {
+            color: var(--color-accent);
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(0,217,255,0.5);
+        }
+
+        .social-media-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            margin-right: 10px;
+            order: 3;
+            flex-shrink: 0;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 105px;
+            height: 105px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            margin-left: -5px;
+            margin-right: -5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0,217,255,0.3) 0%, rgba(139,92,246,0.2) 50%, transparent 70%);
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .social-btn:hover::before {
+            width: 120px;
+            height: 120px;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: brightness(1.2);
+        }
+
+        .social-btn img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Mobile Navigation */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+            position: relative;
+        }
+
+        .burger-line {
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-white);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .burger-menu.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .burger-menu.active .burger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .burger-menu.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        #dropdown-bits {
+            position: absolute;
+            right: 0px;
+            top: 50px;
+            background-color: var(--color-dark);
+            border-radius: 10px;
+            padding: 15px;
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            min-width: 200px;
+        }
+
+        #dropdown-bits.show {
+            opacity: 1;
+            max-height: 400px;
+            pointer-events: auto;
+            padding: 15px;
+        }
+
+        .dropdown-item {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(0, 217, 255, 0.1);
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin: 0 -12px;
+        }
+
+        .mobile-nav-text {
+            color: var(--color-light);
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-text:hover {
+            color: var(--color-accent);
+        }
 
         /* Hero */
-        .team-hero { background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 100%); padding: 80px 40px 60px; text-align: center; border-bottom: 2px solid var(--color-accent); position: relative; overflow: hidden; }
+        .team-hero { background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 100%); padding: 80px 40px 60px; text-align: center; position: relative; overflow: hidden; }
         .team-hero h1 { font-size: 3.2rem; font-weight: 900; color: var(--color-accent); margin-bottom: 16px; text-shadow: 0 2px 10px rgba(0, 217, 255, 0.3); opacity: 0; transform: translateY(-20px); }
         .team-hero p { font-size: 1.2rem; opacity: 0; transform: translateY(20px); max-width: 800px; margin: 0 auto; }
         .team-hero h1.animated { animation: fadeInDown 0.5s ease-out forwards; }
@@ -107,27 +338,132 @@
         .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(0, 217, 255, 0.1); color: var(--color-light); opacity: 0.8; }
 
 
-        /* Mobile */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; background: #000000 !important; border-bottom: 2px solid var(--color-accent); box-shadow: 0 4px 20px rgba(0,217,255,0.2); }
-            nav .logo-container { width: 50px; height: 50px; margin: 0; }
-            .logo-stack { width: 50px; height: 50px; }
-            nav .nav-links { display: none !important; }
-            .social-media-buttons { display: none; }
-            .burger-menu { display: flex; }
-            .team-hero { padding: 60px 20px 40px; }
-            .team-hero h1 { font-size: 2.4rem; }
-            .container { padding: 40px 20px; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .team-member { padding: 25px 15px; min-height: 350px; }
-            .member-photo { width: 120px; height: 120px; margin-bottom: 15px; }
-            .member-name { font-size: 1.1rem; }
-            .member-role { font-size: 0.9rem; line-height: 1.2; }
-            .social-link { width: 35px; height: 35px; }
-            .social-link img { width: 18px; height: 18px; }
+            nav {
+                flex-direction: row;
+                padding: 15px 20px;
+                min-height: 70px;
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                background: #000000 !important;
+                border-bottom: 2px solid var(--color-accent);
+                box-shadow: 0 4px 20px rgba(0, 217, 255, 0.2);
+            }
+
+            /* Mobile navbar animation adjustments */
+            nav.boot-animation {
+                animation: dropDownMobile 1s ease-out forwards;
+                animation-delay: 0s;
+            }
+
+            @keyframes dropDownMobile {
+                to {
+                    transform: translateY(0);
+                }
+            }
+
+            /* Mobile logo container - left aligned */
+            nav .logo-container {
+                position: relative;
+                left: auto;
+                width: 50px;
+                height: 50px;
+                margin: 0;
+                order: 1;
+            }
+
+            nav .logo-stack {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Mobile logo text - smaller and left aligned */
+            .logo-text {
+                text-align: left;
+                margin-left: 10px;
+                font-size: 14px;
+                order: 1;
+            }
+
+            /* Hide desktop navigation on mobile */
+            nav .nav-links {
+                display: none !important;
+            }
+
+            .mobile-hide {
+                display: none !important;
+            }
+
+            .social-media-buttons {
+                display: none;
+            }
+
+            /* Show burger menu on mobile */
+            .burger-menu {
+                display: flex;
+                order: 2;
+            }
+
+            /* Show dropdown on mobile */
+            #dropdown-bits {
+                display: block;
+            }
+
+            .mobile-nav-text {
+                font-size: 24px;
+            }
+
+            .team-hero {
+                padding: 60px 20px 40px;
+            }
+
+            .team-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .team-member {
+                padding: 25px 15px;
+                min-height: 350px;
+            }
+
+            .member-photo {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 15px;
+            }
+
+            .member-name {
+                font-size: 1.1rem;
+            }
+
+            .member-role {
+                font-size: 0.9rem;
+                line-height: 1.2;
+            }
+
+            .social-link {
+                width: 35px;
+                height: 35px;
+            }
+
+            .social-link img {
+                width: 18px;
+                height: 18px;
+            }
         }
         @media (max-width: 480px) {
-            .team-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
     </style>
@@ -247,7 +583,6 @@
     <script>
         // Init
         document.addEventListener('DOMContentLoaded', function() {
-            wireNavbar();
             setCurrentYear();
             animateHero();
             loadTeamData();
@@ -258,21 +593,33 @@
             if (el) el.textContent = new Date().getFullYear();
         }
 
-        function wireNavbar() {
-            const burgerButton = document.getElementById('burger-menu');
-            const dropdownMenu = document.getElementById('dropdown-bits');
-            if (!burgerButton || !dropdownMenu) return;
-            burgerButton.addEventListener('click', function () {
-                burgerButton.classList.toggle('active');
-                dropdownMenu.classList.toggle('show');
-            });
-            document.addEventListener('click', function(event) {
-                if (!burgerButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                    burgerButton.classList.remove('active');
-                    dropdownMenu.classList.remove('show');
-                }
-            });
-        }
+        // Navbar dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerButton = document.getElementById("burger-menu");
+            const dropdownMenu = document.getElementById("dropdown-bits");
+            
+            if (burgerButton && dropdownMenu) {
+                burgerButton.addEventListener("click", function () {
+                    burgerButton.classList.toggle("active");
+                    dropdownMenu.classList.toggle("show");
+                });
+
+                document.querySelectorAll(".dropdown-item").forEach(element => {
+                    element.addEventListener("click", function() {
+                        burgerButton.classList.remove("active");
+                        dropdownMenu.classList.remove("show");
+                    });
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener("click", function(event) {
+                    if (!burgerButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                        burgerButton.classList.remove("active");
+                        dropdownMenu.classList.remove("show");
+                    }
+                });
+            }
+        });
 
         function animateHero() {
             const title = document.querySelector('.team-hero h1');
