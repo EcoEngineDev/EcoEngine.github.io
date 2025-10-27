@@ -2260,7 +2260,7 @@
                 track.appendChild(strip2);
                 
                 // Start the marquee animation
-                startMarqueeAnimation();
+                startSponsorMarqueeAnimation();
                 
                 console.log(`Successfully loaded ${validSponsors.length} sponsors`);
 
@@ -2334,16 +2334,25 @@
             return strip;
         }
 
-        function startMarqueeAnimation() {
+        function startSponsorMarqueeAnimation() {
             const track = document.querySelector('.sponsor-track');
-            if (!track) return;
+            if (!track) {
+                console.warn('Sponsor track not found for animation');
+                return;
+            }
 
             // Get the width of a single strip
             const firstStrip = track.querySelector('.sponsor-strip');
-            if (!firstStrip) return;
+            if (!firstStrip) {
+                console.warn('No sponsor strips found for animation');
+                return;
+            }
 
             const stripWidth = firstStrip.offsetWidth;
             let scrollPosition = 0;
+
+            console.log('Starting sponsor marquee animation with speed:', window.sponsorScrollSpeed);
+            console.log('Strip width:', stripWidth);
 
             function animate() {
                 // Get scroll speed from global config (set during loadSponsors)
@@ -2558,7 +2567,7 @@
                 renderMarquee();
                 
                 if (carouselConfig.settings?.autoStart !== false) {
-                    startMarqueeAnimation();
+                    startProjectCarouselAnimation();
                 }
                 
             } catch (error) {
@@ -2710,7 +2719,7 @@
             return card;
         }
 
-        function startMarqueeAnimation() {
+        function startProjectCarouselAnimation() {
             const track = document.querySelector('.carousel-track');
             if (!track) return;
 
