@@ -883,9 +883,42 @@
             padding: 20px 0;
         }
 
-        .sponsor-track {
+        /* Static fallback track */
+        .sponsor-track-static {
             display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .sponsor-track-static .sponsor-strip {
+            display: flex;
+            gap: 40px;
+            padding: 0 20px;
+            animation: scrollSponsors 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scrollSponsors {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Dynamic track (hidden by default) */
+        .sponsor-track {
+            display: none;
             will-change: transform;
+        }
+
+        .js-enabled .sponsor-track {
+            display: flex;
+        }
+
+        .js-enabled .sponsor-track-static {
+            display: none;
         }
 
         .sponsor-strip {
@@ -1768,12 +1801,27 @@
                 <div class="sponsor-inner">
                     <div class="sponsor-title">THIS IS ALL POSSIBLE THANKS TO OUR SPONSORS</div>
                     <div class="sponsor-marquee">
+                        <!-- Fallback static content -->
+                        <div class="sponsor-track-static">
+                            <div class="sponsor-strip">
+                                <div class="sponsor-item">
+                                    <div class="sponsor-text">Sponsor 1</div>
+                                </div>
+                                <div class="sponsor-item">
+                                    <div class="sponsor-text">Sponsor 2</div>
+                                </div>
+                                <div class="sponsor-item">
+                                    <div class="sponsor-text">Sponsor 3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dynamic content container -->
                         <div class="sponsor-track" id="sponsor-track">
                             <!-- Dynamic sponsor content will be loaded here -->
                         </div>
                     </div>
                     <div class="sponsor-actions">
-                        <button class="sponsor-support-btn" onclick="window.open('https://hcb.hackclub.com/donations/start/ecoengine', '_blank')">Support Our Missions</button>
+                        <a href="https://hcb.hackclub.com/donations/start/ecoengine" target="_blank" class="sponsor-support-btn">Support Our Missions</a>
                     </div>
                 </div>
             </div>
@@ -1881,6 +1929,9 @@
 
         // Initialize animations when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Check for JavaScript support immediately
+            checkJavaScriptSupport();
+            
             if (isNavigatingFromSite()) {
                 // Skip boot animation and go straight to normal state
                 skipBootAnimation();
@@ -2191,13 +2242,27 @@
             }
         });
 
+        // Feature detection and sponsor loading
+        function checkJavaScriptSupport() {
+            document.documentElement.classList.add('js-enabled');
+        }
+
         // JSON-based sponsor loading and marquee animation
         async function loadSponsors() {
+            // Check if JavaScript and required features are supported
+            if (!window.fetch || !window.requestAnimationFrame) {
+                console.log('Required features not supported, using static fallback');
+                return;
+            }
+
             const track = document.getElementById('sponsor-track');
             if (!track) {
                 console.warn('Sponsor track element not found');
                 return;
             }
+
+            // Add class to indicate JavaScript is enabled
+            checkJavaScriptSupport();
 
             try {
                 console.log('Loading sponsors from sponsors.json...');
