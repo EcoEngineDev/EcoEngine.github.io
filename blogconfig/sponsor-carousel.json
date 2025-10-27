@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "maxSponsors": 10,
+  "shuffleSponsors": true,
+  "settings": {
+    "scrollSpeed": 0.5,
+    "autoStart": true,
+    "pauseOnHover": false
+  }
+}

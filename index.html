@@ -921,6 +921,15 @@
             display: none;
         }
 
+        /* Ensure sponsor items are properly spaced */
+        .sponsor-track .sponsor-item {
+            margin-right: 40px;
+        }
+
+        .sponsor-track .sponsor-item:last-child {
+            margin-right: 0;
+        }
+
         .sponsor-strip {
             display: flex;
             gap: 40px;
@@ -2247,24 +2256,29 @@
             document.documentElement.classList.add('js-enabled');
         }
 
-        // JSON-based sponsor loading and marquee animation
+        // Sponsor carousel functionality (following projects carousel pattern)
+        let allSponsors = [];
+        let sponsorConfig = {};
+
         async function loadSponsors() {
-            // Check if JavaScript and required features are supported
-            if (!window.fetch || !window.requestAnimationFrame) {
-                console.log('Required features not supported, using static fallback');
-                return;
-            }
-
-            const track = document.getElementById('sponsor-track');
-            if (!track) {
-                console.warn('Sponsor track element not found');
-                return;
-            }
-
-            // Add class to indicate JavaScript is enabled
-            checkJavaScriptSupport();
-
             try {
+                // Load sponsor configuration first
+                await loadSponsorConfig();
+                
+                if (!sponsorConfig.enabled) {
+                    console.log('Sponsor carousel is disabled in configuration');
+                    return;
+                }
+
+                const track = document.getElementById('sponsor-track');
+                if (!track) {
+                    console.warn('Sponsor track element not found');
+                    return;
+                }
+
+                // Add class to indicate JavaScript is enabled
+                checkJavaScriptSupport();
+
                 console.log('Loading sponsors from sponsors.json...');
                 
                 // Fetch the sponsors configuration
@@ -2284,7 +2298,7 @@
                 console.log('Scroll speed set to:', window.sponsorScrollSpeed);
 
                 // Filter enabled sponsors and validate images
-                const validSponsors = [];
+                allSponsors = [];
                 
                 for (const sponsor of sponsors) {
                     if (sponsor.enabled === false) {
@@ -2294,7 +2308,7 @@
 
                     // For text sponsors, skip image validation
                     if (sponsor.displayType === 'text') {
-                        validSponsors.push(sponsor);
+                        allSponsors.push(sponsor);
                         console.log(`Added text sponsor: ${sponsor.name}`);
                         continue;
                     }
@@ -2306,136 +2320,211 @@
                         continue;
                     }
 
-                    validSponsors.push(sponsor);
+                    allSponsors.push(sponsor);
                     console.log(`Added image sponsor: ${sponsor.name}`);
                 }
 
-                if (validSponsors.length === 0) {
+                if (allSponsors.length === 0) {
                     console.warn('No valid sponsors found');
                     track.innerHTML = '<div class="sponsor-strip"><div class="sponsor-item" style="text-align: center; color: #666; font-style: italic;">No sponsors configured</div></div>';
                     return;
                 }
 
-                // Create sponsor strips (duplicate for seamless loop)
-                const strip1 = createSponsorStrip(validSponsors);
-                const strip2 = createSponsorStrip(validSponsors);
+                // Shuffle sponsors if enabled in config
+                if (sponsorConfig.shuffleSponsors) {
+                    allSponsors = shuffleArray(allSponsors);
+                }
                 
-                track.innerHTML = '';
-                track.appendChild(strip1);
-                track.appendChild(strip2);
+                // Limit total sponsors based on config
+                const maxSponsors = sponsorConfig.maxSponsors || 10;
+                allSponsors = allSponsors.slice(0, maxSponsors);
                 
-                // Start the marquee animation
-                startSponsorMarqueeAnimation();
+                console.log(`Loaded ${allSponsors.length} sponsors for carousel:`, allSponsors.map(s => s.name));
                 
-                console.log(`Successfully loaded ${validSponsors.length} sponsors`);
+                renderSponsorMarquee();
+                
+                if (sponsorConfig.settings?.autoStart !== false) {
+                    startSponsorMarqueeAnimation();
+                }
 
             } catch (error) {
                 console.error('Error loading sponsors:', error);
-                track.innerHTML = '<div class="sponsor-strip"><div class="sponsor-item" style="text-align: center; color: #666; font-style: italic;">Error loading sponsors</div></div>';
+                const track = document.getElementById('sponsor-track');
+                if (track) {
+                    track.innerHTML = '<div class="sponsor-strip"><div class="sponsor-item" style="text-align: center; color: #666; font-style: italic;">Error loading sponsors</div></div>';
+                }
             }
         }
 
-        function createSponsorStrip(sponsors) {
-            const strip = document.createElement('div');
-            strip.className = 'sponsor-strip';
-            
-            sponsors.forEach(sponsor => {
-                const item = document.createElement('div');
-                item.className = 'sponsor-item';
-                
-                // Set dimensions from config or defaults
-                const width = sponsor.width || 200;
-                const height = sponsor.height || 120;
-                item.style.width = `${width}px`;
-                item.style.height = `${height}px`;
-                
-                // Get size multiplier from config or default
-                const sizeMultiplier = sponsor.sizeMultiplier || 1.0;
-                
-                if (sponsor.displayType === 'text') {
-                    // Display as text
-                    const textElement = document.createElement('div');
-                    textElement.className = 'sponsor-text';
-                    textElement.textContent = sponsor.text || sponsor.name;
-                    
-                    // Apply text styling from config or defaults
-                    const baseFontSize = sponsor.fontSize || '1.5rem';
-                    textElement.style.fontSize = `calc(${baseFontSize} * ${sizeMultiplier})`;
-                    textElement.style.fontWeight = sponsor.fontWeight || '700';
-                    textElement.style.color = sponsor.color || '#00d9ff';
-                    
-                    item.appendChild(textElement);
+        async function loadSponsorConfig() {
+            try {
+                const response = await fetch('blogconfig/sponsor-carousel.json');
+                if (response.ok) {
+                    sponsorConfig = await response.json();
+                    console.log('Sponsor carousel config loaded:', sponsorConfig);
                 } else {
-                    // Display as image
-                    const img = document.createElement('img');
-                    img.src = `media/sponsors/${sponsor.image}`;
-                    img.alt = sponsor.name;
-                    img.title = sponsor.name;
-                    
-                    // Apply size multiplier to image
-                    const maxSize = 90 * sizeMultiplier;
-                    img.style.maxWidth = `${maxSize}%`;
-                    img.style.maxHeight = `${maxSize}%`;
-                    img.style.objectFit = 'contain';
-                    
-                    item.appendChild(img);
+                    console.warn('Could not load sponsor carousel config, using defaults');
+                    sponsorConfig = {
+                        enabled: true,
+                        maxSponsors: 10,
+                        shuffleSponsors: true,
+                        settings: {
+                            scrollSpeed: 0.5,
+                            autoStart: true,
+                            pauseOnHover: false
+                        }
+                    };
                 }
-                
-                if (sponsor.url) {
-                    const link = document.createElement('a');
-                    link.href = sponsor.url;
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
-                    // Move the content into the link
-                    const content = item.innerHTML;
-                    item.innerHTML = '';
-                    link.innerHTML = content;
-                    item.appendChild(link);
-                }
-                
-                strip.appendChild(item);
-            });
+            } catch (error) {
+                console.error('Error loading sponsor carousel config:', error);
+                // Use default config
+                sponsorConfig = {
+                    enabled: true,
+                    maxSponsors: 10,
+                    shuffleSponsors: true,
+                    settings: {
+                        scrollSpeed: 0.5,
+                        autoStart: true,
+                        pauseOnHover: false
+                    }
+                };
+            }
+        }
+
+        function renderSponsorMarquee() {
+            const track = document.getElementById('sponsor-track');
             
-            return strip;
+            if (!track || allSponsors.length === 0) return;
+            
+            // Clear existing content
+            track.innerHTML = '';
+            
+            // Create two sets of sponsors for seamless loop
+            const sponsorsToShow = [...allSponsors, ...allSponsors];
+            
+            sponsorsToShow.forEach((sponsor, index) => {
+                const sponsorItem = createSponsorItem(sponsor);
+                track.appendChild(sponsorItem);
+            });
+        }
+
+        function createSponsorItem(sponsor) {
+            const item = document.createElement('div');
+            item.className = 'sponsor-item';
+            
+            // Set dimensions from config or defaults
+            const width = sponsor.width || 200;
+            const height = sponsor.height || 120;
+            item.style.width = `${width}px`;
+            item.style.height = `${height}px`;
+            
+            // Get size multiplier from config or default
+            const sizeMultiplier = sponsor.sizeMultiplier || 1.0;
+            
+            if (sponsor.displayType === 'text') {
+                // Display as text
+                const textElement = document.createElement('div');
+                textElement.className = 'sponsor-text';
+                textElement.textContent = sponsor.text || sponsor.name;
+                
+                // Apply text styling from config or defaults
+                const baseFontSize = sponsor.fontSize || '1.5rem';
+                textElement.style.fontSize = `calc(${baseFontSize} * ${sizeMultiplier})`;
+                textElement.style.fontWeight = sponsor.fontWeight || '700';
+                textElement.style.color = sponsor.color || '#00d9ff';
+                
+                item.appendChild(textElement);
+            } else {
+                // Display as image
+                const img = document.createElement('img');
+                img.src = `media/sponsors/${sponsor.image}`;
+                img.alt = sponsor.name;
+                img.title = sponsor.name;
+                
+                // Apply size multiplier to image
+                const maxSize = 90 * sizeMultiplier;
+                img.style.maxWidth = `${maxSize}%`;
+                img.style.maxHeight = `${maxSize}%`;
+                img.style.objectFit = 'contain';
+                
+                item.appendChild(img);
+            }
+            
+            if (sponsor.url) {
+                const link = document.createElement('a');
+                link.href = sponsor.url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                // Move the content into the link
+                const content = item.innerHTML;
+                item.innerHTML = '';
+                link.innerHTML = content;
+                item.appendChild(link);
+            }
+            
+            return item;
         }
 
         function startSponsorMarqueeAnimation() {
             const track = document.querySelector('.sponsor-track');
-            if (!track) {
-                console.warn('Sponsor track not found for animation');
-                return;
-            }
+            if (!track) return;
 
-            // Get the width of a single strip
-            const firstStrip = track.querySelector('.sponsor-strip');
-            if (!firstStrip) {
-                console.warn('No sponsor strips found for animation');
-                return;
-            }
+            // Get the width of a single set of sponsors
+            const firstHalf = track.children.length / 2;
+            const singleSetWidth = Array.from(track.children).slice(0, firstHalf).reduce((width, child) => {
+                return width + child.offsetWidth;
+            }, 0);
 
-            const stripWidth = firstStrip.offsetWidth;
             let scrollPosition = 0;
+            const scrollSpeed = sponsorConfig.settings?.scrollSpeed || 0.5; // Use config speed
 
-            console.log('Starting sponsor marquee animation with speed:', window.sponsorScrollSpeed);
-            console.log('Strip width:', stripWidth);
+            console.log('Starting sponsor marquee animation with speed:', scrollSpeed);
+            console.log('Single set width:', singleSetWidth);
 
             function animate() {
-                // Get scroll speed from global config (set during loadSponsors)
-                const scrollSpeed = window.sponsorScrollSpeed || 0.5;
                 scrollPosition -= scrollSpeed;
                 
-                // Use modulo to create seamless loop without visible jump
-                if (scrollPosition <= -stripWidth) {
+                // Reset position when we've scrolled through one complete set
+                if (scrollPosition <= -singleSetWidth) {
                     scrollPosition = 0;
                 }
 
-                // Apply the transform with smooth transition
                 track.style.transform = `translateX(${scrollPosition}px)`;
                 requestAnimationFrame(animate);
             }
 
             // Start the animation
             animate();
+            
+            // Add pause on hover if enabled in config
+            if (sponsorConfig.settings?.pauseOnHover) {
+                const marquee = document.querySelector('.sponsor-marquee');
+                if (marquee) {
+                    let isPaused = false;
+                    let animationId;
+                    
+                    marquee.addEventListener('mouseenter', () => {
+                        isPaused = true;
+                    });
+                    
+                    marquee.addEventListener('mouseleave', () => {
+                        isPaused = false;
+                        if (!animationId) {
+                            animate();
+                        }
+                    });
+                    
+                    // Modify animate function to respect pause state
+                    const originalAnimate = animate;
+                    animate = function() {
+                        if (!isPaused) {
+                            originalAnimate();
+                        } else {
+                            animationId = null;
+                        }
+                    };
+                }
+            }
         }
 
         // Function to validate a sponsor image exists
