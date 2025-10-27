@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This Website! - Mallard Motorsports</title>
+    <title>LMP-Optimizer - Mallard Motorsports</title>
     <link rel="icon" type="image/png" href="../../media/logos/logo.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -540,13 +540,11 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
-            filter: brightness(1.1);
         }
 
         .gallery-caption {
@@ -554,6 +552,15 @@
             text-align: center;
             color: var(--color-light);
             font-size: 0.9rem;
+        }
+
+        .gallery-item img {
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            filter: brightness(1.1);
         }
 
         /* Image Modal Styles */
@@ -765,6 +772,200 @@
             text-shadow: 0 2px 10px rgba(0, 217, 255, 0.3);
         }
 
+        .github-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--color-accent);
+            backdrop-filter: blur(10px);
+        }
+
+        .github-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 217, 255, 0.3);
+            border-color: var(--color-accent);
+            background: rgba(0, 217, 255, 0.2);
+        }
+
+        .github-button-icon {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .algorithm-button {
+            background: var(--color-gradient-1);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .algorithm-button:hover {
+            background: var(--color-gradient-2);
+            box-shadow: 0 8px 25px rgba(0, 217, 255, 0.4);
+        }
+
+        .algorithm-icon {
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .algorithm-link {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(0, 217, 255, 0.05);
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            margin-left: 20px;
+        }
+
+        .algorithm-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+            border-color: var(--color-accent);
+        }
+
+        .algorithm-logo {
+            width: 120px;
+            height: 120px;
+            background: var(--color-gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-size: 3rem;
+            color: var(--color-white);
+        }
+
+        .algorithm-link:hover .algorithm-logo {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+        }
+
+        .algorithm-text {
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 217, 255, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Algorithm Section Styles */
+        .algorithm-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .algorithm-title {
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 217, 255, 0.3);
+        }
+
+        .algorithm-description {
+            color: var(--color-light);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .algorithm-formula {
+            background: #1a1a1a;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--color-light);
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .formula-highlight {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            color: var(--color-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         /* Code Snippet Styles */
         .code-snippets {
             display: grid;
@@ -854,6 +1055,15 @@
         }
 
         .code-content .js-function {
+            color: #4ecdc4;
+        }
+
+        .code-content .js-comment {
+            color: #888;
+            font-style: italic;
+        }
+
+        .code-content .js-number {
             color: #4ecdc4;
         }
 
@@ -1039,7 +1249,7 @@
                 min-width: auto;
             }
 
-            .code-snippets {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1107,9 +1317,9 @@
 
     <!-- Project Hero Section -->
     <section class="project-hero">
-        <h1>This Website!</h1>
-        <div class="subtitle">Custom Web Development</div>
-        <p>We program and upkeep this website with custom code!</p>
+        <h1>LMP-Optimizer</h1>
+        <div class="subtitle">Linear Metal Part Optimizer</div>
+        <p>A web-based calculator that optimizes metal purchasing decisions to minimize costs and waste. This tool determines the most cost-effective combination of metal lengths to purchase while providing detailed cutting plans.</p>
         <div class="project-status">LIVE</div>
     </section>
 
@@ -1117,90 +1327,212 @@
     <div class="project-container">
 
         <div class="project-section">
-            <h2 class="section-title">Read Our Code on GitHub!</h2>
+            <h2 class="section-title">View Our Code on GitHub!</h2>
             <div class="github-section">
-                <div class="github-logo-container">
-                    <a href="https://github.com/EcoEngineDev/EcoEngine.github.io" target="_blank" class="github-link">
+                <div class="github-logo-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="https://github.com/EcoEngineDev/LMP-Optimizer" target="_blank" class="github-link">
                         <img src="../../media/logos/github-logo.png" alt="GitHub Logo" class="github-logo">
                         <div class="github-text">View Our Code</div>
                     </a>
+                    <a href="https://ecoenginedev.github.io/LMP-Optimizer/" target="_blank" class="algorithm-link">
+                        <div class="algorithm-logo">⚡</div>
+                        <div class="algorithm-text">USE THE ALGORITHM HERE</div>
+                    </a>
                 </div>
-                <div class="section-content">We make all of our code easily accessible and publicly available on GitHub. You can find the code for this website <a href="https://github.com/EcoEngineDev/EcoEngine.github.io" target="_blank" style="color: var(--color-accent); text-decoration: none;">here</a>.</div>
+                <div class="section-content">We make all of our code easily accessible and publicly available on GitHub. You can find the code for the LMP-Optimizer <a href="https://github.com/EcoEngineDev/LMP-Optimizer" target="_blank" style="color: var(--color-accent); text-decoration: none;">here</a>.</div>
             </div>
         </div>
 
         <div class="project-section">
-            <h2 class="section-title">Code Snippets</h2>
+            <h2 class="section-title">Algorithm Overview</h2>
+            <div class="algorithm-section">
+                <div class="algorithm-title">Cost Minimization Function</div>
+                <div class="algorithm-description">The LMP-Optimizer uses a combination of mathematical approaches to solve the metal purchasing optimization problem:</div>
+                <div class="algorithm-formula">
+Minimize: <span class="formula-highlight">Σ(Ci × Qi)</span>
+Subject to: <span class="formula-highlight">Σ(Li × Qi) ≥ Σ(Pj × Qj)</span>
+
+Where:
+- Ci = Cost per unit of option i
+- Qi = Quantity of option i to purchase  
+- Li = Length of option i
+- Pj = Length of required part j
+- Qj = Quantity of required part j
+                </div>
+                <div class="algorithm-description">The algorithm explores all possible combinations using backtracking with pruning to eliminate branches where current cost exceeds the best known solution, ensuring optimal results while maintaining computational efficiency.</div>
+            </div>
+            
             <div class="code-snippets">
                 <div class="code-snippet">
                     <div class="code-header">
-                        <div class="code-title">Navigation Component</div>
-                        <div class="code-language">HTML</div>
-                    </div>
-                    <div class="code-content"><span class="html-tag">&lt;nav</span> <span class="html-attr">class</span>=<span class="html-value">"drop-down"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;div</span> <span class="html-attr">class</span>=<span class="html-value">"logo logo-container"</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;div</span> <span class="html-attr">class</span>=<span class="html-value">"logo logo-stack"</span><span class="html-tag">&gt;</span>
-            <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"media/logos/animlogo3.png"</span> 
-                 <span class="html-attr">class</span>=<span class="html-value">"logo spinning"</span> 
-                 <span class="html-attr">alt</span>=<span class="html-value">"Spinning Logo"</span><span class="html-tag">/&gt;</span>
-        <span class="html-tag">&lt;/div&gt;</span>
-    <span class="html-tag">&lt;/div&gt;</span>
-<span class="html-tag">&lt;/nav&gt;</span></div>
-                </div>
-
-                <div class="code-snippet">
-                    <div class="code-header">
-                        <div class="code-title">CSS Variables</div>
-                        <div class="code-language">CSS</div>
-                    </div>
-                    <div class="code-content"><span class="css-selector">:root</span> {
-    <span class="css-property">--color-dark</span>: <span class="css-value">#0a0e1a</span>;
-    <span class="css-property">--color-darker</span>: <span class="css-value">#1a2332</span>;
-    <span class="css-property">--color-light</span>: <span class="css-value">#e2e8f0</span>;
-    <span class="css-property">--color-accent</span>: <span class="css-value">#00d9ff</span>;
-    <span class="css-property">--color-gradient-1</span>: <span class="css-value">linear-gradient(135deg, #00d9ff 0%, #0ea5e9 50%, #8b5cf6 100%)</span>;
-}</div>
-                </div>
-
-                <div class="code-snippet">
-                    <div class="code-header">
-                        <div class="code-title">Animation Function</div>
+                        <div class="code-title">Smart Multi-Supplier Algorithm</div>
                         <div class="code-language">JavaScript</div>
                     </div>
-                    <div class="code-content"><span class="js-keyword">function</span> <span class="js-function">animateHeroSection</span>() {
-    <span class="js-keyword">const</span> heroTitle = document.<span class="js-function">querySelector</span>(<span class="js-string">'.project-hero h1'</span>);
-    <span class="js-keyword">const</span> heroSubtitle = document.<span class="js-function">querySelector</span>(<span class="js-string">'.project-hero .subtitle'</span>);
+                    <div class="code-content"><span class="js-keyword">function</span> <span class="js-function">findOptimalCombinationGreedy</span>(totalNeeded, sortedOptions, requiredParts) {
+    <span class="js-keyword">const</span> combination = [];
+    <span class="js-keyword">let</span> totalCost = <span class="js-number">0</span>;
     
-    <span class="js-keyword">if</span> (heroTitle) heroTitle.classList.<span class="js-function">add</span>(<span class="js-string">'animated'</span>);
-    <span class="js-keyword">if</span> (heroSubtitle) heroSubtitle.classList.<span class="js-function">add</span>(<span class="js-string">'animated'</span>);
+    <span class="js-comment">// Create a working copy of required parts</span>
+    <span class="js-keyword">const</span> remainingParts = requiredParts.<span class="js-function">map</span>(part => ({
+        ...part,
+        remainingQuantity: part.quantity
+    }));
+    
+    <span class="js-comment">// For each part type, find the most cost-effective material</span>
+    <span class="js-keyword">for</span> (<span class="js-keyword">const</span> part <span class="js-keyword">of</span> remainingParts) {
+        <span class="js-keyword">if</span> (part.remainingQuantity <= <span class="js-number">0</span>) <span class="js-keyword">continue</span>;
+        
+        <span class="js-keyword">let</span> bestOption = <span class="js-keyword">null</span>;
+        <span class="js-keyword">let</span> bestCost = <span class="js-number">Infinity</span>;
+        
+        <span class="js-comment">// Check all material options that can make this part</span>
+        <span class="js-keyword">for</span> (<span class="js-keyword">const</span> option <span class="js-keyword">of</span> sortedOptions) {
+            <span class="js-keyword">if</span> (part.length <= option.length) {
+                <span class="js-keyword">const</span> partsPerPiece = Math.<span class="js-function">floor</span>(option.length / part.length);
+                <span class="js-keyword">const</span> piecesNeeded = Math.<span class="js-function">ceil</span>(part.remainingQuantity / partsPerPiece);
+                <span class="js-keyword">const</span> totalCostForThisPart = piecesNeeded * option.price;
+                
+                <span class="js-keyword">if</span> (totalCostForThisPart < bestCost) {
+                    bestCost = totalCostForThisPart;
+                    bestOption = option;
+                }
+            }
+        }
+    }
+    
+    <span class="js-keyword">return</span> { combination, totalCost };
 }</div>
                 </div>
 
                 <div class="code-snippet">
                     <div class="code-header">
-                        <div class="code-title">Project Card</div>
-                        <div class="code-language">HTML</div>
+                        <div class="code-title">Cutting Plan Visualization</div>
+                        <div class="code-language">JavaScript</div>
                     </div>
-                    <div class="code-content"><span class="html-tag">&lt;div</span> <span class="html-attr">class</span>=<span class="html-value">"project-card"</span> 
-     <span class="html-attr">onclick</span>=<span class="html-value">"openProjectPage('team-website')"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;div</span> <span class="html-attr">class</span>=<span class="html-value">"project-image"</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"media/cover/front.png"</span> 
-             <span class="html-attr">alt</span>=<span class="html-value">"Project Image"</span><span class="html-tag">/&gt;</span>
-    <span class="html-tag">&lt;/div&gt;</span>
-    <span class="html-tag">&lt;h3</span> <span class="html-attr">class</span>=<span class="html-value">"project-title"</span><span class="html-tag">&gt;</span>This Website!<span class="html-tag">&lt;/h3&gt;</span>
-<span class="html-tag">&lt;/div&gt;</span></div>
+                    <div class="code-content"><span class="js-keyword">function</span> <span class="js-function">createPieceVisual</span>(piece) {
+    <span class="js-keyword">if</span> (piece.cuts.length === <span class="js-number">0</span>) {
+        <span class="js-keyword">return</span> <span class="js-string">`&lt;div class="visual-bar unused"&gt;${formatLength(piece.length)} (unused)&lt;/div&gt;`</span>;
+    }
+    
+    <span class="js-keyword">let</span> visual = <span class="js-string">'&lt;div class="visual-bar"&gt;'</span>;
+    
+    <span class="js-comment">// Create individual cut segments</span>
+    piece.cuts.<span class="js-function">forEach</span>(cut => {
+        <span class="js-keyword">for</span> (<span class="js-keyword">let</span> i = <span class="js-number">0</span>; i < cut.quantity; i++) {
+            <span class="js-keyword">const</span> width = (cut.length / piece.length) * <span class="js-number">100</span>;
+            <span class="js-keyword">const</span> cutLength = <span class="js-function">formatLength</span>(cut.length);
+            visual += <span class="js-string">`&lt;div class="cut-segment" style="width: ${width}%"&gt;${cutLength}&lt;/div&gt;`</span>;
+        }
+    });
+    
+    <span class="js-keyword">if</span> (piece.waste > <span class="js-number">0</span>) {
+        <span class="js-keyword">const</span> wasteWidth = (piece.waste / piece.length) * <span class="js-number">100</span>;
+        visual += <span class="js-string">`&lt;div class="waste-segment" style="width: ${wasteWidth}%"&gt;${formatLength(piece.waste)} waste&lt;/div&gt;`</span>;
+    }
+    
+    visual += <span class="js-string">'&lt;/div&gt;'</span>;
+    <span class="js-keyword">return</span> visual;
+}</div>
+                </div>
+
+                <div class="code-snippet">
+                    <div class="code-header">
+                        <div class="code-title">Unit Conversion System</div>
+                        <div class="code-language">JavaScript</div>
+                    </div>
+                    <div class="code-content"><span class="js-comment">// Unit conversion functions (all to feet)</span>
+<span class="js-keyword">const</span> unitConversions = {
+    <span class="js-string">'feet'</span>: <span class="js-number">1</span>,
+    <span class="js-string">'inches'</span>: <span class="js-number">1/12</span>,
+    <span class="js-string">'cm'</span>: <span class="js-number">1/30.48</span>,
+    <span class="js-string">'yards'</span>: <span class="js-number">3</span>,
+    <span class="js-string">'meters'</span>: <span class="js-number">3.28084</span>,
+    <span class="js-string">'mm'</span>: <span class="js-number">1/304.8</span>
+};
+
+<span class="js-keyword">function</span> <span class="js-function">convertToFeet</span>(value, unit) {
+    <span class="js-keyword">return</span> value * unitConversions[unit];
+}
+
+<span class="js-keyword">function</span> <span class="js-function">formatLength</span>(valueInFeet, unit = <span class="js-keyword">null</span>) {
+    <span class="js-keyword">const</span> outputUnit = unit || <span class="js-function">getOutputUnit</span>();
+    <span class="js-keyword">const</span> convertedValue = <span class="js-function">convertFromFeet</span>(valueInFeet, outputUnit);
+    <span class="js-keyword">return</span> <span class="js-string">`${convertedValue.toFixed(2)} ${outputUnit}`</span>;
+}</div>
+                </div>
+
+                <div class="code-snippet">
+                    <div class="code-header">
+                        <div class="code-title">PDF Export Functionality</div>
+                        <div class="code-language">JavaScript</div>
+                    </div>
+                    <div class="code-content"><span class="js-keyword">async function</span> <span class="js-function">exportToPDF</span>() {
+    <span class="js-keyword">try</span> {
+        <span class="js-keyword">const</span> { jsPDF } = window.jspdf;
+        <span class="js-keyword">const</span> doc = <span class="js-keyword">new</span> <span class="js-function">jsPDF</span>();
+    
+        <span class="js-comment">// Set up fonts and colors</span>
+        doc.<span class="js-function">setFont</span>(<span class="js-string">'helvetica'</span>);
+        doc.<span class="js-function">setTextColor</span>(<span class="js-number">0</span>, <span class="js-number">0</span>, <span class="js-number">0</span>);
+        
+        <span class="js-comment">// Title</span>
+        doc.<span class="js-function">setFontSize</span>(<span class="js-number">24</span>);
+        doc.<span class="js-function">setFont</span>(<span class="js-string">'helvetica'</span>, <span class="js-string">'bold'</span>);
+        doc.<span class="js-function">text</span>(<span class="js-string">'Linear Metal Part Optimizer - Results'</span>, margin, yPosition);
+        
+        <span class="js-comment">// Export cutting plan visualizations</span>
+        <span class="js-keyword">const</span> cuttingPieces = card.<span class="js-function">querySelectorAll</span>(<span class="js-string">'.cutting-piece'</span>);
+        <span class="js-keyword">if</span> (cuttingPieces.length > <span class="js-number">0</span>) {
+            <span class="js-keyword">const</span> canvas = <span class="js-keyword">await</span> <span class="js-function">html2canvas</span>(visualBar, {
+                backgroundColor: <span class="js-string">'#1a1a1a'</span>,
+                scale: <span class="js-number">2</span>
+            });
+            
+            <span class="js-keyword">const</span> imgData = canvas.<span class="js-function">toDataURL</span>(<span class="js-string">'image/png'</span>);
+            doc.<span class="js-function">addImage</span>(imgData, <span class="js-string">'PNG'</span>, margin, yPosition, imgWidth, imgHeight);
+        }
+        
+        <span class="js-comment">// Save the PDF</span>
+        <span class="js-keyword">const</span> fileName = <span class="js-string">`metal-optimizer-results-${new Date().toISOString().split('T')[0]}.pdf`</span>;
+        doc.<span class="js-function">save</span>(fileName);
+        
+    } <span class="js-keyword">catch</span> (error) {
+        console.<span class="js-function">error</span>(<span class="js-string">'Error generating PDF:'</span>, error);
+    }
+}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✂️</div>
+                    <div class="feature-title">Cutting Optimization</div>
+                    <div class="feature-description">Provides detailed cutting instructions for each piece, minimizing waste through smart placement and efficient part fitting.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Visual Analytics</div>
+                    <div class="feature-description">Shows exact waste from each cut, calculates waste percentage, and provides visual guides for cutting each piece.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Real-time Updates</div>
+                    <div class="feature-description">Add/remove parts and options dynamically with instant recalculation when inputs change and live preview of cost implications.</div>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
             <h2 class="section-title">Technical Implementation</h2>
-            <div class="section-content">Built using vanilla HTML, CSS, and JavaScript for optimal performance and maintainability. The site uses CSS Grid and Flexbox for responsive layouts, Anime.js for smooth animations, and a modular JSON-based content management system that allows easy updates without touching the core code.</div>
+            <div class="section-content">Built using vanilla HTML, CSS, and JavaScript (The dev for this is awesome btw) for optimal performance and maintainability. The application uses advanced algorithms including backtracking with pruning to solve the optimization problem efficiently. The cutting plan algorithm sorts parts by length in descending order and uses a greedy approach to fit parts while minimizing waste.</div>
         </div>
 
         <div class="project-section">
-            <h2 class="section-title">Future Enhancements</h2>
-            <div class="section-content">TBD</div>
+            <h2 class="section-title">Use Cases</h2>
+            <div class="section-content">We plan to use this to produce all of the different metal cutting instructions for the rollbar for our solar powered car. Perfect for manufacturing projects, construction teams, and any organization that needs to purchase and cut metal materials. Whether you're working on automotive projects, building construction, or custom fabrication, the LMP-Optimizer helps you make informed purchasing decisions that save money and reduce waste.</div>
         </div>
 
         <div class="project-section">
@@ -1208,12 +1540,19 @@
             <div class="technologies-grid">
                 <div class="tech-item">
                     <h3>HTML</h3>
+                    <p>Semantic markup and structure</p>
                 </div>
                 <div class="tech-item">
                     <h3>JavaScript</h3>
+                    <p>Algorithm implementation and interactivity</p>
                 </div>
                 <div class="tech-item">
                     <h3>CSS</h3>
+                    <p>Modern styling and responsive design</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Algorithm</h3>
+                    <p>Backtracking optimization algorithms</p>
                 </div>
             </div>
         </div>
@@ -1222,16 +1561,16 @@
             <h2 class="section-title">Project Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="../../media/cover/front.png" alt="Website Homepage" onclick="openImageModal(this)" onerror="this.style.display='none';" style="pointer-events: auto;">
-                    <div class="gallery-caption">Website Homepage</div>
+                    <img src="../../projects/media/lmp1.png" alt="LMP-Optimizer Interface" onclick="openImageModal(this)" onerror="this.style.display='none';">
+                    <div class="gallery-caption">LMP-Optimizer Interface</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="../../media/cover/backdrop.jpg" alt="Background Design" onclick="openImageModal(this)" onerror="this.style.display='none';" style="pointer-events: auto;">
-                    <div class="gallery-caption">Background Design</div>
+                    <img src="../../projects/media/lmp2.png" alt="Bugs, Bugs, Bugs" onclick="openImageModal(this)" onerror="this.style.display='none';">
+                    <div class="gallery-caption">Bugs, Bugs, Bugs</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="../media/1.png" alt="Suffering" onclick="openImageModal(this)" onerror="this.style.display='none';" style="pointer-events: auto;">
-                    <div class="gallery-caption">Suffering</div>
+                    <img src="../../projects/media/lmp3.png" alt="More Efficient Selections" onclick="openImageModal(this)" onerror="this.style.display='none';">
+                    <div class="gallery-caption">More Efficient Selections</div>
                 </div>
             </div>
         </div>
@@ -1241,17 +1580,14 @@
             <div class="team-members">
                 <div class="team-member">Charlie</div>
                 <div class="team-member">Jonah</div>
-                <div class="team-member">James</div>
-                <div class="team-member">Yechang</div>
             </div>
         </div>
-
 
         <div class="project-section">
             <h2 class="section-title">Project Links</h2>
             <div class="project-links">
-                <a href="../../index.html" class="project-link primary">View Live Site</a>
-                <a href="https://github.com/EcoEngineDev/EcoEngine.github.io" class="project-link secondary" target="_blank">GitHub Repository</a>
+                <a href="https://ecoenginedev.github.io/LMP-Optimizer/" class="project-link primary">View Live Site</a>
+                <a href="https://github.com/EcoEngineDev/LMP-Optimizer" class="project-link secondary" target="_blank">GitHub Repository</a>
             </div>
         </div>
     </div>
@@ -1385,14 +1721,6 @@
             // Initialize animations and set current year
             initializeAnimations();
             setCurrentYear();
-            
-            // Add click event listeners to gallery images as backup
-            document.querySelectorAll('.gallery-item img').forEach(img => {
-                img.addEventListener('click', function() {
-                    console.log('Image clicked via event listener:', this);
-                    openImageModal(this);
-                });
-            });
         });
 
         function setCurrentYear() {
@@ -1404,15 +1732,9 @@
 
         // Image Modal Functions
         function openImageModal(img) {
-            console.log('openImageModal called with:', img);
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
-            
-            if (!modal || !modalImg || !modalCaption) {
-                console.error('Modal elements not found:', { modal, modalImg, modalCaption });
-                return;
-            }
             
             modal.classList.add('show');
             modalImg.src = img.src;

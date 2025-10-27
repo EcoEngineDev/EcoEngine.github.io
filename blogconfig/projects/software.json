@@ -10,6 +10,24 @@
       "status": "LIVE",
       "technologies": ["HTML", "JavaScript", "CSS"],
       "content": "A comprehensive web application for managing team activities, project timelines, and resource allocation. The platform includes features for task management, document sharing, and progress tracking to keep our team organized and efficient."
+    },
+    {
+      "id": "lmp-optimizer",
+      "title": "LMP-Optimizer",
+      "description": "A web-based calculator that optimizes metal purchasing decisions to minimize costs and waste",
+      "image": "/projects/media/2.png",
+      "status": "LIVE",
+      "technologies": ["HTML", "JavaScript", "CSS", "Algorithm"],
+      "content": "The Linear Metal Part Optimizer uses advanced algorithms to determine the most cost-effective combination of metal lengths to purchase while providing detailed cutting plans. This tool helps teams minimize material waste and optimize purchasing decisions."
+    },
+    {
+      "id": "puddles-bot",
+      "title": "Puddles Discord Bot",
+      "description": "A comprehensive Discord bot featuring task management, leveling systems, music streaming, and AI chat",
+      "image": "/projects/media/3.png",
+      "status": "LIVE",
+      "technologies": ["Python", "Discord.py", "SQLite", "AI/ML"],
+      "content": "PuddlesBot is a feature-rich Discord bot built with modern Python and Discord.py. It includes task management with multi-assignee support, dual XP leveling systems, high-quality music streaming via Vocard & Lavalink, interactive messages with persistent buttons, invite tracking analytics, AI chat capabilities, and cross-server communication through the OpenChat system."
     }
   ]
 }

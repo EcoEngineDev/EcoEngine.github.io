@@ -1,5 +1,42 @@
 {
   "section": "Hardware",
   "description": "Physical engineering projects and mechanical systems",
-  "projects": []
+  "projects": [
+    {
+      "id": "quackmobile-2026",
+      "title": "Quackmobile 2026",
+      "description": "INFO COMING SOON",
+      "image": "media/logos/logo.png",
+      "status": "IN DEVELOPMENT",
+      "technologies": ["Mechanical Engineering", "Vehicle Design"],
+      "content": "INFO COMING SOON"
+    },
+    {
+      "id": "solar-car-safety-structure",
+      "title": "Solar Car Safety Structure",
+      "description": "INFO COMING SOON",
+      "image": "media/logos/logo.png",
+      "status": "IN DEVELOPMENT",
+      "technologies": ["Structural Engineering", "Safety Systems"],
+      "content": "INFO COMING SOON"
+    },
+    {
+      "id": "compact-double-wishbone-suspension",
+      "title": "Compact Double Wishbone Suspension",
+      "description": "INFO COMING SOON",
+      "image": "media/logos/logo.png",
+      "status": "IN DEVELOPMENT",
+      "technologies": ["Suspension Design", "Mechanical Engineering"],
+      "content": "INFO COMING SOON"
+    },
+    {
+      "id": "3d-printed-racing-seat-molds",
+      "title": "3D-Printed Racing Seat Molds",
+      "description": "INFO COMING SOON",
+      "image": "media/logos/logo.png",
+      "status": "IN DEVELOPMENT",
+      "technologies": ["3D Printing", "Manufacturing", "Ergonomics"],
+      "content": "INFO COMING SOON"
+    }
+  ]
 }
