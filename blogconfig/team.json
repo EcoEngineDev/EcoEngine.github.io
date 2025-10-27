@@ -95,6 +95,13 @@
   ],
   "teamMembers": [
     {
+      "name": "Jiho Song",
+      "role": "Artist / Marketing",
+      "image": "media/team/jiho.jpg",
+      "social": {
+      }
+    },
+    {
       "name": "Jonah",
       "role": "Software Developer",
       "image": "media/team/jonah.jpg",

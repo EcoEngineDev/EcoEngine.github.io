@@ -1,6 +1,15 @@
 {
   "section": "Software",
   "description": "Software development, web applications, and data analysis projects",
+  "statusColors": {
+    "LIVE": "#22c55e",
+    "IN DEVELOPMENT": "#f59e0b",
+    "PLANNING": "#3b82f6",
+    "COMPLETED": "#10b981",
+    "ON HOLD": "#ef4444",
+    "BETA": "#8b5cf6",
+    "ARCHIVED": "#6b7280"
+  },
   "projects": [
     {
       "id": "team-website",
@@ -25,7 +34,7 @@
       "title": "Puddles Discord Bot",
       "description": "A comprehensive Discord bot featuring task management, leveling systems, music streaming, and AI chat",
       "image": "/projects/media/3.png",
-      "status": "LIVE",
+      "status": "BETA",
       "technologies": ["Python", "Discord.py", "SQLite", "AI/ML"],
       "content": "PuddlesBot is a feature-rich Discord bot built with modern Python and Discord.py. It includes task management with multi-assignee support, dual XP leveling systems, high-quality music streaming via Vocard & Lavalink, interactive messages with persistent buttons, invite tracking analytics, AI chat capabilities, and cross-server communication through the OpenChat system."
     }

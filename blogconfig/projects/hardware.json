@@ -1,6 +1,15 @@
 {
   "section": "Hardware",
   "description": "Physical engineering projects and mechanical systems",
+  "statusColors": {
+    "LIVE": "#22c55e",
+    "IN DEVELOPMENT": "#f59e0b",
+    "PLANNING": "#3b82f6",
+    "COMPLETED": "#10b981",
+    "ON HOLD": "#ef4444",
+    "PROTOTYPE": "#f97316",
+    "TESTING": "#06b6d4"
+  },
   "projects": [
     {
       "id": "quackmobile-2026",
@@ -34,7 +43,7 @@
       "title": "3D-Printed Racing Seat Molds",
       "description": "INFO COMING SOON",
       "image": "media/logos/logo.png",
-      "status": "IN DEVELOPMENT",
+      "status": "PROTOTYPE",
       "technologies": ["3D Printing", "Manufacturing", "Ergonomics"],
       "content": "INFO COMING SOON"
     }

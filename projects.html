@@ -557,23 +557,7 @@
             }
         }
 
-        .status-completed {
-            background: rgba(34, 197, 94, 0.9);
-            color: #ffffff;
-            border: 1px solid rgba(34, 197, 94, 1);
-        }
-
-        .status-in-progress {
-            background: rgba(251, 191, 36, 0.9);
-            color: #000000;
-            border: 1px solid rgba(251, 191, 36, 1);
-        }
-
-        .status-planning {
-            background: rgba(59, 130, 246, 0.9);
-            color: #ffffff;
-            border: 1px solid rgba(59, 130, 246, 1);
-        }
+        /* Status colors will be dynamically generated based on configuration files */
 
         .project-content {
             padding: 30px;
@@ -1040,6 +1024,54 @@
     <script>
         // Projects Page Functionality
         let projectSections = [];
+        let statusColorsMap = new Map();
+
+        // Function to generate CSS for status colors dynamically
+        function generateStatusCSS(statusColors) {
+            let css = '';
+            for (const [status, color] of Object.entries(statusColors)) {
+                const className = status.toLowerCase().replace(/\s+/g, '-');
+                const rgb = hexToRgb(color);
+                const textColor = getContrastColor(color);
+                
+                css += `
+                    .status-${className} {
+                        background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.9);
+                        color: ${textColor};
+                        border: 1px solid rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1);
+                    }
+                `;
+            }
+            return css;
+        }
+
+        // Helper function to convert hex to RGB
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : {r: 0, g: 0, b: 0};
+        }
+
+        // Helper function to determine text color based on background
+        function getContrastColor(hexColor) {
+            const rgb = hexToRgb(hexColor);
+            const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+            return brightness > 128 ? '#000000' : '#ffffff';
+        }
+
+        // Function to inject dynamic CSS
+        function injectStatusCSS(css) {
+            let styleElement = document.getElementById('dynamic-status-styles');
+            if (!styleElement) {
+                styleElement = document.createElement('style');
+                styleElement.id = 'dynamic-status-styles';
+                document.head.appendChild(styleElement);
+            }
+            styleElement.textContent = css;
+        }
 
         async function loadProjectSections() {
             const container = document.getElementById('project-sections-container');
@@ -1056,6 +1088,7 @@
             try {
                 const sectionFiles = ['hardware', 'software', 'electronics'];
                 projectSections = [];
+                let allStatusColors = {};
                 
                 for (const file of sectionFiles) {
                     try {
@@ -1066,10 +1099,22 @@
                             const section = await response.json();
                             console.log(`Loaded ${file}.json:`, section);
                             projectSections.push(section);
+                            
+                            // Collect status colors from this section
+                            if (section.statusColors) {
+                                allStatusColors = { ...allStatusColors, ...section.statusColors };
+                            }
                         }
                     } catch (error) {
                         console.warn(`Could not load ${file}.json:`, error);
                     }
+                }
+                
+                // Generate and inject dynamic CSS for status colors
+                if (Object.keys(allStatusColors).length > 0) {
+                    const dynamicCSS = generateStatusCSS(allStatusColors);
+                    injectStatusCSS(dynamicCSS);
+                    console.log('Generated status colors:', allStatusColors);
                 }
                 
                 // Add a small delay to show the loading animation

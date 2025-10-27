@@ -1,5 +1,12 @@
 {
   "section": "Electronics",
   "description": "Electronic systems and embedded development",
+  "statusColors": {
+    "LIVE": "#22c55e",
+    "IN DEVELOPMENT": "#f59e0b",
+    "PLANNING": "#3b82f6",
+    "COMPLETED": "#10b981",
+    "ON HOLD": "#ef4444"
+  },
   "projects": []
 }

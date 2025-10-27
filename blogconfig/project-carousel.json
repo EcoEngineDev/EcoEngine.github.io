@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "maxProjects": 8,
+  "shuffleProjects": true,
+  "sections": {
+    "hardware": {
+      "enabled": true,
+      "priority": 1,
+      "maxProjects": 3
+    },
+    "software": {
+      "enabled": true,
+      "priority": 2,
+      "maxProjects": 3
+    },
+    "electronics": {
+      "enabled": true,
+      "priority": 3,
+      "maxProjects": 2
+    }
+  },
+  "excludedProjects": [
+  ],
+  "includedProjects": [],
+  "settings": {
+    "animationSpeed": 1,
+    "autoStart": true,
+    "pauseOnHover": false
+  }
+}
