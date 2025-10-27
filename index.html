@@ -921,78 +921,10 @@
             display: none;
         }
 
-        /* Sponsor slide wrapper (matches carousel-slide pattern) */
-        .sponsor-slide {
-            flex: 0 0 auto;
-            padding: 0 20px;
+        /* Sponsor track uses EXACT same CSS as projects carousel */
+        .sponsor-track {
             display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Sponsor card - simplified to just images with gray background */
-        .sponsor-card-carousel {
-            background: #666666;
-            border: 2px solid rgba(0, 217, 255, 0.2);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            width: 200px;
-            height: 120px;
-            position: relative;
-            flex-shrink: 0;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideInUp 0.6s ease-out forwards;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .sponsor-card-carousel:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--color-accent);
-            box-shadow: 0 18px 40px rgba(0, 217, 255, 0.24), 
-                        0 0 24px rgba(139, 92, 246, 0.18);
-        }
-
-        .sponsor-card-carousel img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .sponsor-card-carousel:hover img {
-            transform: scale(1.1);
-        }
-
-        .sponsor-cover-placeholder-carousel {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #666666;
-            color: var(--color-white);
-            font-size: 1rem;
-            font-weight: 600;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .sponsor-text-placeholder-carousel {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #666666;
-            color: var(--color-white);
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-align: center;
-            padding: 10px;
+            will-change: transform;
         }
 
         /* Ensure sponsor track is visible when JS is enabled */
@@ -2385,17 +2317,11 @@
             document.documentElement.classList.add('js-enabled');
         }
 
-        // Sponsor carousel functionality with persistent loading
+        // Sponsors carousel functionality (EXACT COPY of Our Works carousel)
         let allSponsors = [];
         let sponsorConfig = {};
-        let sponsorLoadAttempts = 0;
-        const maxSponsorLoadAttempts = 5;
-        let sponsorLoadTimeout;
 
         async function loadSponsors() {
-            sponsorLoadAttempts++;
-            console.log(`Sponsor loading attempt ${sponsorLoadAttempts}/${maxSponsorLoadAttempts}`);
-            
             try {
                 // Load sponsor configuration first
                 await loadSponsorConfig();
@@ -2405,46 +2331,20 @@
                     return;
                 }
 
-                const track = document.getElementById('sponsor-track');
-                if (!track) {
-                    console.warn('Sponsor track element not found, retrying...');
-                    if (sponsorLoadAttempts < maxSponsorLoadAttempts) {
-                        sponsorLoadTimeout = setTimeout(() => loadSponsors(), 1000);
-                    }
-                    return;
-                }
-
-                // Add class to indicate JavaScript is enabled
-                checkJavaScriptSupport();
-
                 console.log('Loading sponsors from sponsors.json...');
                 
-                // Fetch the sponsors configuration with timeout
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-                
-                const response = await fetch('sponsors.json', {
-                    signal: controller.signal,
-                    cache: 'no-cache'
-                });
-                
-                clearTimeout(timeoutId);
-                
+                // Fetch the sponsors configuration (EXACT same as projects)
+                const response = await fetch('sponsors.json');
                 if (!response.ok) {
                     throw new Error(`Failed to load sponsors.json: ${response.status}`);
                 }
                 
                 const config = await response.json();
                 const sponsors = config.sponsors || [];
-                const settings = config.settings || {};
-                
-                // Store scroll speed globally for animation function
-                window.sponsorScrollSpeed = settings.scrollSpeed || 0.5;
                 
                 console.log('Sponsors config loaded:', config);
-                console.log('Scroll speed set to:', window.sponsorScrollSpeed);
 
-                // Filter enabled sponsors and validate images
+                // Process sponsors (simplified version of projects processing)
                 allSponsors = [];
                 
                 for (const sponsor of sponsors) {
@@ -2453,27 +2353,12 @@
                         continue;
                     }
 
-                    // For text sponsors, skip image validation
-                    if (sponsor.displayType === 'text') {
-                        allSponsors.push(sponsor);
-                        console.log(`Added text sponsor: ${sponsor.name}`);
-                        continue;
-                    }
-
-                    // Validate image exists for image sponsors
-                    const imageExists = await validateSponsorImage(sponsor.image);
-                    if (!imageExists) {
-                        console.warn(`Sponsor image not found: ${sponsor.image} for ${sponsor.name}`);
-                        continue;
-                    }
-
                     allSponsors.push(sponsor);
-                    console.log(`Added image sponsor: ${sponsor.name}`);
+                    console.log(`Added sponsor: ${sponsor.name}`);
                 }
 
                 if (allSponsors.length === 0) {
                     console.warn('No valid sponsors found');
-                    track.innerHTML = '<div class="sponsor-strip"><div class="sponsor-item" style="text-align: center; color: #666; font-style: italic;">No sponsors configured</div></div>';
                     return;
                 }
 
@@ -2491,31 +2376,11 @@
                 renderSponsorMarquee();
                 
                 if (sponsorConfig.settings?.autoStart !== false) {
-                    startSponsorMarqueeAnimation();
+                    startSponsorCarouselAnimation();
                 }
-
-                // Success - reset attempts counter
-                sponsorLoadAttempts = 0;
-
+                
             } catch (error) {
-                console.error(`Error loading sponsors (attempt ${sponsorLoadAttempts}):`, error);
-                
-                const track = document.getElementById('sponsor-track');
-                if (track) {
-                    track.innerHTML = `<div class="sponsor-strip"><div class="sponsor-item" style="text-align: center; color: #666; font-style: italic;">Loading sponsors... (attempt ${sponsorLoadAttempts})</div></div>`;
-                }
-                
-                // Retry with exponential backoff
-                if (sponsorLoadAttempts < maxSponsorLoadAttempts) {
-                    const retryDelay = Math.min(1000 * Math.pow(2, sponsorLoadAttempts - 1), 10000); // Max 10 seconds
-                    console.log(`Retrying sponsor load in ${retryDelay}ms...`);
-                    sponsorLoadTimeout = setTimeout(() => loadSponsors(), retryDelay);
-                } else {
-                    console.error('Max sponsor load attempts reached, giving up');
-                    if (track) {
-                        track.innerHTML = '<div class="sponsor-strip"><div class="sponsor-item" style="text-align: center; color: #666; font-style: italic;">Unable to load sponsors</div></div>';
-                    }
-                }
+                console.error('Error loading sponsors for carousel:', error);
             }
         }
 
@@ -2532,7 +2397,7 @@
                         maxSponsors: 10,
                         shuffleSponsors: true,
                         settings: {
-                            scrollSpeed: 0.5,
+                            animationSpeed: 0.5,
                             autoStart: true,
                             pauseOnHover: false
                         }
@@ -2546,7 +2411,7 @@
                     maxSponsors: 10,
                     shuffleSponsors: true,
                     settings: {
-                        scrollSpeed: 0.5,
+                        animationSpeed: 0.5,
                         autoStart: true,
                         pauseOnHover: false
                     }
@@ -2562,38 +2427,33 @@
             // Clear existing content
             track.innerHTML = '';
             
-            // Create two sets of sponsors for seamless loop
+            // Create two sets of sponsors for seamless loop (EXACT same as projects)
             const sponsorsToShow = [...allSponsors, ...allSponsors];
             
             sponsorsToShow.forEach((sponsor, index) => {
                 const slide = document.createElement('div');
-                slide.className = 'sponsor-slide';
+                slide.className = 'carousel-slide';
                 
-                const sponsorItem = createSponsorItem(sponsor);
-                slide.appendChild(sponsorItem);
+                const sponsorCard = createSponsorCard(sponsor);
+                slide.appendChild(sponsorCard);
                 track.appendChild(slide);
             });
         }
 
-        function createSponsorItem(sponsor) {
+        function createSponsorCard(sponsor) {
             const card = document.createElement('div');
-            card.className = 'sponsor-card-carousel';
+            card.className = 'project-card-carousel'; // Use EXACT same class as projects
             
-            if (sponsor.displayType === 'text') {
-                // Display as text with gray background
-                card.innerHTML = `
-                    <div class="sponsor-text-placeholder-carousel">${sponsor.text || sponsor.name}</div>
-                `;
-            } else {
-                // Display as image with gray background
-                card.innerHTML = `
+            // Simple image-only card (like projects but just the image part)
+            card.innerHTML = `
+                <div class="project-cover-carousel">
                     ${sponsor.image ? 
                         `<img src="media/sponsors/${sponsor.image}" alt="${sponsor.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` :
                         ''
                     }
-                    <div class="sponsor-cover-placeholder-carousel" style="${sponsor.image ? 'display: none;' : ''}">${sponsor.name}</div>
-                `;
-            }
+                    <div class="project-cover-placeholder-carousel" style="${sponsor.image ? 'display: none;' : ''}">${sponsor.name}</div>
+                </div>
+            `;
             
             if (sponsor.url) {
                 const link = document.createElement('a');
@@ -2610,94 +2470,63 @@
             return card;
         }
 
-        function startSponsorMarqueeAnimation() {
+        function startSponsorCarouselAnimation() {
             const track = document.querySelector('.sponsor-track');
-            if (!track) {
-                console.warn('Sponsor track not found for animation, retrying...');
-                setTimeout(() => startSponsorMarqueeAnimation(), 500);
-                return;
+            if (!track) return;
+
+            // Get the width of a single set of sponsors (EXACT same as projects)
+            const firstHalf = track.children.length / 2;
+            const singleSetWidth = Array.from(track.children).slice(0, firstHalf).reduce((width, child) => {
+                return width + child.offsetWidth;
+            }, 0);
+
+            let scrollPosition = 0;
+            const scrollSpeed = sponsorConfig.settings?.animationSpeed || 0.5; // Use config speed
+
+            function animate() {
+                scrollPosition -= scrollSpeed;
+                
+                // Reset position when we've scrolled through one complete set
+                if (scrollPosition <= -singleSetWidth) {
+                    scrollPosition = 0;
+                }
+
+                track.style.transform = `translateX(${scrollPosition}px)`;
+                requestAnimationFrame(animate);
             }
 
-            // Wait for elements to be properly rendered
-            setTimeout(() => {
-                // Get the width of a single set of sponsors
-                const firstHalf = track.children.length / 2;
-                const singleSetWidth = Array.from(track.children).slice(0, firstHalf).reduce((width, child) => {
-                    return width + child.offsetWidth;
-                }, 0);
-
-                console.log('Sponsor animation setup:', {
-                    totalChildren: track.children.length,
-                    firstHalf: firstHalf,
-                    singleSetWidth: singleSetWidth
-                });
-
-                // If width is still 0, retry animation setup
-                if (singleSetWidth === 0) {
-                    console.warn('Sponsor animation width is 0, retrying...');
-                    setTimeout(() => startSponsorMarqueeAnimation(), 1000);
-                    return;
-                }
-
-                let scrollPosition = 0;
-                const scrollSpeed = sponsorConfig.settings?.scrollSpeed || 0.5; // Use config speed
-
-                function animate() {
-                    scrollPosition -= scrollSpeed;
+            // Start the animation
+            animate();
+            
+            // Add pause on hover if enabled in config (EXACT same as projects)
+            if (sponsorConfig.settings?.pauseOnHover) {
+                const carousel = document.querySelector('.sponsor-marquee');
+                if (carousel) {
+                    let isPaused = false;
+                    let animationId;
                     
-                    // Reset position when we've scrolled through one complete set
-                    if (scrollPosition <= -singleSetWidth) {
-                        scrollPosition = 0;
-                    }
-
-                    track.style.transform = `translateX(${scrollPosition}px)`;
-                    requestAnimationFrame(animate);
+                    carousel.addEventListener('mouseenter', () => {
+                        isPaused = true;
+                    });
+                    
+                    carousel.addEventListener('mouseleave', () => {
+                        isPaused = false;
+                        if (!animationId) {
+                            animate();
+                        }
+                    });
+                    
+                    // Modify animate function to respect pause state
+                    const originalAnimate = animate;
+                    animate = function() {
+                        if (!isPaused) {
+                            originalAnimate();
+                        } else {
+                            animationId = null;
+                        }
+                    };
                 }
-
-                // Start the animation
-                console.log('Starting sponsor marquee animation');
-                animate();
-                
-                // Add pause on hover if enabled in config
-                if (sponsorConfig.settings?.pauseOnHover) {
-                    const marquee = document.querySelector('.sponsor-marquee');
-                    if (marquee) {
-                        let isPaused = false;
-                        let animationId;
-                        
-                        marquee.addEventListener('mouseenter', () => {
-                            isPaused = true;
-                        });
-                        
-                        marquee.addEventListener('mouseleave', () => {
-                            isPaused = false;
-                            if (!animationId) {
-                                animate();
-                            }
-                        });
-                        
-                        // Modify animate function to respect pause state
-                        const originalAnimate = animate;
-                        animate = function() {
-                            if (!isPaused) {
-                                originalAnimate();
-                            } else {
-                                animationId = null;
-                            }
-                        };
-                    }
-                }
-            }, 200);
-        }
-
-        // Function to validate a sponsor image exists
-        async function validateSponsorImage(filename) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => resolve(true);
-                img.onerror = () => resolve(false);
-                img.src = `media/sponsors/${filename}`;
-            });
+            }
         }
 
         // Team loading functions
