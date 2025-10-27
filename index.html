@@ -921,13 +921,27 @@
             display: none;
         }
 
-        /* Ensure sponsor items are properly spaced */
-        .sponsor-track .sponsor-item {
-            margin-right: 40px;
+        /* Sponsor slide wrapper (matches carousel-slide pattern) */
+        .sponsor-slide {
+            flex: 0 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .sponsor-track .sponsor-item:last-child {
-            margin-right: 0;
+        /* Ensure sponsor items are properly spaced and visible */
+        .sponsor-track .sponsor-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Ensure sponsor track is visible when JS is enabled */
+        .js-enabled .sponsor-track {
+            display: flex !important;
+            visibility: visible !important;
         }
 
         .sponsor-strip {
@@ -2403,8 +2417,12 @@
             const sponsorsToShow = [...allSponsors, ...allSponsors];
             
             sponsorsToShow.forEach((sponsor, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'sponsor-slide';
+                
                 const sponsorItem = createSponsorItem(sponsor);
-                track.appendChild(sponsorItem);
+                slide.appendChild(sponsorItem);
+                track.appendChild(slide);
             });
         }
 
@@ -2417,6 +2435,8 @@
             const height = sponsor.height || 120;
             item.style.width = `${width}px`;
             item.style.height = `${height}px`;
+            item.style.minWidth = `${width}px`;
+            item.style.minHeight = `${height}px`;
             
             // Get size multiplier from config or default
             const sizeMultiplier = sponsor.sizeMultiplier || 1.0;
@@ -2477,9 +2497,6 @@
 
             let scrollPosition = 0;
             const scrollSpeed = sponsorConfig.settings?.scrollSpeed || 0.5; // Use config speed
-
-            console.log('Starting sponsor marquee animation with speed:', scrollSpeed);
-            console.log('Single set width:', singleSetWidth);
 
             function animate() {
                 scrollPosition -= scrollSpeed;
