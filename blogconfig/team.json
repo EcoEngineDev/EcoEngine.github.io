@@ -63,19 +63,19 @@
       }
     },
     {
-      "name": "Emma Rubio",
-      "role": "Design Lead",
-      "image": "media/team/emma.jpg",
-      "social": {
-        "instagram": "https://www.instagram.com/em.rbio/"
-      }
-    },
-    {
       "name": "Dylan Chen",
       "role": "Head of Marketing",
       "image": "media/team/dylan.jpg",
       "social": {
         "github": "https://github.com/dylan1225"
+      }
+    },
+    {
+      "name": "Emma Rubio",
+      "role": "Design Lead",
+      "image": "media/team/emma.jpg",
+      "social": {
+        "instagram": "https://www.instagram.com/em.rbio/"
       }
     },
     {
