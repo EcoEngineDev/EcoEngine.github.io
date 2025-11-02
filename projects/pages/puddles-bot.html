@@ -811,6 +811,21 @@
 
             .project-container {
                 padding: 40px 20px;
+                margin: 0;
+            }
+
+            .project-section {
+                margin-bottom: 40px;
+            }
+
+            .project-section.animated,
+            .project-hero h1.animated,
+            .project-hero .subtitle.animated,
+            .project-hero p.animated,
+            .project-status.animated {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                animation: none !important;
             }
 
             .technologies-grid {
@@ -1072,8 +1087,8 @@
         function setupScrollAnimations() {
             const options = {
                 root: null,
-                rootMargin: '0px 0px -10% 0px',
-                threshold: 0.2
+                rootMargin: window.innerWidth <= 768 ? '0px' : '0px 0px -10% 0px',
+                threshold: window.innerWidth <= 768 ? 0 : 0.2
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -1086,7 +1101,18 @@
 
             // Observe all project sections
             document.querySelectorAll('.project-section').forEach(section => {
-                observer.observe(section);
+                // On mobile, check if element is already visible and animate immediately
+                if (window.innerWidth <= 768) {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        animateSection(section, observer);
+                    } else {
+                        observer.observe(section);
+                    }
+                } else {
+                    observer.observe(section);
+                }
             });
         }
 

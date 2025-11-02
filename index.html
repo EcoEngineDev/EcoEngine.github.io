@@ -1146,11 +1146,31 @@
         /* Team Members Grid */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 12px;
             margin: 40px auto 0;
             max-width: 1600px;
             justify-content: center;
+        }
+
+        /* Responsive grid columns - dynamically adjusted by JavaScript */
+        .team-grid[data-cols="8"] {
+            grid-template-columns: repeat(8, 1fr);
+        }
+        .team-grid[data-cols="7"] {
+            grid-template-columns: repeat(7, 1fr);
+        }
+        .team-grid[data-cols="6"] {
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .team-grid[data-cols="5"] {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .team-grid[data-cols="4"] {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .team-grid[data-cols="3"] {
+            grid-template-columns: repeat(3, 1fr);
         }
 
         .team-member {
@@ -1658,6 +1678,8 @@
             margin-right: 5px;
         }
 
+        /* Tablet/iPad Responsive for Team - handled by JavaScript now */
+
         /* Mobile Responsive for Team */
     @media (max-width: 768px) {
             .team-section {
@@ -1669,8 +1691,12 @@
             }
 
             .team-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 15px;
+            }
+            
+            .team-grid[data-cols] {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
 
             .team-member {
@@ -2721,14 +2747,56 @@
             }
         }
 
+        // Function to calculate how many team members can fit based on viewport width
+        function getMaxTeamMembersForViewport() {
+            const width = window.innerWidth;
+            
+            // On mobile, return null to show all members (will use 2-column grid that wraps)
+            if (width <= 768) {
+                return null; // null means show all members
+            }
+            
+            // Calculate based on minimum card width (180px) + gaps (12px per gap)
+            const minCardWidth = 180;
+            const gapSize = 12;
+            const containerPadding = 80; // Approximate padding on sides
+            const availableWidth = width - containerPadding;
+            
+            // Calculate max columns that fit
+            let maxCols = Math.floor((availableWidth + gapSize) / (minCardWidth + gapSize));
+            
+            // Clamp between 3 and 8 (tablet minimum 3, desktop maximum 8)
+            maxCols = Math.max(3, Math.min(8, maxCols));
+            
+            return maxCols;
+        }
+
+        // Store original team members globally for resize handling
+        let allTeamMembers = [];
+        let teamTextSizes = {};
+        let teamSocialLinks = {};
+
         function renderTeamMembers(members, textSizes = {}, socialLinks = {}) {
             const container = document.getElementById('team-container');
             if (!container) return;
 
+            // Store for resize handling
+            allTeamMembers = members;
+            teamTextSizes = textSizes;
+            teamSocialLinks = socialLinks;
+
+            // Calculate how many members to show based on current viewport
+            const maxMembers = getMaxTeamMembersForViewport();
+            const membersToShow = maxMembers === null ? members : members.slice(0, maxMembers);
+
             const grid = document.createElement('div');
             grid.className = 'team-grid';
+            // On mobile (null), don't set data-cols so it uses the mobile CSS override
+            if (maxMembers !== null) {
+                grid.setAttribute('data-cols', maxMembers.toString());
+            }
 
-            members.forEach(member => {
+            membersToShow.forEach(member => {
                 const memberCard = document.createElement('div');
                 memberCard.className = 'team-member';
                 
@@ -2785,6 +2853,20 @@
                 });
             }, 100);
         }
+
+        // Handle window resize to update team members dynamically
+        let resizeTimeout;
+        function handleTeamResize() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (allTeamMembers.length > 0) {
+                    renderTeamMembers(allTeamMembers, teamTextSizes, teamSocialLinks);
+                }
+            }, 150); // Debounce resize events
+        }
+
+        // Add resize listener
+        window.addEventListener('resize', handleTeamResize);
 
         function showError(message) {
             const container = document.getElementById('team-container');

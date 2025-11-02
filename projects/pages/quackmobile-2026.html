@@ -661,6 +661,17 @@
 
             .project-container {
                 padding: 40px 20px;
+                margin: 0;
+            }
+
+            .coming-soon-section.animated,
+            .project-hero h1.animated,
+            .project-hero .subtitle.animated,
+            .project-hero p.animated,
+            .project-status.animated {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                animation: none !important;
             }
 
             .coming-soon-icon {
@@ -805,8 +816,8 @@
         function setupScrollAnimations() {
             const options = {
                 root: null,
-                rootMargin: '0px 0px -10% 0px',
-                threshold: 0.2
+                rootMargin: window.innerWidth <= 768 ? '0px' : '0px 0px -10% 0px',
+                threshold: window.innerWidth <= 768 ? 0 : 0.2
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -820,7 +831,18 @@
             // Observe coming soon section
             const comingSoonSection = document.querySelector('.coming-soon-section');
             if (comingSoonSection) {
-                observer.observe(comingSoonSection);
+                // On mobile, check if element is already visible and animate immediately
+                if (window.innerWidth <= 768) {
+                    const rect = comingSoonSection.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        animateSection(comingSoonSection, observer);
+                    } else {
+                        observer.observe(comingSoonSection);
+                    }
+                } else {
+                    observer.observe(comingSoonSection);
+                }
             }
         }
 
