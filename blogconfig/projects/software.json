@@ -21,6 +21,14 @@
       "content": "A comprehensive web application for managing team activities, project timelines, and resource allocation. The platform includes features for task management, document sharing, and progress tracking to keep our team organized and efficient."
     },
     {
+      "id": "puddle-ui",
+      "title": "Puddle-UI",
+      "description": "A custom in-car UI for telemetry, controls, and driver feedback",
+      "status": "IN DEVELOPMENT",
+      "technologies": ["Python"],
+      "content": "Coming soon."
+    },
+    {
       "id": "lmp-optimizer",
       "title": "LMP-Optimizer",
       "description": "A web-based calculator that optimizes metal purchasing decisions to minimize costs and waste",
